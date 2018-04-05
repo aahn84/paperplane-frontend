@@ -1,4 +1,4 @@
-.MyTrips-container {
+.TripFlights-container {
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -9,11 +9,18 @@
   /* border: 1px solid; */
 }
 
-.MyTrips-title-bar {
+.TripFlights-title-bar {
   display: flex;
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0 0rem 0;
   align-items: center;
   justify-content: center;
+}
+
+.TripFlights-title-name {
+  display: flex;
+  color: #ea9438;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 h1 {
@@ -23,13 +30,12 @@ h1 {
   /* border: 1px solid; */
 }
 
-#MyTrips-add {
+#TripFlights-add {
   position: absolute;
-  mergin-left: 5em;
   right: 1rem;
 }
 
-.TripsList-container {
+.TripFlightsList-container {
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -46,7 +52,7 @@ h1 {
   border: none;
 }
 
-.TripsList-content {
+.TripFlightsList-content {
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -69,10 +75,24 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* margin-bottom: 2px; */
+}
+
+.TripFlightsList-departure-title {
+  margin-left: 3px;
+  text-align: left;
+  font-size: 15px;
+  font-style: italic;
+}
+
+#TripsFlightCard-updated {
+  font-size: 13px;
+  font-style: italic;
 }
 
 .message {
   margin-bottom: 1rem;
+  font-size: 15px;
 }
 
 .message-body {

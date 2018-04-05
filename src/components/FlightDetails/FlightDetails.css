@@ -1,0 +1,107 @@
+.FlightDetails-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* padding: 1.5rem 5rem 1.5rem 5rem; */
+  text-align: center;
+  max-height: 72vh;
+  width: 100%;
+  /* border: 1px solid; */
+}
+
+.FlightDetails-title-bar {
+  /* display: flex; */
+  width: 100%;
+  /* margin: 1rem 0 0 0; */
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid; */
+}
+
+.FlightDetails-title-name {
+  /* display: flex; */
+  justify-content: center;
+  color: #ea9438;
+  /* margin-bottom: 1rem; */
+  /* justify-content: space-between; */
+  /* margin-left: 2em; */
+  /* margin-right: 2em; */
+  /* font-style: italic; */
+  /* border: 1px solid; */
+}
+
+h1 {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  /* border: 1px solid; */
+}
+
+.FlightDetailCard-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 1rem 1rem;
+  overflow: auto;
+  width: 100%;
+  /* border: 1px solid; */
+}
+
+/* .FlightDetailCard-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  border: 1px solid;
+} */
+
+.card {
+  margin: 1rem;
+  /* border: 1px solid #3f83bc; */
+}
+
+.card-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+.FlightDetail-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.FlightDetailCard-departure-title {
+  text-align: left;
+  margin-left: 3px;
+  font-style: italic;
+}
+
+.Flight-card-content {
+  margin-bottom: 1rem;
+}
+
+h6 {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.FlightDetail-airport {
+  font-size: 15px;
+}
+
+.Departure-content, .Arrival-content, .Flight-other-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  /* border: 1px solid; */
+}
+
+.Departure-content, .Arrival-content {
+  margin-bottom: 1em;
+}
+
+.icon {
+  margin-right: 5px;
+  color: #3f83bc;
+}

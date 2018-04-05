@@ -13,7 +13,12 @@ const MyTrips = () => {
     <div className="MyTrips">
       <TopNav />
       <div className="MyTrips-container">
-        <h1>My Trips</h1>
+        <div className="MyTrips-title-bar">
+          <h1>My Trips</h1>
+          <span id="MyTrips-add" className="icon is-medium">
+            <i className="fas fa-plus-circle" />
+          </span>
+        </div>
         <TripsList />
       </div>
       <BottomNav />
