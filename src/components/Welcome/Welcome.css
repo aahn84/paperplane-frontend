@@ -1,0 +1,66 @@
+img {
+  max-width: 100px;
+}
+
+.navbar {
+  background: #3f83bc;
+}
+
+.navbar-item {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+}
+
+.navbar-burger {
+  color: #ffffff;
+}
+
+#Welcome-container {
+  /* margin: auto; */
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  margin: 2rem 0 2rem 0;
+  width: 100%;
+  min-height: 75vh;
+}
+
+#WelcomeHeader-title {
+  color: #ffffff;
+  margin-left: 0.5em;
+}
+
+#Welcome-main-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.avatar {
+  margin-bottom: 1em;
+}
+
+.WelcomeSignup-fullname {
+  display: flex;
+  justify-content: space-between;
+}
+
+#WelcomeSignup-first {
+ min-width: 48.5%;
+ max-width: 48.5%;
+}
+
+#WelcomeSignup-last {
+  min-width: 48.5%;
+  max-width: 48.5%;
+}
+
+.footer {
+  color: #363636;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  /* position: absolute; */
+  bottom: 0;
+  /* width: 100%; */
+}

@@ -1,0 +1,9 @@
+.tabs ul {
+  border-top: 1px solid #dbdbdb;
+  display: flex;
+  width: 100%;
+  /* position: relative; */
+  /* position: absolute; */
+  bottom: 0.5rem;
+  /* border-bottom: none; */
+}
