@@ -113,3 +113,9 @@ h1 {
   margin-right: 5px;
   color: #3f83bc;
 }
+
+.TripNotes-title {
+  text-align: left;
+  font-size: 15px;
+  margin-top: 0.5rem;
+}

@@ -12,7 +12,7 @@ const TripFlights = () => {
   return (
     <div className="TripFlights">
       <TopNav />
-      
+
       <div id="TripFlights-container" className="has-text-centered">
         <div className="TripFlights-title-bar">
           <h1>Flights</h1>

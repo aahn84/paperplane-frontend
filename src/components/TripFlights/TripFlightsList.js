@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TripFlights.css';
 import TripsFlightCard from './TripsFlightCard'
+import TripNotes from './TripNotes'
 
 
 const TripFlightsList = () => {
@@ -63,6 +64,9 @@ const TripFlightsList = () => {
 
 
       </div> */}
+
+
+      <TripNotes />
     </div>
   )
 }

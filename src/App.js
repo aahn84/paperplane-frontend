@@ -5,6 +5,8 @@ import Welcome from './components/Welcome/Welcome';
 import MyTrips from './components/MyTrips/MyTrips';
 import TripFlights from './components/TripFlights/TripFlights';
 import FlightDetails from './components/FlightDetails/FlightDetails';
+import AddTrip from './components/MyTrips/AddTrip';
+// import AddFlight from './components/TripFlights/AddFlight';
 
 class App extends Component {
   render() {
@@ -12,8 +14,10 @@ class App extends Component {
       <div className="App">
         {/* <Welcome /> */}
         {/* <MyTrips /> */}
-        {/* <TripFlights /> */}
-        <FlightDetails />
+        <TripFlights />
+        {/* <FlightDetails /> */}
+        {/* <AddTrip /> */}
+        {/* <AddFlight /> */}
       </div>
     );
   }
