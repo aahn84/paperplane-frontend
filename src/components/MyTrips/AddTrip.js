@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './MyTrips.css';
 import TopNav from '../NavBars/TopNav';
-import BottomNav from '../NavBars/BottomNav'
+import TripNotes from '../TripFlights/TripNotes';
+import BottomNav from '../NavBars/BottomNav';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 const AddTrip = () => {
@@ -12,12 +16,33 @@ const AddTrip = () => {
     <div className="AddTrip">
       <TopNav />
 
-      <div id="AddTrip-container" className="has-text-centered">
+      <div id="AddTrip-container">
         <div className="AddTrip-title-bar">
-          <h1>Add New Trip</h1>
-          {/* <span id="AddTrip-add" className="icon is-medium">
-            <i className="fas fa-plus-circle" />
-          </span> */}
+          <h1 className="AddTrip-title">Add New Trip</h1>
+        </div>
+        <div className="AddTrip-form">
+          <div className="field">
+            <label className="label">Name</label>
+            <div className="control">
+              <input className="input" type="text" placeholder="Trip Name" />
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Start Date</label>
+            <div className="control">
+              <input className="input" type="text" placeholder={moment().format('l')} />
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">End Date</label>
+            <div className="control">
+              <input className="input" type="text" placeholder={moment().format('l')} />
+            </div>
+          </div>
+
+          <TripNotes />
         </div>
 
       </div>

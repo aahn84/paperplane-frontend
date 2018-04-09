@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './MyTrips.css';
 import TopNav from '../NavBars/TopNav';
-import TripsList from './TripsList'
-import BottomNav from '../NavBars/BottomNav'
+import TripsList from './TripsList';
+import BottomNav from '../NavBars/BottomNav';
 
 
 const MyTrips = () => {
@@ -20,7 +20,7 @@ const MyTrips = () => {
             <i className="fas fa-plus-circle" />
           </span>
         </div>
-        
+
         <TripsList />
       </div>
 

@@ -14,9 +14,9 @@ class App extends Component {
       <div className="App">
         {/* <Welcome /> */}
         {/* <MyTrips /> */}
-        <TripFlights />
+        {/* <TripFlights /> */}
         {/* <FlightDetails /> */}
-        {/* <AddTrip /> */}
+        <AddTrip />
         {/* <AddFlight /> */}
       </div>
     );
