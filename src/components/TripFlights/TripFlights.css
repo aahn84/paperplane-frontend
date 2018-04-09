@@ -1,17 +1,24 @@
-.TripFlights-container {
+.TripFlights {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* padding: 1.5rem 5rem 1.5rem 5rem; */
+  width: 100%;
+  /* border: 1px solid green; */
+}
+
+#TripFlights-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-height: 72vh;
+  max-height: 80vh;
   width: 100%;
   /* border: 1px solid; */
 }
 
 .TripFlights-title-bar {
   display: flex;
-  margin: 1rem 0 0rem 0;
+  margin: 1.5rem 0 0.5rem 0;
   align-items: center;
   justify-content: center;
 }
@@ -20,7 +27,7 @@
   display: flex;
   color: #ea9438;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 h1 {
@@ -38,7 +45,6 @@ h1 {
 .TripFlightsList-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   padding: 0 1rem 1rem 1rem;
   text-align: center;
   overflow: auto;
@@ -46,16 +52,10 @@ h1 {
   /* border: 1px solid; */
 }
 
-.button {
-  /* background-color: inherit; */
-  color: red;
-  border: none;
-}
-
 .TripFlightsList-content {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   text-align: center;
   width: 100%;
   /* border: 1px solid; */
@@ -91,8 +91,8 @@ h1 {
 }
 
 .message {
-  margin-bottom: 1rem;
   font-size: 15px;
+  margin-bottom: 1rem;
 }
 
 .message-body {

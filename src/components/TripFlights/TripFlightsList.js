@@ -10,6 +10,8 @@ const TripFlightsList = () => {
   return (
     <div className="TripFlightsList-container">
       <TripsFlightCard />
+      <TripsFlightCard />
+
       {/* <div className="TripFlightsList-content">
 
         <p className="TripFlightsList-departure-title">{`May 4, 2018 Departures`}</p>

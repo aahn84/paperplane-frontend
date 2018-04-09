@@ -6,14 +6,6 @@ import './NavBars.css';
 const BottomNav = () => {
 
   return (
-    // <div className="tabs is-centered">
-    //    <ul>
-    //      <li className="is-active"><a>Pictures</a></li>
-    //      <li><a>My Trips</a></li>
-    //      <li><a>Track Flight</a></li>
-    //      <li><a>Documents</a></li>
-    //    </ul>
-    //  </div>
     <div className="tabs is-centered">
       <ul>
         <li className="is-active">

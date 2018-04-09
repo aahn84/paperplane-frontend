@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './App.css';
 import 'bulma/css/bulma.css';
 import Welcome from './components/Welcome/Welcome';
 import MyTrips from './components/MyTrips/MyTrips';
@@ -11,9 +11,9 @@ class App extends Component {
     return (
       <div className="App">
         {/* <Welcome /> */}
-        <MyTrips />
+        {/* <MyTrips /> */}
         {/* <TripFlights /> */}
-        {/* <FlightDetails /> */}
+        <FlightDetails />
       </div>
     );
   }

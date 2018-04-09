@@ -1,17 +1,24 @@
-.MyTrips-container {
+.MyTrips {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* padding: 1.5rem 5rem 1.5rem 5rem; */
+  width: 100%;
+  /* border: 1px solid green; */
+}
+
+#MyTrips-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-height: 72vh;
+  max-height: 80vh;
   width: 100%;
   /* border: 1px solid; */
 }
 
 .MyTrips-title-bar {
   display: flex;
-  margin: 1rem 0 1rem 0;
+  margin: 1.5rem 0 1.5rem 0;
   align-items: center;
   justify-content: center;
 }
@@ -20,19 +27,18 @@ h1 {
   font-family: Montserrat, sans-serif;
   font-weight: bold;
   font-size: 2rem;
-  /* border: 1px solid; */
 }
 
 #MyTrips-add {
   position: absolute;
-  mergin-left: 5em;
+  /* margin-left: 5em; */
   right: 1rem;
+  padding: 0;
 }
 
 .TripsList-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   padding: 0 1rem 1rem 1rem;
   text-align: center;
   overflow: auto;
@@ -52,6 +58,7 @@ h1 {
   /* justify-content: center; */
   text-align: center;
   width: 100%;
+  margin-bottom: 0.5rem;
   /* border: 1px solid; */
 }
 

@@ -1,18 +1,23 @@
+.FlightDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* border: 1px solid green; */
+}
+
 .FlightDetails-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* padding: 1.5rem 5rem 1.5rem 5rem; */
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-height: 72vh;
+  max-height: 80vh;
   width: 100%;
   /* border: 1px solid; */
 }
 
 .FlightDetails-title-bar {
-  /* display: flex; */
   width: 100%;
-  /* margin: 1rem 0 0 0; */
   margin-top: 1rem;
   align-items: center;
   justify-content: center;
@@ -20,14 +25,10 @@
 }
 
 .FlightDetails-title-name {
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   color: #ea9438;
-  /* margin-bottom: 1rem; */
-  /* justify-content: space-between; */
-  /* margin-left: 2em; */
-  /* margin-right: 2em; */
-  /* font-style: italic; */
+  margin-bottom: 1rem;
   /* border: 1px solid; */
 }
 
@@ -47,16 +48,8 @@ h1 {
   /* border: 1px solid; */
 }
 
-/* .FlightDetailCard-content {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-  border: 1px solid;
-} */
-
 .card {
-  margin: 1rem;
+  /* margin: 1rem; */
   /* border: 1px solid #3f83bc; */
 }
 
@@ -104,4 +97,12 @@ h6 {
 .icon {
   margin-right: 5px;
   color: #3f83bc;
+}
+
+.card-footer-item {
+  color: #3f83bc;
+}
+
+#FlightDetailCard-share {
+  margin-left: 0.5rem;
 }

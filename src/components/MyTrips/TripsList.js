@@ -11,6 +11,9 @@ const TripsList = () => {
     <div className="TripsList-container">
       <TripsDetail />
       <TripsDetail />
+      <TripsDetail />
+      <TripsDetail />
+      <TripsDetail />
       {/* <div className="TripsList-content">
 
         <article className="message">

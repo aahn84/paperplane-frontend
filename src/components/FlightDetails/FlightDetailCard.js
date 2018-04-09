@@ -72,11 +72,19 @@ const FlightDetailCard = () => {
           </div>
 
         </div>
-        {/* <footer className="card-footer">
-          <a href="#" className="card-footer-item">Save</a>
-          <a href="#" className="card-footer-item">Edit</a>
-          <a href="#" className="card-footer-item">Remove Flight</a>
-        </footer> */}
+        <footer className="card-footer">
+          <a href="#" className="card-footer-item">
+            Share Flight Details
+            <span id="FlightDetailCard-share" className="icon">
+              <i className="fas fa-share-square" />
+            </span>
+          </a>
+          {/* <a href="#" className="card-footer-item">Edit</a> */}
+          {/* <a href="#" className="card-footer-item">Remove Flight</a> */}
+        </footer>
+
+        {/* <button className="button is-block is-info is-fullwidth">Share Flight Details</button> */}
+
       </div>
     </div>
   )

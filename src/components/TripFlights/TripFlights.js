@@ -12,7 +12,8 @@ const TripFlights = () => {
   return (
     <div className="TripFlights">
       <TopNav />
-      <div className="TripFlights-container">
+      
+      <div id="TripFlights-container" className="has-text-centered">
         <div className="TripFlights-title-bar">
           <h1>Flights</h1>
           <span id="TripFlights-add" className="icon is-medium">
@@ -22,7 +23,9 @@ const TripFlights = () => {
         <div className="TripFlights-title-name">
           <p>{`My Trip Name  May 4 - May 7`}</p>
         </div>
+
         <TripFlightsList />
+
       </div>
       <BottomNav />
     </div>
