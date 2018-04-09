@@ -10,7 +10,11 @@ const TripNotes = () => {
     <div className="TripNotes">
       <div className="TripNotes-container">
         <p className="TripNotes-title">Notes:</p>
-        <textarea className="textarea" placeholder="Trip Notes" defaultValue={""} />
+        <div className="field">
+          <div className="control">
+            <textarea className="textarea" placeholder="Trip Notes" defaultValue={""} />
+          </div>
+        </div>
       </div>
     </div>
   )
