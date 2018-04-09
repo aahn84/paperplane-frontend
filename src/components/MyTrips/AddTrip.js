@@ -12,6 +12,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const AddTrip = () => {
 
+  const toggleCalendar = () => {
+    return(
+      <DatePicker
+        // selected={this.state.startDate}
+        // onChange={this.handleChange}
+      />
+    )
+  }
+
   return (
     <div className="AddTrip">
       <TopNav />
@@ -22,23 +31,32 @@ const AddTrip = () => {
         </div>
         <div className="AddTrip-form">
           <div className="field">
-            <label className="label">Name</label>
+            <label className="label">Name:</label>
             <div className="control">
               <input className="input" type="text" placeholder="Trip Name" />
             </div>
           </div>
 
           <div className="field">
-            <label className="label">Start Date</label>
+            <label className="label">Start Date:</label>
             <div className="control">
-              <input className="input" type="text" placeholder={moment().format('l')} />
+              <input
+                className="input"
+                type="text"
+                placeholder={moment().format('l')}
+                onClick={toggleCalendar()}
+              />
             </div>
           </div>
 
           <div className="field">
-            <label className="label">End Date</label>
+            <label className="label">End Date:</label>
             <div className="control">
-              <input className="input" type="text" placeholder={moment().format('l')} />
+              <input
+                className="input"
+                type="text"
+                placeholder={moment().format('l')}
+              />
             </div>
           </div>
 
