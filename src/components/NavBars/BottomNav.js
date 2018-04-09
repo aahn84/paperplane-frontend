@@ -11,7 +11,6 @@ const BottomNav = () => {
         <li className="is-active">
           <a>
             <span className="icon is-small"><i className="fas fa-suitcase" /></span>
-            {/* <i className="fas fa-suitcase" /> */}
             <span>My Trips</span>
           </a>
         </li>
@@ -29,12 +28,6 @@ const BottomNav = () => {
             <span>Options</span>
           </a>
         </li>
-        {/* <li>
-          <a>
-            <span className="icon is-small"><i className="fas fa-file-alt" /></span>
-            <span>Documents</span>
-          </a>
-        </li> */}
       </ul>
     </div>
   )
