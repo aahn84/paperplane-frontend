@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './MyTrips.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 import TripsDetail from './TripsDetail'
 
 
@@ -44,4 +44,4 @@ const TripsList = () => {
   )
 }
 
-export default TripsList
+export default TripsList;

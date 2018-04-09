@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './FlightDetails.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
 
 const FlightDetailCard = () => {
@@ -13,7 +13,7 @@ const FlightDetailCard = () => {
           <p className="card-header-title">
             {`Alaska (AS) 510`}
           </p>
-          <a href="#" className="card-header-icon" aria-label="more options">
+          <a className="card-header-icon" aria-label="more options">
             <span className="icon">
               <i className="fas fa-angle-down" aria-hidden="true" />
             </span>
@@ -73,7 +73,7 @@ const FlightDetailCard = () => {
 
         </div>
         <footer className="card-footer">
-          <a href="#" className="card-footer-item">
+          <a className="card-footer-item">
             Share Flight Details
             <span id="FlightDetailCard-share" className="icon">
               <i className="fas fa-share-square" />
@@ -90,4 +90,4 @@ const FlightDetailCard = () => {
   )
 }
 
-export default FlightDetailCard
+export default FlightDetailCard;

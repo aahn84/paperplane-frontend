@@ -1,7 +1,7 @@
 import React from 'react';
+import './MyTrips.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import './MyTrips.css';
 import TopNav from '../NavBars/TopNav';
 import TripsList from './TripsList';
 import BottomNav from '../NavBars/BottomNav';
@@ -30,4 +30,15 @@ const MyTrips = () => {
   )
 }
 
-export default MyTrips
+const mapStateToProps = (state) => ({
+  trips: state.trips
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+
+}, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyTrips);

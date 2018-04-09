@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './FlightDetails.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 import TopNav from '../NavBars/TopNav';
 import FlightDetailCard from './FlightDetailCard'
 import BottomNav from '../NavBars/BottomNav'
@@ -27,4 +27,4 @@ const FlightDetails = () => {
   )
 }
 
-export default FlightDetails
+export default FlightDetails;

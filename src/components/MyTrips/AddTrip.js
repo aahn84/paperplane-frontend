@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './MyTrips.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 import TopNav from '../NavBars/TopNav';
 import TripNotes from '../TripFlights/TripNotes';
 import BottomNav from '../NavBars/BottomNav';
@@ -71,4 +71,4 @@ const AddTrip = () => {
   )
 }
 
-export default AddTrip
+export default AddTrip;

@@ -1,7 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import './Welcome.css';
+// import {connect} from 'react-redux';
+// import {bindActionCreators} from 'redux';
 
 const WelcomeSignup = () => {
 
@@ -13,7 +13,7 @@ const WelcomeSignup = () => {
           <p className="subtitle has-text-grey">Please sign up to proceed.</p>
           <div className="box">
             <figure className="avatar">
-              <img src="./paper-plane.png"/>
+              <img src="./paper-plane.png" alt="paperplane-logo" />
             </figure>
             <form>
               <div className="WelcomeSignup-fullname">
@@ -58,4 +58,4 @@ const WelcomeSignup = () => {
   )
 }
 
-export default WelcomeSignup
+export default WelcomeSignup;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './Welcome.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
 const WelcomeHeader = () => {
 
@@ -31,4 +31,4 @@ const WelcomeHeader = () => {
   )
 }
 
-export default WelcomeHeader
+export default WelcomeHeader;

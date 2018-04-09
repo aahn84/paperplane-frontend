@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './TripFlights.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 import TripsFlightCard from './TripsFlightCard'
 import TripNotes from './TripNotes'
 
@@ -71,4 +71,4 @@ const TripFlightsList = () => {
   )
 }
 
-export default TripFlightsList
+export default TripFlightsList;

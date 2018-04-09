@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './NavBars.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
 const TopNav = () => {
 
@@ -31,4 +31,4 @@ const TopNav = () => {
   )
 }
 
-export default TopNav
+export default TopNav;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './Welcome.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
 const WelcomeFooter = () => {
 
@@ -20,4 +20,4 @@ const WelcomeFooter = () => {
   )
 }
 
-export default WelcomeFooter
+export default WelcomeFooter;

@@ -1,7 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './MyTrips.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+import { fetchSingleTrip } from '../../actions';
 
 
 const Trip = () => {
@@ -43,4 +44,4 @@ const Trip = () => {
   )
 }
 
-export default Trip
+export default Trip;

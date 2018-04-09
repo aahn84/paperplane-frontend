@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './NavBars.css';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
 const BottomNav = () => {
 
@@ -33,4 +33,4 @@ const BottomNav = () => {
   )
 }
 
-export default BottomNav
+export default BottomNav;
