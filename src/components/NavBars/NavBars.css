@@ -1,15 +1,22 @@
+.tabs, .is-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  /* margin-left: 2px;
+  margin-right: 2px; */
+  bottom: 3px;
+}
+
 .tabs ul {
   border-top: 1px solid #dbdbdb;
   display: flex;
-  justify-content: space-around;
-  max-width: 100vw;
+  justify-content: space-between;
+  font-size: 14px;
+  max-width: 96%;
   bottom: 0.5rem;
-}
-
-.tabs, .is-centered {
-  position: absolute;
-  max-width: 100%;
-  bottom: 3px;
 }
 
 .tabs a {
