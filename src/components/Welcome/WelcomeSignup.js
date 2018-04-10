@@ -65,9 +65,7 @@ class WelcomeSignup extends Component {
             Already have an account?
           </p>
           <a>
-            {/* <a href="../">Login</a> */}
-            <Link to="/" className="button is-text">
-            {/* <Link to="/"> */}
+            <Link to="/">
                 Login
             </Link>
           </a>
