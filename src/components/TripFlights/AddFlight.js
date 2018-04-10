@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import TopNav from '../NavBars/TopNav';
-import TripNotes from '../TripFlights/TripNotes';
 import BottomNav from '../NavBars/BottomNav';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
