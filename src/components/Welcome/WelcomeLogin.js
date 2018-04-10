@@ -10,7 +10,7 @@ class WelcomeLogin extends Component {
   state = {
     email: '',
     password: '',
-    isLoggingIn: false,
+    // isLoggingIn: false,
   };
 
   // componentDidMount() {
@@ -34,12 +34,26 @@ class WelcomeLogin extends Component {
               <form>
                 <div className="field">
                   <div className="control">
-                    <input className="input" type="email" placeholder="Your Email" required="required"/>
+                    <input
+                      className="input"
+                      type="email"
+                      placeholder="Your Email"
+                      required="required"
+                      value={ this.state.email }
+                      onChange={ (e) => this.setState({ email: e.target.value })}
+                    />
                   </div>
                 </div>
                 <div className="field">
                   <div className="control">
-                    <input className="input" type="password" placeholder="Your Password" required="required"/>
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Your Password"
+                      required="required"
+                      value={ this.state.password }
+                      onChange={ (e) => this.setState({ password: e.target.value }) }
+                    />
                   </div>
                 </div>
                 <button className="button is-block is-info is-fullwidth">Login</button>

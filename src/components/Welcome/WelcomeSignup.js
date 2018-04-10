@@ -10,7 +10,7 @@ class WelcomeSignup extends Component {
     last_name: '',
     email: '',
     password: '',
-    isSigningUp: false,
+    // isSigningUp: false,
   };
 
   // componentDidMount() {
@@ -61,11 +61,9 @@ class WelcomeSignup extends Component {
           <p className="has-text-grey">
             Already have an account?
           </p>
-          {/* <a> */}
-            <Link to="/">
-                Login
-            </Link>
-          {/* </a> */}
+          <Link to="/">
+              Login
+          </Link>
         </div>
       </div>
 
