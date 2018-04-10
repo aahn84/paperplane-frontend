@@ -23,61 +23,55 @@ class WelcomeLogin extends Component {
     let loginSuccess = true;
 
     return (
-      <div>
-        <WelcomeHeader />
-
-        <div id="Welcome-container" className="has-text-centered">
-          <div className="column is-4 is-offset-4">
-            <h3 className="title has-text-grey">Login</h3>
-            <p className="subtitle has-text-grey">Please login to proceed.</p>
-            <div className="box">
-              <figure className="avatar">
-                <img src="/paper-plane.png" alt="logo" />
-              </figure>
-              <form>
-                <div className="field">
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="email"
-                      placeholder="Your Email"
-                      required="required"
-                      value={ this.state.email }
-                      onChange={ (e) => this.setState({ email: e.target.value })}
-                    />
-                  </div>
+      <div id="Welcome-container" className="has-text-centered">
+        <div className="column is-4 is-offset-4">
+          <h3 className="title has-text-grey">Login</h3>
+          <p className="subtitle has-text-grey">Please login to proceed.</p>
+          <div className="box">
+            <figure className="avatar">
+              <img src="/paper-plane.png" alt="logo" />
+            </figure>
+            <form>
+              <div className="field">
+                <div className="control">
+                  <input
+                    className="input"
+                    type="email"
+                    placeholder="Your Email"
+                    required="required"
+                    value={ this.state.email }
+                    onChange={ (e) => this.setState({ email: e.target.value })}
+                  />
                 </div>
-                <div className="field">
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="password"
-                      placeholder="Your Password"
-                      required="required"
-                      value={ this.state.password }
-                      onChange={ (e) => this.setState({ password: e.target.value }) }
-                    />
-                  </div>
+              </div>
+              <div className="field">
+                <div className="control">
+                  <input
+                    className="input"
+                    type="password"
+                    placeholder="Your Password"
+                    required="required"
+                    value={ this.state.password }
+                    onChange={ (e) => this.setState({ password: e.target.value }) }
+                  />
                 </div>
+              </div>
 
-                <button className="button is-block is-info is-fullwidth">Login</button>
-              </form>
+              <button className="button is-block is-info is-fullwidth">Login</button>
+            </form>
 
-              { loginSuccess ? (<div></div>) : (<div className="LoginSignup-error">
-                <p>Error logging in</p>
-              </div>) }
+            { loginSuccess ? (<div></div>) : (<div className="LoginSignup-error">
+              <p>Error logging in</p>
+            </div>) }
 
-            </div>
-            <p className="has-text-grey">
-              Don't have an account?
-            </p>
-            <Link to="/signup">
-                Sign Up
-            </Link>
           </div>
+          <p className="has-text-grey">
+            Don't have an account?
+          </p>
+          <Link to="/signup">
+              Sign Up
+          </Link>
         </div>
-
-        <WelcomeFooter />
       </div>
     )
   }

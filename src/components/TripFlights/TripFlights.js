@@ -3,16 +3,16 @@ import './TripFlights.css';
 import {Link} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import TopNav from '../NavBars/TopNav';
+// import TopNav from '../NavBars/TopNav';
 import TripFlightsList from './TripFlightsList'
-import BottomNav from '../NavBars/BottomNav'
+// import BottomNav from '../NavBars/BottomNav'
 
 
 const TripFlights = () => {
 
   return (
     <div className="TripFlights">
-      <TopNav />
+      {/* <TopNav /> */}
 
       <div id="TripFlights-container" className="has-text-centered">
         <div className="TripFlights-title-bar">
@@ -30,7 +30,7 @@ const TripFlights = () => {
         <TripFlightsList />
 
       </div>
-      <BottomNav />
+      {/* <BottomNav /> */}
     </div>
   )
 }

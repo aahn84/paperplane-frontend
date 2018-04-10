@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-// import Welcome from './components/Welcome/Welcome';
 import WelcomeLogin from './components/Welcome/WelcomeLogin';
 import WelcomeSignup from './components/Welcome/WelcomeSignup';
+import TopNav from './components/NavBars/TopNav';
+import BottomNav from './components/NavBars/BottomNav';
 import MyTrips from './components/MyTrips/MyTrips';
 import TripFlights from './components/TripFlights/TripFlights';
 import FlightDetails from './components/FlightDetails/FlightDetails';
@@ -23,6 +24,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <TopNav />
           <Switch>
             <Route exact path="/" component={ WelcomeLogin } />
             <Route path="/signup" component={ WelcomeSignup } />
@@ -41,6 +43,7 @@ class App extends Component {
             {/* <AddTrip /> */}
             {/* <AddFlight /> */}
           </Switch>
+          <BottomNav />
         </div>
       </Router>
     );

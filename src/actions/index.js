@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BaseURL = 'https://localhost:8080';
+const BaseURL = process.env.REACT_APP_DEV;
 
 export const TRIPS_RECEIVED = 'TRIPS_RECEIVED';
 export function fetchTrips() {
@@ -11,4 +11,14 @@ export function fetchTrips() {
       // trips
     });
   };
+}
+
+export const SET_ACTIVE_TAB = 'SET_ACTIVE_TAB';
+export function setActiveTab(tab) {
+  return (dispatch) => {
+    dispatch({
+      type: SET_ACTIVE_TAB,
+      tab
+    })
+  }
 }

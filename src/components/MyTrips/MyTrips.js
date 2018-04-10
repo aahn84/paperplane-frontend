@@ -3,16 +3,16 @@ import './MyTrips.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import TopNav from '../NavBars/TopNav';
+// import TopNav from '../NavBars/TopNav';
 import TripsList from './TripsList';
-import BottomNav from '../NavBars/BottomNav';
+// import BottomNav from '../NavBars/BottomNav';
 
 
 const MyTrips = () => {
 
   return (
     <div className="MyTrips">
-      <TopNav />
+      {/* <TopNav /> */}
 
       <div id="MyTrips-container" className="has-text-centered">
         <div className="MyTrips-title-bar">
@@ -28,7 +28,7 @@ const MyTrips = () => {
       </div>
 
 
-      <BottomNav />
+      {/* <BottomNav /> */}
     </div>
   )
 }

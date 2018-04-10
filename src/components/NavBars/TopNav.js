@@ -2,10 +2,14 @@ import React from 'react';
 import './NavBars.css';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
+import {withRouter} from 'react-router-dom';
+import WelcomeHeader from '../Welcome/WelcomeHeader';
+import '../Welcome/Welcome.css';
 
-const TopNav = () => {
+const TopNav = ({ location }) => {
+  const path = location.pathname;
 
-  return (
+  return (path !== '/' && path !== '/signup') ? (
     <div>
       <nav className="navbar">
         <div className="container">
@@ -28,7 +32,8 @@ const TopNav = () => {
         </div>
       </nav>
     </div>
-  )
+  ) :
+  ( <WelcomeHeader /> )
 }
 
-export default TopNav;
+export default withRouter(TopNav);

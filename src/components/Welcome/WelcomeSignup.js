@@ -24,43 +24,40 @@ class WelcomeSignup extends Component {
     let signupSuccess = true;
 
     return (
-      <div>
-        <WelcomeHeader />
-
-        <div id="Welcome-container" className="has-text-centered">
-          <div className="column is-4 is-offset-4">
-            <h3 className="title has-text-grey">Sign Up</h3>
-            <p className="subtitle has-text-grey">Please sign up to proceed.</p>
-            <div className="box">
-              <figure className="avatar">
-                <img src="/paper-plane.png" alt="logo" />
-              </figure>
-              <form>
-                <div className="WelcomeSignup-fullname">
-                  <div id="WelcomeSignup-first" className="field">
-                    <div className="control">
-                      <input
-                        className="input"
-                        type="text"
-                        placeholder="First Name"
-                        required="required"
-                        value={ this.state.first_name }
-                        onChange={ (e) => this.setState({ first_name: e.target.value })}
-                      />
-                    </div>
+      <div id="Welcome-container" className="has-text-centered">
+        <div className="column is-4 is-offset-4">
+          <h3 className="title has-text-grey">Sign Up</h3>
+          <p className="subtitle has-text-grey">Please sign up to proceed.</p>
+          <div className="box">
+            <figure className="avatar">
+              <img src="/paper-plane.png" alt="logo" />
+            </figure>
+            <form>
+              <div className="WelcomeSignup-fullname">
+                <div id="WelcomeSignup-first" className="field">
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="First Name"
+                      required="required"
+                      value={ this.state.first_name }
+                      onChange={ (e) => this.setState({ first_name: e.target.value })}
+                    />
                   </div>
-                  <div id="WelcomeSignup-last" className="field">
-                    <div className="control">
-                      <input
-                        className="input"
-                        type="text"
-                        placeholder="Last Name"
-                        required="required"
-                        value={ this.state.last_name }
-                        onChange={ (e) => this.setState({ last_name: e.target.value })}
-                      />
-                    </div>
+                </div>
+                <div id="WelcomeSignup-last" className="field">
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Last Name"
+                      required="required"
+                      value={ this.state.last_name }
+                      onChange={ (e) => this.setState({ last_name: e.target.value })}
+                    />
                   </div>
+                </div>
                 </div>
                 <div className="field">
                   <div className="control">
@@ -101,9 +98,6 @@ class WelcomeSignup extends Component {
           </Link>
         </div>
       </div>
-
-      <WelcomeFooter />
-    </div>
     )
   }
 }
