@@ -3,15 +3,12 @@ import './TripFlights.css';
 import {Link} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import {withRouter} from 'react-router-dom';
-// import TopNav from '../NavBars/TopNav';
-// import BottomNav from '../NavBars/BottomNav';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-class AddFlight extends Component {
+class TrackFlight extends Component {
 
   toggleCalendar() {
     return(
@@ -23,19 +20,16 @@ class AddFlight extends Component {
   }
 
   render() {
-    const { pathname } = this.props.location;
 
     return (
-      <div className="AddFlight">
+      <div className="TrackFlight">
         {/* <TopNav /> */}
 
-        <div id="AddFlight-container">
-          <div className="AddFlight-title-bar">
-            <h1 className="AddFlight-title">
-              { pathname === '/track' ? `Track Flight` : `Add New Flight` }
-            </h1>
+        <div id="TrackFlight-container">
+          <div className="TrackFlight-title-bar">
+            <h1 className="TrackFlight-title">Add New Flight</h1>
           </div>
-          <div className="AddFlight-form">
+          <div className="TrackFlight-form">
             <div className="field">
               <label className="label">Airline Name:</label>
                 <div className="control">
@@ -65,31 +59,21 @@ class AddFlight extends Component {
               </div>
             </div>
 
-            { pathname === '/track' ?
-            (<div className="TrackFlight">
-              <div id="TrackFlight-button">
-                <button id="TrackFlight-track" className="button is-block is-info">Track Flight</button>
-              </div>
-            </div>)
-            :
-            (<div className="AddFlight-add-cancel">
-              <div id="AddFlight-buttons">
-                <button id="AddFlight-add" className="button is-block is-info">Add Flight</button>
+            <div className="TrackFlight-add-cancel">
+              <div id="TrackFlight-buttons">
+                <button id="TrackFlight-add" className="button is-block is-info">Add Flight</button>
               </div>
 
-              <Link id="AddFlight-buttons" to="/mytrips/:id">
-                <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
+              <Link id="TrackFlight-buttons" to="/mytrips/:id">
+                <button id="TrackFlight-cancel" className="button is-block is-info">Cancel</button>
               </Link>
-            </div>)
-          }
+            </div>
 
           </div>
         </div>
-
-        {/* <BottomNav /> */}
       </div>
     )
   }
 }
 
-export default withRouter(AddFlight);
+export default TrackFlight;

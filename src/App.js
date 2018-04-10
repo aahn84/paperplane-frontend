@@ -34,6 +34,7 @@ class App extends Component {
             <Route exact path="/mytrips/:id" component={ TripFlights } />
             {/* <Route exact path="/mytrips/:id/flightdetails" component={ FlightDetails } /> */}
             <Route exact path="/mytrips/:id/addflight" component={ AddFlight } />
+            <Route path="/track" component={ AddFlight } />
 
             {/* <WelcomeLogin /> */}
             {/* <WelcomeSignup /> */}

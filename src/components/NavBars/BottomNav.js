@@ -13,19 +13,21 @@ const BottomNav = ({ location }) => {
   return (path !== '/' && path !== '/signup') ? (
     <div className="tabs is-centered">
       <ul>
-          <li className="is-active">
-            <Link to="/mytrips">
-            {/* <a> */}
-              <span className="icon is-small"><i className="fas fa-suitcase" /></span>
-              <span>My Trips</span>
-            {/* </a> */}
+        <li className={ path === '/mytrips' ? "is-active" : "" }>
+          <Link to="/mytrips">
+          {/* <a> */}
+            <span className="icon is-small"><i className="fas fa-suitcase" /></span>
+            <span>My Trips</span>
+          {/* </a> */}
           </Link>
-          </li>
-        <li>
-          <a>
+        </li>
+        <li className={ path === '/track' ? "is-active" : "" }>
+          <Link to="/track">
+          {/* <a> */}
             <span className="icon is-small"><i className="fas fa-plane" /></span>
             <span>Track Flight</span>
-          </a>
+          {/* </a> */}
+        </Link>
         </li>
         <li>
           <a>
@@ -37,7 +39,8 @@ const BottomNav = ({ location }) => {
         </li>
       </ul>
     </div>
-  ) : ( <WelcomeFooter /> )
+  ) :
+  ( <WelcomeFooter /> )
 }
 
 export default withRouter(BottomNav);
