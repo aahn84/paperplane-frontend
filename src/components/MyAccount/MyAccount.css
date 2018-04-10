@@ -60,12 +60,23 @@ label {
   width: 100%;
 }
 
+#MyAccount-buttons-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 15em;
+}
+
 #MyAccountUpdate {
   margin-top: 2em;
+  width: 75%;
 }
 
 #MyAccountLogout {
   margin-top: 1em;
+  width: 50%;
 }
 
 #MyAccount-update {

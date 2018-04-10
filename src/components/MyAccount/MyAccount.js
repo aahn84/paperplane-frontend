@@ -10,7 +10,7 @@ class MyAccount extends Component {
     last_name: '',
     email: '',
     password: '',
-  };
+  }
 
   render() {
     return (
@@ -72,15 +72,18 @@ class MyAccount extends Component {
               </div>
             </div>
 
-            <div id="MyAccountUpdate" className="MyAccount-update-button">
-              <button id="MyAccount-update" className="button is-block is-info">Update Account</button>
-            </div>
+            <div id="MyAccount-buttons-div">
+              <div id="MyAccountUpdate" className="MyAccount-update-button">
+                <button id="MyAccount-update" className="button is-block is-info">Update Account</button>
+              </div>
 
-            <div id="MyAccountLogout">
-              <Link id="MyAccount-buttons" to="/">
+              <div id="MyAccountLogout">
+                <Link id="MyAccount-buttons" to="/">
                 <button id="MyAccount-logout" className="button is-block is-info">Logout</button>
               </Link>
             </div>
+            </div>
+
           </form>
 
         </div>
