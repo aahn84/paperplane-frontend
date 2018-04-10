@@ -4,8 +4,7 @@ import WelcomeHeader from './WelcomeHeader';
 import WelcomeFooter from './WelcomeFooter';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import { setWelcomeView, hideWelcomeView } from '../../actions';
+// import {bindActionCreators} from 'redux';
 
 class WelcomeLogin extends Component {
   state = {
@@ -49,13 +48,9 @@ class WelcomeLogin extends Component {
             <p className="has-text-grey">
               Don't have an account?
             </p>
-            <a>
-              {/* <a href="../signup">Sign Up</a> */}
-              {/* <Link to="/signup" className="button is-text"> */}
-              <Link to="/signup">
-                  Sign Up
-              </Link>
-            </a>
+            <Link to="/signup">
+                Sign Up
+            </Link>
           </div>
         </div>
 
@@ -64,21 +59,6 @@ class WelcomeLogin extends Component {
     )
   }
 }
-
-
-// const mapStateToProps = (state) => ({
-//   welcomeView: state.welcomeView,
-// });
-//
-// const mapDispatchToProps = (dispatch) => bindActionCreators({
-//     setWelcomeView,
-//     hideWelcomeView,
-// }, dispatch);
-//
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(WelcomeLogin);
 
 const mapStateToProps = (state) => ({
   user_id: state.user_id

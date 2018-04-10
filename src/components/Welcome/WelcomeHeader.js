@@ -1,7 +1,5 @@
 import React from 'react';
 import './Welcome.css';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 
 const WelcomeHeader = () => {
 

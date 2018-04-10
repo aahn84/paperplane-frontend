@@ -3,9 +3,6 @@ import './Welcome.css';
 import WelcomeHeader from './WelcomeHeader';
 import WelcomeFooter from './WelcomeFooter';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-// import { setWelcomeView, hideWelcomeView } from '../../actions';
 
 class WelcomeSignup extends Component {
   state = {
@@ -64,11 +61,11 @@ class WelcomeSignup extends Component {
           <p className="has-text-grey">
             Already have an account?
           </p>
-          <a>
+          {/* <a> */}
             <Link to="/">
                 Login
             </Link>
-          </a>
+          {/* </a> */}
         </div>
       </div>
 
