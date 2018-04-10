@@ -36,23 +36,51 @@ class WelcomeSignup extends Component {
                 <div className="WelcomeSignup-fullname">
                   <div id="WelcomeSignup-first" className="field">
                     <div className="control">
-                      <input className="input" type="text" placeholder="First Name" required="required"/>
+                      <input
+                        className="input"
+                        type="text"
+                        placeholder="First Name"
+                        required="required"
+                        value={ this.state.first_name }
+                        onChange={ (e) => this.setState({ first_name: e.target.value })}
+                      />
                     </div>
                   </div>
                   <div id="WelcomeSignup-last" className="field">
                     <div className="control">
-                      <input className="input" type="text" placeholder="Last Name" required="required"/>
+                      <input
+                        className="input"
+                        type="text"
+                        placeholder="Last Name"
+                        required="required"
+                        value={ this.state.last_name }
+                        onChange={ (e) => this.setState({ last_name: e.target.value })}
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="field">
                   <div className="control">
-                    <input className="input" type="email" placeholder="Your Email" required="required"/>
+                    <input
+                      className="input"
+                      type="email"
+                      placeholder="Your Email"
+                      required="required"
+                      value={ this.state.email }
+                      onChange={ (e) => this.setState({ email: e.target.value })}
+                    />
                   </div>
                 </div>
                 <div className="field">
                   <div className="control">
-                    <input className="input" type="password" placeholder="Your Password" required="required"/>
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Your Password"
+                      required="required"
+                      value={ this.state.password }
+                      onChange={ (e) => this.setState({ password: e.target.value }) }
+                    />
                   </div>
                 </div>
               <button className="button is-block is-info is-fullwidth">Sign Up</button>
