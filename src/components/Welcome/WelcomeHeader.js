@@ -14,11 +14,11 @@ const WelcomeHeader = () => {
               <img src="./paper-plane.png" alt="paperplane-logo" />
               <p id="WelcomeHeader-title">paperplane</p>
             </a>
-            <span className="navbar-burger burger" data-target="navbarMenu">
+            {/* <span className="navbar-burger burger" data-target="navbarMenu">
               <span />
               <span />
               <span />
-            </span>
+            </span> */}
           </div>
           <div id="navbarMenu" className="navbar-menu">
             <div className="navbar-end">
