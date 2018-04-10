@@ -55,6 +55,12 @@ img {
   max-width: 48.5%;
 }
 
+.LoginSignup-error {
+  margin-top: 1em;
+  font-style: italic;
+  color: red;
+}
+
 .footer {
   color: #363636;
   font-family: Montserrat, sans-serif;

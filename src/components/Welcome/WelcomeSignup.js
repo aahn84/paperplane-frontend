@@ -20,6 +20,9 @@ class WelcomeSignup extends Component {
   // }
 
   render() {
+    // let signupSuccess;
+    let signupSuccess = true;
+
     return (
       <div>
         <WelcomeHeader />
@@ -85,6 +88,10 @@ class WelcomeSignup extends Component {
                 </div>
               <button className="button is-block is-info is-fullwidth">Sign Up</button>
             </form>
+
+            { signupSuccess ? (<div></div>) : (<div className="LoginSignup-error">
+              <p>Error signing up</p>
+            </div>) }
           </div>
           <p className="has-text-grey">
             Already have an account?
