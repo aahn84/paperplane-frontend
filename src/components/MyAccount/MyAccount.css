@@ -60,17 +60,28 @@ label {
   width: 100%;
 }
 
+#MyAccount-notifications {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 2.5em 2em 2.5em;
+}
+
 #MyAccount-buttons-div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  min-height: 10em;
   width: 100%;
-  min-height: 15em;
+}
+
+.button.is-info.is-selected {
+  background-color: #3f83bc;
 }
 
 #MyAccountUpdate {
-  margin-top: 2em;
+  /* margin-top: 1em; */
   width: 75%;
 }
 

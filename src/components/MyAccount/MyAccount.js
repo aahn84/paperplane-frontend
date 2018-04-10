@@ -10,6 +10,7 @@ class MyAccount extends Component {
     last_name: '',
     email: '',
     password: '',
+    notifications_on: false,
   }
 
   render() {
@@ -69,6 +70,30 @@ class MyAccount extends Component {
                   value={ this.state.password }
                   onChange={ (e) => this.setState({ password: e.target.value }) }
                 />
+              </div>
+            </div>
+
+            <div id="MyAccount-notifications">
+              <p>Nofications:</p>
+              <div className="buttons has-addons">
+                {
+                  this.state.notifications_on ?
+                  (
+                    <div className="buttons has-addons">
+                      <span className="button is-info is-selected" onClick={ () => this.setState({ notifications_on: true }) }>On</span>
+                      <span className="button" onClick={ () => this.setState({ notifications_on: false }) }>Off</span>
+                    </div>
+                  )
+                  :
+                  (
+                    <div className="buttons has-addons">
+                      <span className="button" onClick={ () => this.setState({ notifications_on: true }) }>On</span>
+                      <span className="button is-info is-selected" onClick={ () => this.setState({ notifications_on: false }) }>Off</span>
+                    </div>
+                  )
+                }
+                {/* <span className="button is-info is-selected">On</span>
+                <span className="button">Off</span> */}
               </div>
             </div>
 
