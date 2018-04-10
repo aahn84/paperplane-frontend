@@ -57,7 +57,7 @@ class WelcomeLogin extends Component {
                 </div>
               </div>
 
-              <button className="button is-block is-info is-fullwidth">Login</button>
+              <button id="LoginSignup-button" className="button is-block is-info is-fullwidth">Login</button>
             </form>
 
             { loginSuccess ? (<div></div>) : (<div className="LoginSignup-error">

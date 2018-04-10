@@ -14,6 +14,7 @@ import TripFlights from './components/TripFlights/TripFlights';
 import FlightDetails from './components/FlightDetails/FlightDetails';
 import AddTrip from './components/MyTrips/AddTrip';
 import AddFlight from './components/TripFlights/AddFlight';
+import MyAccount from './components/MyAccount/MyAccount';
 
 class App extends Component {
   // componentDidMount() {
@@ -33,8 +34,9 @@ class App extends Component {
             <Route exact path="/mytrips/:id/flightdetails" component={ FlightDetails } />
             <Route exact path="/mytrips/:id" component={ TripFlights } />
             <Route exact path="/mytrips/:id/addflight" component={ AddFlight } />
-            <Route exact path="/track/flight" component={ FlightDetails } />
+            <Route exact path="/track/flightdetails" component={ FlightDetails } />
             <Route exact path="/track" component={ AddFlight } />
+            <Route exact path="/myaccount" component={ MyAccount } />
 
             {/* <Route exact path="/mytrips/:id/flightdetails" component={ FlightDetails } /> */}
 

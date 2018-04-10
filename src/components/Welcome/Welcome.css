@@ -70,3 +70,7 @@ img {
   bottom: 0;
   /* width: 100%; */
 }
+
+#LoginSignup-button {
+  background-color: #3f83bc;
+}

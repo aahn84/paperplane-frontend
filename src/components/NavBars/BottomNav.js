@@ -21,6 +21,7 @@ const BottomNav = ({ location }) => {
           {/* </a> */}
           </Link>
         </li>
+
         <li className={ path === '/track' ? "is-active" : "" }>
           <Link to="/track">
           {/* <a> */}
@@ -29,13 +30,12 @@ const BottomNav = ({ location }) => {
           {/* </a> */}
         </Link>
         </li>
-        <li>
-          <a>
-            {/* <span className="icon is-small"><i className="fas fa-cogs" /></span> */}
-            {/* <span className="icon is-small"><i className="fas fa-sliders-h" /></span> */}
-            <span className="icon is-small"><i className="fas fa-wrench" /></span>
-            <span>Options</span>
-          </a>
+
+        <li className={ path === '/myaccount' ? "is-active" : "" }>
+          <Link to="/myaccount">
+            <span className="icon is-small"><i className="fas fa-user" /></span>
+            <span>Account</span>
+          </Link>
         </li>
       </ul>
     </div>
