@@ -17,7 +17,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em;
+  padding: 0 1em 0 1em;
   max-height: 80vh;
   width: 100%;
   /* border: 1px solid; */
@@ -38,7 +38,6 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 1.5rem 0 1.5rem;
   width: 100%;
 }
 
@@ -61,14 +60,11 @@ label {
   width: 100%;
 }
 
-/* .MyAccount-update-logout {
-  display: flex;
-  justify-content: space-between;
-  margin: 1.5em 0 0 0;
-  width: 100%;
-} */
+#MyAccountUpdate {
+  margin-top: 2em;
+}
 
-#MyAccount-buttons {
+#MyAccountLogout {
   margin-top: 1em;
 }
 
@@ -86,7 +82,6 @@ label {
 
 .icon {
   margin-right: 5px;
-  /* color: #3f83bc; */
 }
 
 .fas, .fa-plus-circle {

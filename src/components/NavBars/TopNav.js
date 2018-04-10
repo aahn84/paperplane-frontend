@@ -8,8 +8,7 @@ import '../Welcome/Welcome.css';
 
 const TopNav = ({ location }) => {
   const path = location.pathname;
-
-  return (path !== '/' && path !== '/signup') ? (
+  return (
     <div>
       <nav className="navbar">
         <div className="container">
@@ -18,11 +17,11 @@ const TopNav = ({ location }) => {
               <img src="/paper-plane.png" alt="logo" />
               <p id="WelcomeHeader-title">paperplane</p>
             </a>
-            <span className="navbar-burger burger" data-target="navbarMenu">
+            {/* <span className="navbar-burger burger" data-target="navbarMenu">
               <span />
               <span />
               <span />
-            </span>
+            </span> */}
           </div>
           <div id="navbarMenu" className="navbar-menu">
             <div className="navbar-end">
@@ -32,8 +31,33 @@ const TopNav = ({ location }) => {
         </div>
       </nav>
     </div>
-  ) :
-  ( <WelcomeHeader /> )
+  )
+
+  // return (path !== '/' && path !== '/signup') ? (
+  //   <div>
+  //     <nav className="navbar">
+  //       <div className="container">
+  //         <div className="navbar-brand">
+  //           <a className="navbar-item">
+  //             <img src="/paper-plane.png" alt="logo" />
+  //             <p id="WelcomeHeader-title">paperplane</p>
+  //           </a>
+  //           <span className="navbar-burger burger" data-target="navbarMenu">
+  //             <span />
+  //             <span />
+  //             <span />
+  //           </span>
+  //         </div>
+  //         <div id="navbarMenu" className="navbar-menu">
+  //           <div className="navbar-end">
+  //             <div className="tabs is-right"></div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </nav>
+  //   </div>
+  // ) :
+  // ( <WelcomeHeader /> )
 }
 
 export default withRouter(TopNav);

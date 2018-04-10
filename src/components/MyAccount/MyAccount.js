@@ -72,11 +72,11 @@ class MyAccount extends Component {
               </div>
             </div>
 
-            <div id="MyAccount-buttons">
+            <div id="MyAccountUpdate" className="MyAccount-update-button">
               <button id="MyAccount-update" className="button is-block is-info">Update Account</button>
             </div>
 
-            <div id="MyAccount-buttons">
+            <div id="MyAccountLogout">
               <Link id="MyAccount-buttons" to="/">
                 <button id="MyAccount-logout" className="button is-block is-info">Logout</button>
               </Link>
