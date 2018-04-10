@@ -1,7 +1,8 @@
 import React from 'react';
 import './MyTrips.css';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import TopNav from '../NavBars/TopNav';
 import TripsList from './TripsList';
 import BottomNav from '../NavBars/BottomNav';
@@ -17,7 +18,9 @@ const MyTrips = () => {
         <div className="MyTrips-title-bar">
           <h1>My Trips</h1>
           <span id="MyTrips-add" className="icon is-medium">
-            <i className="fas fa-plus-circle" />
+            <Link to="/mytrips/addtrip">
+              <i className="fas fa-plus-circle" />
+            </Link>
           </span>
         </div>
 

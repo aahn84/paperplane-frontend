@@ -29,7 +29,7 @@ class WelcomeLogin extends Component {
             <p className="subtitle has-text-grey">Please login to proceed.</p>
             <div className="box">
               <figure className="avatar">
-                <img src="./paper-plane.png" alt="paperplane-logo" />
+                <img src="/paper-plane.png" alt="logo" />
               </figure>
               <form>
                 <div className="field">

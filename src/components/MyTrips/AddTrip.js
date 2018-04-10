@@ -1,5 +1,6 @@
 import React from 'react';
 import './MyTrips.css';
+import {Link} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import TopNav from '../NavBars/TopNav';
@@ -37,35 +38,44 @@ const AddTrip = () => {
             </div>
           </div>
 
-          <div className="field">
-            <label className="label">Start Date:</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder={moment().format('l')}
-                onClick={toggleCalendar()}
-              />
+          <div className="AddTrip-date-fields">
+            <div id="date-field" className="field">
+              <label className="label">Start Date:</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder={moment().format('l')}
+                  // onClick={toggleCalendar()}
+                />
+              </div>
             </div>
-          </div>
-
-          <div className="field">
-            <label className="label">End Date:</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder={moment().format('l')}
-              />
+            <div id="date-field" className="field">
+              <label className="label">End Date:</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder={moment().format('l')}
+                />
+              </div>
             </div>
           </div>
 
           <TripNotes />
+
+          <div className="AddTrip-add-cancel">
+            <div id="AddTrip-buttons">
+              <button id="AddTrip-add" className="button is-block is-info">Add Trip</button>
+            </div>
+
+            <Link id="AddTrip-buttons" to="/mytrips">
+              <button id="AddTrip-cancel" className="button is-block is-info">Cancel</button>
+            </Link>
+          </div>
+
         </div>
-
       </div>
-
-
       <BottomNav />
     </div>
   )

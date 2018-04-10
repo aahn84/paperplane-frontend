@@ -39,7 +39,7 @@ h1 {
 
 #TripFlights-add {
   position: absolute;
-  right: 1rem;
+  right: 0.5rem;
 }
 
 .TripFlightsList-container {
@@ -146,6 +146,30 @@ label {
   margin-left: 2px;
 }
 
+.AddFlight-add-cancel {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 0 0 0;
+  width: 100%;
+}
+
+#AddFlight-buttons {
+  min-width: 48%;
+  max-width: 48%;
+}
+
+#AddFlight-add {
+  background-color: #3f83bc;
+  width: 100%;
+}
+
+#AddFlight-cancel {
+  background-color: #ffffff;
+  border: 1px solid #3f83bc;
+  color: #3f83bc;
+  width: 100%;
+}
+
 .icon {
   margin-right: 5px;
   color: #3f83bc;
@@ -155,4 +179,8 @@ label {
   text-align: left;
   font-size: 15px;
   margin-top: 0.5rem;
+}
+
+.fas, .fa-plus-circle {
+  font-size: 20px;
 }

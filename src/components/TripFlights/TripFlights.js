@@ -1,5 +1,6 @@
 import React from 'react';
 import './TripFlights.css';
+import {Link} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import TopNav from '../NavBars/TopNav';
@@ -17,7 +18,9 @@ const TripFlights = () => {
         <div className="TripFlights-title-bar">
           <h1>Flights</h1>
           <span id="TripFlights-add" className="icon is-medium">
-            <i className="fas fa-plus-circle" />
+            <Link to="/mytrips/:id/addflight">
+              <i className="fas fa-plus-circle" />
+            </Link>
           </span>
         </div>
         <div className="TripFlights-title-name">

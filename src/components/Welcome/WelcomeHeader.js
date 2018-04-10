@@ -9,7 +9,7 @@ const WelcomeHeader = () => {
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="../">
-              <img src="./paper-plane.png" alt="paperplane-logo" />
+              <img src="/paper-plane.png" alt="logo" />
               <p id="WelcomeHeader-title">paperplane</p>
             </a>
             {/* <span className="navbar-burger burger" data-target="navbarMenu">

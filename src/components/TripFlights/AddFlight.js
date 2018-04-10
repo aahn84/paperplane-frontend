@@ -1,5 +1,6 @@
 import React from 'react';
 import './TripFlights.css';
+import {Link} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import TopNav from '../NavBars/TopNav';
@@ -58,8 +59,18 @@ const AddFlight = () => {
               />
             </div>
           </div>
-        </div>
 
+          <div className="AddFlight-add-cancel">
+            <div id="AddFlight-buttons">
+              <button id="AddFlight-add" className="button is-block is-info">Add Flight</button>
+            </div>
+
+            <Link id="AddFlight-buttons" to="/mytrips/:id">
+              <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
+            </Link>
+          </div>
+
+        </div>
       </div>
 
       <BottomNav />

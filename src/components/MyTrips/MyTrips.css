@@ -31,9 +31,8 @@ h1 {
 
 #MyTrips-add {
   position: absolute;
-  /* margin-left: 5em; */
   right: 1rem;
-  padding: 0;
+  /* padding: 0; */
 }
 
 .TripsList-container {
@@ -44,12 +43,6 @@ h1 {
   overflow: auto;
   width: 100%;
   /* border: 1px solid; */
-}
-
-.button {
-  /* background-color: inherit; */
-  color: red;
-  border: none;
 }
 
 .TripsList-content {
@@ -122,10 +115,19 @@ h1 {
 .AddTrip-form {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  padding: 1.5rem;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   width: 100%;
+}
+
+.AddTrip-date-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+#date-field {
+  min-width: 48%;
+  max-width: 48%;
 }
 
 label {
@@ -137,7 +139,36 @@ label {
   width: 100%;
 }
 
+.AddTrip-add-cancel {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 0 0 0;
+  width: 100%;
+}
+
+#AddTrip-buttons {
+  min-width: 48%;
+  max-width: 48%;
+}
+
+#AddTrip-add {
+  background-color: #3f83bc;
+  width: 100%;
+}
+
+#AddTrip-cancel {
+  background-color: #ffffff;
+  border: 1px solid #3f83bc;
+  color: #3f83bc;
+  width: 100%;
+}
+
 .icon {
   margin-right: 5px;
+  /* color: #3f83bc; */
+}
+
+.fas, .fa-plus-circle {
   color: #3f83bc;
+  font-size: 20px;
 }

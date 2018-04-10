@@ -39,7 +39,7 @@ function trips(state = [], action) {
 // }
 
 export default combineReducers({
-  welcomeView,
+  // welcomeView,
   // loginView,
   // signupView,
   trips,
