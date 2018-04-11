@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import './Welcome.css';
-import WelcomeHeader from './WelcomeHeader';
-import WelcomeFooter from './WelcomeFooter';
 import {Link} from 'react-router-dom';
 
 class WelcomeSignup extends Component {

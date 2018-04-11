@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import {withRouter} from 'react-router-dom';
-// import TopNav from '../NavBars/TopNav';
-// import BottomNav from '../NavBars/BottomNav';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -33,8 +31,6 @@ class AddFlight extends Component {
 
     return (
       <div className="AddFlight">
-        {/* <TopNav /> */}
-
         <div id="AddFlight-container">
           <div className="AddFlight-title-bar">
             <h1 className="AddFlight-title">
@@ -93,8 +89,6 @@ class AddFlight extends Component {
 
           </div>
         </div>
-
-        {/* <BottomNav /> */}
       </div>
     )
   }

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './Welcome.css';
-import WelcomeHeader from './WelcomeHeader';
-import WelcomeFooter from './WelcomeFooter';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-// import {bindActionCreators} from 'redux';
+import {bindActionCreators} from 'redux';
+import { getUserData } from '../../actions';
+import axios from 'axios';
 
 class WelcomeLogin extends Component {
   state = {
@@ -17,6 +17,7 @@ class WelcomeLogin extends Component {
   //   const token = JSON.parse(localStorage.getItem('token'));
   //   if (token) this.props.history.push('/mytrips');
   // }
+
 
   render() {
     // let loginSuccess;
@@ -78,9 +79,14 @@ class WelcomeLogin extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user_id: state.user_id
+  token: state.token,
 });
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  getUserData,
+}, dispatch);
 
 export default connect(
   mapStateToProps,
+  mapDispatchToProps
 )(WelcomeLogin);

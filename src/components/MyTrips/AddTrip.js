@@ -3,9 +3,7 @@ import './MyTrips.css';
 import {Link} from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-// import TopNav from '../NavBars/TopNav';
 import TripNotes from '../TripFlights/TripNotes';
-// import BottomNav from '../NavBars/BottomNav';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -30,12 +28,11 @@ class AddTrip extends Component {
   render() {
     return (
       <div className="AddTrip">
-        {/* <TopNav /> */}
-
         <div id="AddTrip-container">
           <div className="AddTrip-title-bar">
             <h1 className="AddTrip-title">Add New Trip</h1>
           </div>
+
           <div className="AddTrip-form">
             <div className="field">
               <label className="label">Name:</label>
@@ -82,7 +79,6 @@ class AddTrip extends Component {
 
           </div>
         </div>
-        {/* <BottomNav /> */}
       </div>
     )
   }
