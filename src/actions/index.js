@@ -3,9 +3,10 @@ const BASE_URL = process.env.REACT_APP_DEV;
 
 
 export const TRIPS_RECEIVED = 'TRIPS_RECEIVED';
+
 export function fetchTrips(id) {
   return async (dispatch) => {
-    const response = await axios.get(`${BASE_URL}/api/trips/${id}`);
+    const response = await axios.get(`${BASE_URL}/api/users/${id}/trips`);
     const trips = response.data.data;
     dispatch({
       type: TRIPS_RECEIVED,

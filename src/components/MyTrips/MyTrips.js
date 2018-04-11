@@ -1,15 +1,13 @@
 import React from 'react';
 import './MyTrips.css';
+import TripsList from './TripsList';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import TripsList from './TripsList';
 import { fetchTrips } from '../../actions';
 import axios from 'axios';
 
 const MyTrips = ({ trips, fetchTrips }) => {
-
-
   // const tripsByUserId =  axios.get(`http://localhost:8080/api/trips/1`)
   //   .then(trips => {
   //     console.log('1', trips.data.data);
@@ -20,8 +18,6 @@ const MyTrips = ({ trips, fetchTrips }) => {
   // let tripEls = tripsByUserId.map((trip, i) => {
   //   return <DetailReview key={ i } review={ review }/>
   // })
-
-  console.log(trips);
 
   return (
     <div className="MyTrips">
@@ -38,7 +34,10 @@ const MyTrips = ({ trips, fetchTrips }) => {
           trips.length ? (
             <TripsList trips={ trips } />
           ) : (
-            <div></div>
+            <div id="MyTrips-noTrips">
+              <p id="MyTrips-text">No trips to display</p>
+              <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
+            </div>
           )
         }
 

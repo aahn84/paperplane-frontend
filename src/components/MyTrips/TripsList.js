@@ -1,8 +1,9 @@
 import React from 'react';
 import './MyTrips.css';
+import TripsDetail from './TripsDetail'
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import TripsDetail from './TripsDetail'
+// import { fetchTrips } from '../../actions';
 
 
 const TripsList = ({ trips }) => {
@@ -15,12 +16,14 @@ const TripsList = ({ trips }) => {
       { trips.length ? (
           tripEls
         ) : (
-          <div>
-            <TripsDetail />
-            <TripsDetail />
-            <TripsDetail />
-            <TripsDetail />
-            <TripsDetail />
+          <div id="MyTrips-noFlights">
+            <p id="MyTrips-text">No flights to display</p>
+            <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
+            {/* <TripsDetail />
+              <TripsDetail />
+              <TripsDetail />
+              <TripsDetail />
+              <TripsDetail /> */}
           </div>
         )
       }

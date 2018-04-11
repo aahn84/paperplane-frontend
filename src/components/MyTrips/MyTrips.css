@@ -33,6 +33,27 @@ h1 {
   font-size: 2rem;
 }
 
+#MyTrips-noTrips, #MyTrips-noFlights {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat, sans-serif;
+  color: #a3a7a1;
+  font-size: 1.5rem;
+  min-height: 10em;
+}
+
+#MyTrips-icon-span {
+  margin-top: 0.5em;
+  font-size: 2em;
+  color: #a3a7a1;
+}
+
+#MyTrips-icon {
+  color: #a3a7a1;
+}
+
 #MyTrips-add {
   position: absolute;
   right: 1rem;
