@@ -1,10 +1,9 @@
 import React from 'react';
 import './TripFlights.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TripFlightsList from './TripFlightsList'
-import { fetchTrips } from '../../actions';
 
 
 const TripFlights = ({ trips, fetchTrips }) => {
@@ -36,7 +35,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  fetchTrips
+  // fetchTrips
 }, dispatch);
 
 export default connect(

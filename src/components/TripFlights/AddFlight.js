@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './TripFlights.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import {withRouter} from 'react-router-dom';

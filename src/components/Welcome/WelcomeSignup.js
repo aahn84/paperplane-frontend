@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Welcome.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class WelcomeSignup extends Component {
   state = {

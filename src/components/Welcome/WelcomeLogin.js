@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './Welcome.css';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 // import { getUserData } from '../../actions';
 import axios from 'axios';
 

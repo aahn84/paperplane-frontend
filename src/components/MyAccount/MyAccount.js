@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './MyAccount.css';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class MyAccount extends Component {
   state = {

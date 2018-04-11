@@ -1,23 +1,11 @@
 import React from 'react';
 import './MyTrips.css';
 import TripsList from './TripsList';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import { fetchTrips } from '../../actions';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-const MyTrips = ({ trips, fetchTrips }) => {
-  // const tripsByUserId =  axios.get(`http://localhost:8080/api/trips/1`)
-  //   .then(trips => {
-  //     console.log('1', trips.data.data);
-  //     return trips.data.data
-  //   })
-  // console.log('2', tripsByUserId);
-
-  // let tripEls = tripsByUserId.map((trip, i) => {
-  //   return <DetailReview key={ i } review={ review }/>
-  // })
+const MyTrips = ({ trips }) => {
 
   return (
     <div className="MyTrips">
@@ -30,7 +18,10 @@ const MyTrips = ({ trips, fetchTrips }) => {
             </Link>
           </span>
         </div>
-        {
+
+        <TripsList />
+
+        {/* {
           trips.length ? (
             <TripsList trips={ trips } />
           ) : (
@@ -39,8 +30,7 @@ const MyTrips = ({ trips, fetchTrips }) => {
               <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
             </div>
           )
-        }
-
+        } */}
 
       </div>
     </div>
@@ -51,11 +41,6 @@ const mapStateToProps = (state) => ({
   trips: state.trips
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  fetchTrips
-}, dispatch);
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(MyTrips);
