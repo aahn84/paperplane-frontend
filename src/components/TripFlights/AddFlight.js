@@ -12,6 +12,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 class AddFlight extends Component {
+  state = {
+    airline_name: '',
+    flight_num: '',
+    depart_date: '',
+    loading: false,
+  }
 
   toggleCalendar() {
     return(
@@ -76,7 +82,7 @@ class AddFlight extends Component {
             :
             (<div className="AddFlight-add-cancel">
               <div id="AddFlight-buttons">
-                <button id="AddFlight-add" className="button is-block is-info">Add Flight</button>
+                <button id="AddFlight-add" className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}>Add Flight</button>
               </div>
 
               <Link id="AddFlight-buttons" to="/mytrips/:id">

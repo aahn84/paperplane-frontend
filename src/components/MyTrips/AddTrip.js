@@ -10,8 +10,13 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
 class AddTrip extends Component {
+  state = {
+    title: '',
+    notes: '',
+    user_id: '',
+    loading: false,
+  }
 
   toggleCalendar() {
     return(
@@ -67,7 +72,7 @@ class AddTrip extends Component {
 
             <div className="AddTrip-add-cancel">
               <div id="AddTrip-buttons">
-                <button id="AddTrip-add" className="button is-block is-info">Add Trip</button>
+                <button id="AddTrip-add" className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}>Add Trip</button>
               </div>
 
               <Link id="AddTrip-buttons" to="/mytrips">

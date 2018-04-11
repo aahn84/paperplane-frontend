@@ -1,3 +1,7 @@
+.OverlayLoader {
+  width: 100%;
+}
+
 .MyTrips {
   display: flex;
   flex-direction: column;
