@@ -1,12 +1,13 @@
 import React from 'react';
 import './TripFlights.css';
 import {Link} from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import TripFlightsList from './TripFlightsList'
+import { fetchTrips } from '../../actions';
 
 
-const TripFlights = () => {
+const TripFlights = ({ trips, fetchTrips }) => {
 
   return (
     <div className="TripFlights">
@@ -23,11 +24,22 @@ const TripFlights = () => {
           <p>{`My Trip Name  May 4 - May 7`}</p>
         </div>
 
-        <TripFlightsList />
+        <TripFlightsList trips={ trips }/>
 
       </div>
     </div>
   )
 }
 
-export default TripFlights;
+const mapStateToProps = (state) => ({
+  trips: state.trips
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchTrips
+}, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TripFlights);

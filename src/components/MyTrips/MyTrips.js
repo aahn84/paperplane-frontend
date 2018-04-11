@@ -4,9 +4,24 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import TripsList from './TripsList';
+import { fetchTrips } from '../../actions';
+import axios from 'axios';
+
+const MyTrips = ({ trips, fetchTrips }) => {
 
 
-const MyTrips = () => {
+  // const tripsByUserId =  axios.get(`http://localhost:8080/api/trips/1`)
+  //   .then(trips => {
+  //     console.log('1', trips.data.data);
+  //     return trips.data.data
+  //   })
+  // console.log('2', tripsByUserId);
+
+  // let tripEls = tripsByUserId.map((trip, i) => {
+  //   return <DetailReview key={ i } review={ review }/>
+  // })
+
+  console.log(trips);
 
   return (
     <div className="MyTrips">
@@ -19,9 +34,15 @@ const MyTrips = () => {
             </Link>
           </span>
         </div>
+        {
+          trips.length ? (
+            <TripsList trips={ trips } />
+          ) : (
+            <div></div>
+          )
+        }
 
-        <TripsList />
-        
+
       </div>
     </div>
   )
@@ -32,7 +53,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-
+  fetchTrips
 }, dispatch);
 
 export default connect(

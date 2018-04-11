@@ -3,7 +3,7 @@ import './Welcome.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { getUserData } from '../../actions';
+// import { getUserData } from '../../actions';
 import axios from 'axios';
 
 class WelcomeLogin extends Component {
@@ -79,11 +79,11 @@ class WelcomeLogin extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  token: state.token,
+  // token: state.token,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  getUserData,
+  // getUserData,
 }, dispatch);
 
 export default connect(

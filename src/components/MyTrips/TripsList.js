@@ -5,15 +5,25 @@ import './MyTrips.css';
 import TripsDetail from './TripsDetail'
 
 
-const TripsList = () => {
+const TripsList = ({ trips }) => {
+  const tripEls = trips.map((trip, i) => {
+    return <TripsDetail key={ i } trip={ trip } />
+  })
 
   return (
     <div className="TripsList-container">
-      <TripsDetail />
-      <TripsDetail />
-      <TripsDetail />
-      <TripsDetail />
-      <TripsDetail />
+      { trips.length ? (
+          tripEls
+        ) : (
+          <div>
+            <TripsDetail />
+            <TripsDetail />
+            <TripsDetail />
+            <TripsDetail />
+            <TripsDetail />
+          </div>
+        )
+      }
       {/* <div className="TripsList-content">
 
         <article className="message">

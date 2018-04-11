@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './MyAccount.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-// import {bindActionCreators} from 'redux';
+import {bindActionCreators} from 'redux';
 
 class MyAccount extends Component {
   state = {
@@ -14,6 +14,7 @@ class MyAccount extends Component {
   }
 
   render() {
+    console.log(this.state.notifications_on);
     return (
       <div className="MyAccount">
         <div id="MyAccount-container">
@@ -76,27 +77,21 @@ class MyAccount extends Component {
             <div id="MyAccount-notifications">
               <p>Nofications:</p>
               <div className="buttons has-addons">
-                {
-                  this.state.notifications_on ?
-                  (
-                    <div className="buttons has-addons">
-                      <span className="button is-info is-selected" onClick={ () => this.setState({ notifications_on: true }) }>On</span>
-                      <span className="button" onClick={ () => this.setState({ notifications_on: false }) }>Off</span>
-                    </div>
-                  )
-                  :
-                  (
-                    <div className="buttons has-addons">
-                      <span className="button" onClick={ () => this.setState({ notifications_on: true }) }>On</span>
-                      <span className="button is-info is-selected" onClick={ () => this.setState({ notifications_on: false }) }>Off</span>
-                    </div>
-                  )
-                }
-                {/* <span className="button is-info is-selected">On</span>
-                <span className="button">Off</span> */}
+                <span
+                  className={ this.state.notifications_on ? 'button is-info is-selected' : 'button' }
+                  onClick={ () => this.setState({ notifications_on: true }) }>
+                  On
+                </span>
+                <span
+                  className={ this.state.notifications_on ? 'button' : 'button is-info is-selected' }
+                  onClick={ () => this.setState({ notifications_on: false }) }>
+                  Off
+                </span>
               </div>
-            </div>
 
+              {/* <span className="button is-info is-selected">On</span>
+              <span className="button">Off</span> */}
+              </div>
             <div id="MyAccount-buttons-div">
               <div id="MyAccountUpdate" className="MyAccount-update-button">
                 <button id="MyAccount-update" className="button is-block is-info">Update Account</button>
@@ -118,9 +113,14 @@ class MyAccount extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  // user_id: state.user_id
+  // user: state.user,
 });
+
+// const mapDispatchToProps = (dispatch) => ({
+//
+// });
 
 export default connect(
   mapStateToProps,
+  // mapDispatchToProps
 )(MyAccount);
