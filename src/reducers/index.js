@@ -1,19 +1,49 @@
 import { combineReducers } from 'redux';
 import {
+  TOKEN_RECEIVED,
+  FETCHING_USER,
+  USER_RECEIVED,
   TRIPS_RECEIVED,
 } from '../actions';
 
-// function user_info(state = {}, action) {
-//   switch(action.type) {
-//     case USER_INFO_SET_USER_INFO: {
-//       const {password, ...user_info_noPass} = action.user_info;
-//       return user_info_noPass;
-//     }
-//     default: {
-//       return state;
-//     }
-//   }
-// }
+function token(state = '', action) {
+  switch (action.type) {
+    case TOKEN_RECEIVED: {
+      return action.token;
+    }
+    case TOKEN_CLEARED: {
+      return '';
+    }
+    default:
+      return state;
+  }
+}
+
+function fetchingUser(state = false, action) {
+  switch(action.type) {
+    case FETCHING_USER: {
+      return true;
+    }
+    case USER_RECEIVED: {
+      return false;
+    }
+    default:
+      return state;
+  }
+}
+
+function user(state = null, action) {
+  switch (action.type) {
+    case USER_RECEIVED: {
+      return action.user;
+    }
+    case USER_CLEARED: {
+      return null;
+    }
+    default:
+      return state;
+  }
+}
 
 function trips(state = [], action) {
   switch (action.type) {
@@ -39,9 +69,9 @@ function trips(state = [], action) {
 // }
 
 export default combineReducers({
-  // welcomeView,
-  // loginView,
-  // signupView,
+  token,
+  fetchingUser,
+  user,
   trips,
   // tripsById,
 });
