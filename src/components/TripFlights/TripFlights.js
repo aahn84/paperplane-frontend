@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TripFlightsList from './TripFlightsList'
+import { fetchTrips } from '../../actions';
 
 
-const TripFlights = ({ match, tripsById }) => {
+const TripFlights = ({ match, tripsById, fetchTrips }) => {
+
+  fetchTrips(1)
   const { id } = match.params;
   const trip = tripsById[id];
 
@@ -61,6 +64,11 @@ const mapStateToProps = (state) => ({
   tripsById: state.tripsById
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  fetchTrips
+});
+
 export default connect(
   mapStateToProps,
+  mapDispatchToProps
 )(TripFlights);

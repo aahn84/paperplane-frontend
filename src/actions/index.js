@@ -3,7 +3,6 @@ const BASE_URL = process.env.REACT_APP_DEV;
 
 
 export const TRIPS_RECEIVED = 'TRIPS_RECEIVED';
-
 export function fetchTrips(id) {
   return async (dispatch) => {
     const response = await axios.get(`${BASE_URL}/api/users/${id}/trips`);
@@ -11,6 +10,27 @@ export function fetchTrips(id) {
     dispatch({
       type: TRIPS_RECEIVED,
       trips
+    });
+  };
+}
+
+export const SET_ACTIVE_TRIP = 'SET_ACTIVE_TRIP';
+export function setActiveTrip(trip) {
+  return async (dispatch) => {
+    const response = await
+    dispatch({
+      type: SET_ACTIVE_TRIP,
+      trip
+    });
+  };
+}
+
+export const CLEAR_ACTIVE_TRIP = 'CLEAR_ACTIVE_TRIP';
+export function clearActiveTrip() {
+  return async (dispatch) => {
+    const response = await
+    dispatch({
+      type: CLEAR_ACTIVE_TRIP
     });
   };
 }

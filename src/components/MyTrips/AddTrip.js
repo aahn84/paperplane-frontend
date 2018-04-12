@@ -26,6 +26,7 @@ class AddTrip extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="AddTrip">
         <div id="AddTrip-container">
@@ -33,11 +34,19 @@ class AddTrip extends Component {
             <h1 className="AddTrip-title">Add New Trip</h1>
           </div>
 
+          {/* <form></form> */}
           <div className="AddTrip-form">
             <div className="field">
               <label className="label">Name:</label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="Trip Name" />
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="Trip Name"
+                    defultValue={ this.state.title }
+                    onChange={ (e) => this.setState({ title: e.target.value }) }
+                    required="required"
+                  />
                 </div>
             </div>
 
@@ -50,6 +59,7 @@ class AddTrip extends Component {
                     type="text"
                     placeholder={moment().format('l')}
                     // onClick={toggleCalendar()}
+                    required="required"
                   />
                 </div>
               </div>
@@ -60,6 +70,7 @@ class AddTrip extends Component {
                     className="input"
                     type="text"
                     placeholder={moment().format('l')}
+                    required="required"
                   />
                 </div>
               </div>

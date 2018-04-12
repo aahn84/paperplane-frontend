@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import TripsFlightCard from './TripsFlightCard'
 import TripNotes from './TripNotes'
 
-
 const TripFlightsList = ({ id, flights, notes }) => {
   const flightEls = flights.map((flight, i) => {
     return <TripsFlightCard key={ i } flight={ flight } />
@@ -19,7 +18,10 @@ const TripFlightsList = ({ id, flights, notes }) => {
           <div>
             {flightEls}
 
-            <TripNotes id={id} notes={notes}/>
+            <TripNotes
+              id={id}
+              notes={notes}
+            />
           </div>
         ) : (
           <div id="TripFlights-noFlights">

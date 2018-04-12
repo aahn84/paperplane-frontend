@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 import {
   TRIPS_RECEIVED,
   CLEAR_TRIPS,
+  SET_ACTIVE_TRIP,
+  CLEAR_ACTIVE_TRIP,
 } from '../actions';
 
 
@@ -35,7 +37,21 @@ function tripsById(state = {}, action) {
   }
 }
 
+function setTrip(state = {}, action) {
+  switch (action.type) {
+    case SET_ACTIVE_TRIP: {
+      return action.trip
+    }
+    case CLEAR_ACTIVE_TRIP: {
+      return {};
+    }
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   trips,
   tripsById,
+  setTrip
 });
