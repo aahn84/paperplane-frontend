@@ -8,6 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 
 store.dispatch(fetchTrips(1));
+// store.dispatch(fetchTrips(3));
 // store.dispatch(fetchTrips(6));
 
 ReactDOM.render(

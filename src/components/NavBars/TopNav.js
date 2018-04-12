@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBars.css';
+import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import {withRouter} from 'react-router-dom';
@@ -13,10 +14,12 @@ const TopNav = ({ location }) => {
       <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
-            <a className="navbar-item">
-              <img src="/paper-plane.png" alt="logo" />
-              <p id="WelcomeHeader-title">paperplane</p>
-            </a>
+            {/* <Link to='/mytrips'> */}
+              <a className="navbar-item">
+                  <img src="/paper-plane.png" alt="logo" />
+                  <p id="WelcomeHeader-title">paperplane</p>
+              </a>
+            {/* </Link> */}
             {/* <span className="navbar-burger burger" data-target="navbarMenu">
               <span />
               <span />

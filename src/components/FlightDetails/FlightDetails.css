@@ -8,9 +8,8 @@
 .FlightDetails-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  /* padding: 1em; */
+  /* align-items: center; */
   max-height: 80vh;
   width: 100%;
   /* border: 1px solid; */
@@ -39,6 +38,10 @@ h1 {
   /* border: 1px solid; */
 }
 
+#FlightDetails-title-h1 {
+  font-size: 1.5em;
+}
+
 .FlightDetailCard-container {
   display: flex;
   flex-direction: column;
@@ -49,7 +52,7 @@ h1 {
 }
 
 .card {
-  /* margin: 1rem; */
+  margin: 1em 1.5em 1em 1.5em;
   /* border: 1px solid #3f83bc; */
 }
 
@@ -92,6 +95,12 @@ h6 {
 
 .Departure-content, .Arrival-content {
   margin-bottom: 1em;
+}
+
+#FlightDetailCard-flightTimes {
+  margin-top: 1em;
+  font-size: 13px;
+  font-style: italic;
 }
 
 .icon {

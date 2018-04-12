@@ -21,59 +21,81 @@ const Trip = ({ trip, fetchTrips }) => {
     }
   };
 
+  const renderTripDetail = () => {
+    return (
+      <div className="TripsList-content">
+      <article className="message">
+        <div className="message-header">
+          <p>{ trip.title }</p>
+          {/* <p>{ `My Trip` }</p> */}
+          <button
+            className="delete"
+            aria-label="delete"
+            onClick={ () => deleteTrip(trip.id) }
+          />
+          {/* <a className="button"><i className="fas fa-angle-down" /></a> */}
+        </div>
+        <Link to={ `/mytrips/${trip.id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
+          <div className="message-body">
+            <div className="TripList-card-row">
+              <div className="TripList-card-row">
+                <span className="icon is-small"><i className="fas fa-globe" /></span>
+                <p>{`${firstFlight.depart_airport} to ${firstFlight.arrive_airport} `}</p>
+                {/* <p>{`Seattle to Orange County`}</p> */}
+              </div>
+              <span className="icon is-small"><i className="fas fa-angle-right" /></span>
+            </div>
+            <div className="TripList-card-row">
+              <div className="TripList-card-row">
+                <span className="icon is-small"><i className="fas fa-paper-plane" /></span>
+                {/* <span className="icon is-small"><i className="fas fa-plane" /></span> */}
+                <p>{`${firstFlight.airline_iata} ${firstFlight.flight_num} ${moment(firstFlight.depart_date).format('MMMM D')}`}</p>
+                {/* <p>{`AS 510 May 4`}</p> */}
+              </div>
+              <p id="TripsDetail-status">{ firstFlight.flight_status[0].toUpperCase() + firstFlight.flight_status.substring(1) }</p>
+              {/* <p>{`Scheduled`}</p> */}
+            </div>
+          </div>
+        </Link>
+      </article>
+    </div>
+    )
+  }
+
+  const renderTripNoFlightDetail = () => {
+    return (
+      <div className="TripsList-content">
+      <article className="message">
+        <div className="message-header">
+          <p>{ trip.title }</p>
+          {/* <p>{ `My Trip` }</p> */}
+          <button
+            className="delete"
+            aria-label="delete"
+            onClick={ () => deleteTrip(trip.id) }
+          />
+          {/* <a className="button"><i className="fas fa-angle-down" /></a> */}
+        </div>
+        <Link to={ `/mytrips/${trip.id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
+          <div className="message-body">
+            <div id="TripsDetail-noFlights">
+              <p id="TripsDetail-text">No flights to display</p>
+              {/* <span id="TripsDetail-icon-span" className="icon is-large"><i id="TripsDetail-icon" className="fas fa-paper-plane" /></span> */}
+            </div>
+
+          </div>
+        </Link>
+      </article>
+    </div>
+    )
+  }
+
   return (
     <div>
       {
-        firstFlight ?
-        (
-          <div className="TripsList-content">
-          <article className="message">
-            <div className="message-header">
-              <p>{ trip.title }</p>
-              {/* <p>{ `My Trip` }</p> */}
-              <button
-                className="delete"
-                aria-label="delete"
-                onClick={ () => deleteTrip(trip.id) }
-              />
-              {/* <a className="button"><i className="fas fa-angle-down" /></a> */}
-            </div>
-            <Link to={ `/mytrips/${trip.id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
-              <div className="message-body">
-                <div className="TripList-card-row">
-                  <div className="TripList-card-row">
-                    <span className="icon is-small"><i className="fas fa-globe" /></span>
-                    <p>{`${firstFlight.depart_airport} to ${firstFlight.arrive_airport} `}</p>
-                    {/* <p>{`Seattle to Orange County`}</p> */}
-                  </div>
-                  <span className="icon is-small"><i className="fas fa-angle-right" /></span>
-                </div>
-                <div className="TripList-card-row">
-                  <div className="TripList-card-row">
-                    <span className="icon is-small"><i className="fas fa-paper-plane" /></span>
-                    {/* <span className="icon is-small"><i className="fas fa-plane" /></span> */}
-                    <p>{`${firstFlight.airline_iata} ${firstFlight.flight_num} ${moment(firstFlight.depart_date).format('MMMM D')}`}</p>
-                    {/* <p>{`AS 510 May 4`}</p> */}
-                  </div>
-                  <p id="TripsDetail-status">{ firstFlight.flight_status[0].toUpperCase() + firstFlight.flight_status.substring(1) }</p>
-                  {/* <p>{`Scheduled`}</p> */}
-                </div>
-              </div>
-            </Link>
-          </article>
-        </div>
-      ) : (
-        <div></div>
-        // {/* <div id="MyTrips-noFlights">
-        //   <p id="MyTrips-text">No flights to display</p>
-        //   <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
-        //   {/* <TripsDetail />
-        //     <TripsDetail />
-        //     <TripsDetail />
-        //     <TripsDetail />
-        //     <TripsDetail /> */}
-        // </div> */}
-        )
+        firstFlight
+          ? renderTripDetail()
+          : renderTripNoFlightDetail()
       }
     </div>
   )

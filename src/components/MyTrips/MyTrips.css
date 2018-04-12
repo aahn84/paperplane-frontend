@@ -60,6 +60,27 @@ h1 {
   /* padding: 0; */
 }
 
+#TripsDetail-noFlights {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat, sans-serif;
+  color: #a3a7a1;
+  font-size: 1rem;
+  min-height: 4em;
+}
+
+/* #TripsDetail-icon-span {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #a3a7a1;
+} */
+
+#TripsDetail-icon {
+  color: #a3a7a1;
+}
+
 .TripsList-container {
   display: flex;
   flex-direction: column;

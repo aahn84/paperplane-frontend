@@ -9,8 +9,9 @@ import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_DEV;
 
 const TripsFlightCard = ({ flight, fetchTrips }) => {
+  console.log(flight);
   const deleteFlight = async () => {
-    const response = await axios.delete(`${BASE_URL}/api/flights/${flight.flights_id}`)
+    const response = await axios.delete(`${BASE_URL}/api/flights/${flight.flights_id}`, { trips_id: flight.trips_id })
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
       let id = 1
@@ -30,18 +31,18 @@ const TripsFlightCard = ({ flight, fetchTrips }) => {
             <button
               className="delete"
               aria-label="delete"
-              onClick={ () => deleteFlight(flight.flights_id) }
+              onClick={ () => deleteFlight(flight.id) }
             />
           </div>
-          <Link to={`/mytrips/${flight.trips_id}/${flight.flights_id}`} style={{ textDecoration: 'none', borderRadius: 'none' }}>
+          <Link to={`/mytrips/${flight.trips_id}/${flight.id}`} style={{ textDecoration: 'none', borderRadius: 'none' }}>
             <div className="message-body">
               <div className="TripList-card-row">
                 <div className="TripList-card-row">
                   <span id="TripList-icon" className="icon is-small"><i className="fas fa-globe" /></span>
                   <p>
-                    {`Seattle to Orange County`}
+                    {`${flight.depart_airport} to ${flight.arrive_airport}`}
+                    {/* {`Seattle to Orange County`} */}
                   </p>
-                  {/* <p>{`Seattle to Orange County`}</p> */}
                 </div>
                 <span id="TripList-icon" className="icon is-small"><i className="fas fa-angle-right" /></span>
               </div>

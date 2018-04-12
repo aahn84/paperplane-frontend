@@ -8,9 +8,7 @@ import TripNotes from './TripNotes'
 
 const TripFlightsList = ({ id, flights, notes }) => {
   const flightEls = flights.map((flight, i) => {
-    // console.log('HERE', flight);
     return <TripsFlightCard key={ i } flight={ flight } />
-    // return <TripsFlightCard key={ i } id={ flight.id } flight={ flights } flightId={ flight.id }/>
   })
 
   return (

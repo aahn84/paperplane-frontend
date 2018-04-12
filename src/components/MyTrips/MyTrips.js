@@ -4,8 +4,10 @@ import TripsList from './TripsList';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { fetchTrips } from '../../actions';
 
-const MyTrips = ({ trips }) => {
+const MyTrips = ({ trips, fetchTrips }) => {
+  fetchTrips(1);
 
   return (
     <div className="MyTrips">
@@ -20,18 +22,7 @@ const MyTrips = ({ trips }) => {
         </div>
 
         <TripsList />
-
-        {/* {
-          trips.length ? (
-            <TripsList trips={ trips } />
-          ) : (
-            <div id="MyTrips-noTrips">
-              <p id="MyTrips-text">No trips to display</p>
-              <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
-            </div>
-          )
-        } */}
-
+        
       </div>
     </div>
   )
@@ -41,6 +32,11 @@ const mapStateToProps = (state) => ({
   trips: state.trips
 });
 
+const mapDispatchToProps = (display) => ({
+  fetchTrips
+});
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MyTrips);
