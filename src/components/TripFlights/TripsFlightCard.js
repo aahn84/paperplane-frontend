@@ -1,49 +1,72 @@
 import React from 'react';
 import './TripFlights.css';
 import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchTrips } from '../../actions';
+import moment from 'moment';
+import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_DEV;
 
-
-const TripsFlightCard = () => {
+const TripsFlightCard = ({ flight, fetchTrips }) => {
+  const deleteFlight = async () => {
+    const response = await axios.delete(`${BASE_URL}/api/flights/${flight.flights_id}`)
+    if (response.status === 200) {
+      //CALL DISPATCH TO REMOVE FROM STORE
+      let id = 1
+      fetchTrips(id);
+    }
+  };
 
   return (
     <div>
       <div className="TripFlightsList-content">
-
-        <p className="TripFlightsList-departure-title">{`May 4, 2018 Departures`}</p>
-        {/* <article className="message is-link"> */}
         <article className="message">
           <div className="message-header">
-            <p>{`Seattle to Orange County`}</p>
-            {/* <button className="delete" aria-label="delete" /> */}
+            <p>
+              {`${flight.depart_airport} > ${flight.arrive_airport}`}
+            </p>
+            {/* <p>{`Seattle to Orange County`}</p> */}
+            <button
+              className="delete"
+              aria-label="delete"
+              onClick={ () => deleteFlight(flight.flights_id) }
+            />
           </div>
-          <Link to="/mytrips/:id/flightdetails" style={{ textDecoration: 'none', borderRadius: 'none' }}>
+          <Link to={`/mytrips/${flight.trips_id}/${flight.flights_id}`} style={{ textDecoration: 'none', borderRadius: 'none' }}>
             <div className="message-body">
               <div className="TripList-card-row">
                 <div className="TripList-card-row">
-                  <span className="icon is-small"><i className="fas fa-globe" /></span>
-                  <p>{`Seattle to Orange County`}</p>
+                  <span id="TripList-icon" className="icon is-small"><i className="fas fa-globe" /></span>
+                  <p>
+                    {`Seattle to Orange County`}
+                  </p>
+                  {/* <p>{`Seattle to Orange County`}</p> */}
                 </div>
-                <span className="icon is-small"><i className="fas fa-angle-right" /></span>
+                <span id="TripList-icon" className="icon is-small"><i className="fas fa-angle-right" /></span>
               </div>
               <div className="TripList-card-row">
                 <div className="TripList-card-row">
                   {/* <span className="icon is-small"><i className="fas fa-paper-plane" /></span> */}
-                  <p>{`Scheduled Departure:`}</p>
+                  <p>{`Departure:`}</p>
                 </div>
-                <p>{`6:10 PM, May 4`}</p>
+                <p>{`${moment(flight.depart_scheduledTime).format('LT')}, ${moment(flight.depart_date).format('MMMM D')}`}</p>
+                {/* <p>{`6:10 PM, May 4`}</p> */}
               </div>
               <div className="TripList-card-row">
                 <div className="TripList-card-row">
                   {/* <span className="icon is-small"><i className="fas fa-paper-plane" /></span> */}
-                  <p>{`Scheduled Arrival`}</p>
+                  <p>{`Arrival:`}</p>
                 </div>
-                <p>{`8:47 PM, May 4`}</p>
+                <p>{`${moment(flight.arrive_scheduledTime).format('LT')}, ${moment(flight.arrive_date).format('MMMM D')}`}</p>
+                {/* <p>{`8:47 PM, May 4`}</p> */}
               </div>
               <div id="TripsFlightCard-updated" className="TripList-card-row">
                 <p>{`Last Updated:`}</p>
-                <p>{`2:48 PM Apr 5`}</p>
+                <p>
+                  { `${moment.unix(flight.updated).format('LT')} ${moment.unix(flight.updated).format('MMMM D')}` }
+                </p>
+                {/* <p>{`2:48 PM Apr 5`}</p> */}
               </div>
             </div>
           </Link>
@@ -54,4 +77,15 @@ const TripsFlightCard = () => {
   )
 }
 
-export default TripsFlightCard;
+// const mapStateToProps = (state) => ({
+//   tripsById: state.tripsById
+// });
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchTrips,
+}, dispatch);
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(TripsFlightCard);

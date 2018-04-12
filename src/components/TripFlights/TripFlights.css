@@ -18,16 +18,18 @@
 
 .TripFlights-title-bar {
   display: flex;
-  margin: 1.5rem 0 0.5rem 0;
   align-items: center;
   justify-content: center;
+  margin: 1.5rem 0 1rem 0;
 }
 
 .TripFlights-title-name {
   display: flex;
-  color: #ea9438;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  color: #ea9438;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 h1 {
@@ -37,9 +39,30 @@ h1 {
   /* border: 1px solid; */
 }
 
+#TripFlights-noFlights {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat, sans-serif;
+  color: #a3a7a1;
+  font-size: 1.5rem;
+  min-height: 10em;
+}
+
+#TripFlights-icon-span {
+  margin-top: 0.5em;
+  font-size: 2em;
+  color: #a3a7a1;
+}
+
+#TripFlights-icon {
+  color: #a3a7a1;
+}
+
 #TripFlights-add {
   position: absolute;
-  right: 0.5rem;
+  right: 1rem;
 }
 
 .TripFlightsList-container {
@@ -75,15 +98,15 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin-bottom: 2px; */
+  margin: 1px 0 1px 0;
 }
 
-.TripFlightsList-departure-title {
+/* .TripFlightsList-departure-title {
   margin-left: 3px;
   text-align: left;
   font-size: 15px;
   font-style: italic;
-}
+} */
 
 #TripsFlightCard-updated {
   font-size: 13px;
@@ -98,11 +121,12 @@ h1 {
 .message-body {
   background-color: #ffffff;
   border: 1px solid #3f83bc;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .message-header {
   background-color: #3f83bc;
+  font-weight: bold;
 }
 
 .Trips-card-content {
@@ -188,6 +212,10 @@ label {
 .icon {
   margin-right: 5px;
   color: #3f83bc;
+}
+
+#TripList-icon {
+  margin-top: 2px;
 }
 
 .TripNotes-title {

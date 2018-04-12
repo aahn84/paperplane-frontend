@@ -4,7 +4,7 @@ import './TripFlights.css';
 // import { bindActionCreators } from 'redux';
 
 
-const TripNotes = () => {
+const TripNotes = ({ id, notes }) => {
 
   return (
     <div className="TripNotes">
@@ -12,7 +12,13 @@ const TripNotes = () => {
         <p className="TripNotes-title">Notes:</p>
         <div className="field">
           <div className="control">
-            <textarea className="textarea" placeholder="Trip Notes" defaultValue={""} />
+            <textarea
+              className="textarea"
+              placeholder="Trip Notes"
+              defaultValue={""}
+              value={ notes ? `${notes}` : ''}
+              onChange={ (e) => console.log(e.target.value) }
+            />
           </div>
         </div>
       </div>

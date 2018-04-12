@@ -38,7 +38,7 @@ const Trip = ({ trip, fetchTrips }) => {
               />
               {/* <a className="button"><i className="fas fa-angle-down" /></a> */}
             </div>
-            <Link to="/mytrips/:id" style={{ textDecoration: 'none', borderRadius: 'none' }}>
+            <Link to={ `/mytrips/${trip.id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
               <div className="message-body">
                 <div className="TripList-card-row">
                   <div className="TripList-card-row">
@@ -55,7 +55,7 @@ const Trip = ({ trip, fetchTrips }) => {
                     <p>{`${firstFlight.airline_iata} ${firstFlight.flight_num} ${moment(firstFlight.depart_date).format('MMMM D')}`}</p>
                     {/* <p>{`AS 510 May 4`}</p> */}
                   </div>
-                  <p>{ firstFlight.flight_status[0].toUpperCase() + firstFlight.flight_status.substring(1) }</p>
+                  <p id="TripsDetail-status">{ firstFlight.flight_status[0].toUpperCase() + firstFlight.flight_status.substring(1) }</p>
                   {/* <p>{`Scheduled`}</p> */}
                 </div>
               </div>
@@ -63,15 +63,16 @@ const Trip = ({ trip, fetchTrips }) => {
           </article>
         </div>
       ) : (
-        <div id="MyTrips-noFlights">
-          <p id="MyTrips-text">No flights to display</p>
-          <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
-          {/* <TripsDetail />
-            <TripsDetail />
-            <TripsDetail />
-            <TripsDetail />
-            <TripsDetail /> */}
-        </div>
+        <div></div>
+        // {/* <div id="MyTrips-noFlights">
+        //   <p id="MyTrips-text">No flights to display</p>
+        //   <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
+        //   {/* <TripsDetail />
+        //     <TripsDetail />
+        //     <TripsDetail />
+        //     <TripsDetail />
+        //     <TripsDetail /> */}
+        // </div> */}
         )
       }
     </div>

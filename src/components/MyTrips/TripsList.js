@@ -20,15 +20,6 @@ const TripsList = ({ trips }) => {
             <p id="MyTrips-text">No trips to display</p>
             <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
           </div>
-          // <div id="MyTrips-noFlights">
-          //   <p id="MyTrips-text">No flights to display</p>
-          //   <span id="MyTrips-icon-span" className="icon is-large"><i id="MyTrips-icon" className="fas fa-paper-plane" /></span>
-          //   {/* <TripsDetail />
-          //     <TripsDetail />
-          //     <TripsDetail />
-          //     <TripsDetail />
-          //     <TripsDetail /> */}
-          // </div>
         )
       }
     </div>

@@ -31,12 +31,13 @@ class App extends Component {
             <Route path="/signup" component={ WelcomeSignup } />
             <Route exact path="/mytrips" component={ MyTrips } />
             <Route exact path="/mytrips/addtrip" component={ AddTrip } />
-            <Route exact path="/mytrips/:id/flightdetails" component={ FlightDetails } />
             <Route exact path="/mytrips/:id/addflight" component={ AddFlight } />
+            <Route exact path="/mytrips/:id/:flightId" component={ FlightDetails } />
             <Route exact path="/mytrips/:id" component={ TripFlights } />
-            <Route exact path="/track/flightdetails" component={ FlightDetails } />
-            <Route exact path="/track" component={ AddFlight } />
             <Route exact path="/myaccount" component={ MyAccount } />
+            <Route exact path="/track/:iataNumber" component={ FlightDetails } />
+            {/* <Route exact path="/track/flightdetails" component={ FlightDetails } /> */}
+            <Route exact path="/track" component={ AddFlight } />
 
             {/* <WelcomeLogin /> */}
             {/* <WelcomeSignup /> */}

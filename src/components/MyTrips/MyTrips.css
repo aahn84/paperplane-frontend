@@ -103,7 +103,7 @@ h1 {
 .message-body {
   background-color: #ffffff;
   border: 1px solid #3f83bc;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .message-header {
@@ -153,6 +153,11 @@ h1 {
 #date-field {
   min-width: 48%;
   max-width: 48%;
+}
+
+#TripsDetail-status {
+  color: #ea9438;
+  font-style: italic;
 }
 
 label {

@@ -70,7 +70,7 @@ class AddFlight extends Component {
             { pathname === '/track' ?
             (<div className="TrackFlight">
               <div id="TrackFlight-button">
-                <Link to='/track/flightdetails'>
+                <Link to='/track/:iataNumber'>
                   <button id="TrackFlight-track" className="button is-block is-info">Track Flight</button>
                 </Link>
               </div>
