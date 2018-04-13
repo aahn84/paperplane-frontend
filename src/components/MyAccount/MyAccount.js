@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './MyAccount.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_DEV;
 
@@ -137,9 +137,9 @@ const mapStateToProps = (state) => ({
   // user: state.user,
 });
 
-// const mapDispatchToProps = (dispatch) => ({
+// const mapDispatchToProps = (dispatch) => bindActionCreators({
 //
-// });
+// }, dispatch);
 
 export default connect(
   mapStateToProps,

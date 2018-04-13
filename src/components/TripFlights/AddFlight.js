@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import {withRouter} from 'react-router-dom';
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -18,7 +18,9 @@ class AddFlight extends Component {
       flight_num: '',
       depart_date: '',
       // depart_date: moment(),
-      user_id: '',
+      // update
+      user_id: 1,
+      // update
       loading: false,
     }
   }

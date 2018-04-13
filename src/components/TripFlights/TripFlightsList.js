@@ -1,7 +1,7 @@
 import React from 'react';
 import './TripFlights.css';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 import TripsFlightCard from './TripsFlightCard'
 import TripNotes from './TripNotes'
 

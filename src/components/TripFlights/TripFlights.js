@@ -9,7 +9,9 @@ import { fetchTrips } from '../../actions';
 
 const TripFlights = ({ match, tripsById, fetchTrips }) => {
 
+  // update
   fetchTrips(1)
+  // update
   const { id } = match.params;
   const trip = tripsById[id];
 
@@ -64,9 +66,9 @@ const mapStateToProps = (state) => ({
   tripsById: state.tripsById
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => bindActionCreators({
   fetchTrips
-});
+}, dispatch);
 
 export default connect(
   mapStateToProps,

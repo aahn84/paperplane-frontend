@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import {withRouter} from 'react-router-dom';
-import WelcomeHeader from '../Welcome/WelcomeHeader';
+// import WelcomeHeader from '../Welcome/WelcomeHeader';
 import '../Welcome/Welcome.css';
 
 const TopNav = ({ location }) => {

@@ -23,19 +23,21 @@ class TripNotes extends Component {
   }
 
   componentDidMount() {
+    // update
     this.props.fetchTrips(1)
+    // update
   }
 
   handleChange = (e) => {
     this.setState({ notes: e.target.value }, () => {
       const { trip_id, notes } = this.state;
-      axios.patch(`${BASE_URL}/api/trips/${trip_id}`, { notes })
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
+      return axios.patch(`${BASE_URL}/api/trips/${trip_id}`, { notes })
+      // .then(res => {
+      //   console.log(res.data);
+      // })
+      // .catch(err => {
+      //   console.log(err);
+      // })
     })
   }
 
@@ -50,7 +52,7 @@ class TripNotes extends Component {
               <textarea
                 className="textarea"
                 placeholder="Trip Notes"
-                defaultValue={""}
+                default={""}
                 value={ `${ this.state.notes }` }
                 onChange={ this.handleChange }
               />

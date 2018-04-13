@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import './MyTrips.css';
-import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import TripNotes from '../TripFlights/TripNotes';
-import DatePicker from 'react-datepicker';
+// import { fetchTrips } from '../../actions';
+// import TripNotes from '../TripFlights/TripNotes';
 import moment from 'moment';
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_DEV;
@@ -16,7 +17,9 @@ class AddTrip extends Component {
     start_date: moment(),
     end_date: moment(),
     notes: '',
+    // update
     user_id: 1,
+    // update
     loading: false,
   }
 
@@ -24,20 +27,24 @@ class AddTrip extends Component {
     e.preventDefault();
     console.log('CLICKED!', this.state);
 
-    this.setState({ loading: true });
-
     const { user_id, title, start_date, end_date, notes } = this.state;
 
-    axios.post(`${BASE_URL}/api/trips`, { user_id, title, start_date, end_date, notes })
+    this.setState({ loading: true });
+    return axios.post(`${BASE_URL}/api/trips`, { user_id, title, start_date, end_date, notes })
       .then(res => {
         console.log(res);
+        console.log('true?', this.state);
+        this.setState({ loading: false });
+        console.log('false?', this.state);
+        return this.props.history.push('/mytrips');
       })
       .catch(err => {
         console.log(err);
       })
 
-    this.setState({ loading: false });
-    console.log(this.state);
+    // this.setState({ loading: false });
+    // console.log(this.state);
+    // this.props.history.push('/mytrips');
   }
 
   handleChangeStart = (date) => {
@@ -146,7 +153,7 @@ class AddTrip extends Component {
                       <textarea
                         className="textarea"
                         placeholder="Trip Notes"
-                        defaultValue={""}
+                        default={""}
                         value={ `${ this.state.notes }` }
                         onChange={ (e) => this.setState({ notes: e.target.value }) }
                       />
@@ -177,5 +184,18 @@ class AddTrip extends Component {
     )
   }
 }
+
+// const mapStateToProps = (state) => ({
+//   trips: state.trips
+// });
+
+// const mapDispatchToProps = (dispatch) => bindActionCreators({
+//   fetchTrips
+// }, dispatch);
+
+// export default connect(
+//   null,
+//   mapDispatchToProps
+// )(AddTrip);
 
 export default AddTrip;

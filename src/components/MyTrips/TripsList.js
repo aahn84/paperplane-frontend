@@ -2,7 +2,7 @@ import React from 'react';
 import './MyTrips.css';
 import TripsDetail from './TripsDetail'
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 // import { fetchTrips } from '../../actions';
 
 

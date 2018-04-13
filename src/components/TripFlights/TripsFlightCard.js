@@ -15,7 +15,9 @@ const TripsFlightCard = ({ flight, fetchTrips }) => {
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
       let id = 1
+      // update
       fetchTrips(id);
+      // update
     }
   };
 
