@@ -40,7 +40,7 @@ class TripNotes extends Component {
   }
 
   render() {
-
+    
     return (
       <div className="TripNotes">
         <div className="TripNotes-container">
