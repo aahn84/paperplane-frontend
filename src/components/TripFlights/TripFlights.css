@@ -232,7 +232,6 @@ label {
   font-size: 20px;
 }
 
-/* .AddFlight-depart {
-  border: 2px solid red;
+.react-datepicker-wrapper, .react-datepicker__input-container {
   width: 100%;
-} */
+}

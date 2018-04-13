@@ -43,20 +43,15 @@ class AddFlight extends Component {
 
   submitForm = (e, tripId) => {
     e.preventDefault();
-    console.log('CLICKED!', this.state);
-    console.log(`${BASE_URL}/api/flights/${this.state.trip_id}`);
 
     const { airline_name, flight_num, depart_date, user_id } = this.state;
 
     this.setState({ loading: true });
       return axios.post(`${BASE_URL}/api/flights/${this.state.trip_id}`, { airline_name, flight_num, depart_date, user_id })
       .then(res => {
-        console.log(res);
-        console.log('true?', this.state);
         this.setState({ loading: false });
-        console.log('false?', this.state);
         // !!!UPDATE!!!
-        return this.props.history.push(`/mytrips/${tripId}`);
+        return this.props.history.push(`/mytrips/${this.state.trip_id}`);
         // !!!UPDATE!!!
       })
       .catch(err => {
@@ -66,7 +61,7 @@ class AddFlight extends Component {
 
   render() {
     const { pathname } = this.props.location;
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <div className="AddFlight">
