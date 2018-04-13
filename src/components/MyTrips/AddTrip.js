@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import './MyTrips.css';
 import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 // import { fetchTrips } from '../../actions';
-// import TripNotes from '../TripFlights/TripNotes';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -17,9 +16,9 @@ class AddTrip extends Component {
     start_date: moment(),
     end_date: moment(),
     notes: '',
-    // update
+  // update
     user_id: 1,
-    // update
+  // update
     loading: false,
   }
 
@@ -30,7 +29,7 @@ class AddTrip extends Component {
     const { user_id, title, start_date, end_date, notes } = this.state;
 
     this.setState({ loading: true });
-    return axios.post(`${BASE_URL}/api/trips`, { user_id, title, start_date, end_date, notes })
+    return axios.post(`${BASE_URL}/api/trips`, { title, start_date, end_date, notes, user_id })
       .then(res => {
         console.log(res);
         console.log('true?', this.state);
@@ -41,10 +40,6 @@ class AddTrip extends Component {
       .catch(err => {
         console.log(err);
       })
-
-    // this.setState({ loading: false });
-    // console.log(this.state);
-    // this.props.history.push('/mytrips');
   }
 
   handleChangeStart = (date) => {

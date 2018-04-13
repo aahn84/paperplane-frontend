@@ -11,11 +11,11 @@ import { fetchTrips } from '../../actions';
 class MyTrips extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      trips: props.trips
-    }
+    // this.state = {
+    //   trips: props.trips
+    // }
   }
-  
+
   // componentWillReceiveProps(nextProps) {
   //   this.setState({
   //     trips: nextProps.trips
@@ -50,15 +50,15 @@ class MyTrips extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  trips: state.trips
-});
+// const mapStateToProps = (state) => ({
+//   trips: state.trips
+// });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   fetchTrips
 }, dispatch);
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(MyTrips);

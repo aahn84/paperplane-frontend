@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './TripFlights.css';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import {withRouter} from 'react-router-dom';
-// import DatePicker from 'react-datepicker';
 import moment from 'moment';
+// import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_DEV;
 
 
 class AddFlight extends Component {
@@ -18,9 +19,9 @@ class AddFlight extends Component {
       flight_num: '',
       depart_date: '',
       // depart_date: moment(),
-      // update
+    // update
       user_id: 1,
-      // update
+    // update
       loading: false,
     }
   }
@@ -39,6 +40,11 @@ class AddFlight extends Component {
   submitForm = (e) => {
     e.preventDefault();
     console.log('CLICKED!', this.state);
+
+    const { airline_name, flight_num, depart_date, user_id } = this.state;
+
+    this.setState({ loading: true });
+    // return axios.post
   }
 
   render() {
