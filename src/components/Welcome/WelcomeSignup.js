@@ -81,7 +81,11 @@ class WelcomeSignup extends Component {
                     />
                   </div>
                 </div>
-              <button id="LoginSignup-button" className={`button is-block is-info is-fullwidth ${ this.state.loading ? 'is-loading' : ''}`}>Sign Up</button>
+              <button
+                id="LoginSignup-button"
+                className={`button is-block is-info is-fullwidth ${ this.state.loading ? 'is-loading' : ''}`}
+                >Sign Up
+              </button>
             </form>
 
             { signupSuccess ? (<div></div>) : (<div className="LoginSignup-error">

@@ -114,6 +114,7 @@ class MyAccount extends Component {
                   id="MyAccount-update"
                   className="button is-block is-info"
                   onClick={ this.submitForm }
+                  onTouchEnd={ this.submitForm }
                   >Update Account
                 </button>
               </div>

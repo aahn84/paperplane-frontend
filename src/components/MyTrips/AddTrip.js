@@ -162,6 +162,7 @@ class AddTrip extends Component {
                   <button id="AddTrip-add"
                     className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}
                     onClick={ this.submitForm }
+                    onTouchEnd={ this.submitForm }
                     >Add Trip
                   </button>
                 </div>
