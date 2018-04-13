@@ -28,7 +28,7 @@ class TripNotes extends Component {
 
   handleChange = (e) => {
     this.setState({ notes: e.target.value }, () => {
-      const { trip_id, notes } = this.state
+      const { trip_id, notes } = this.state;
       axios.patch(`${BASE_URL}/api/trips/${trip_id}`, { notes })
       .then(res => {
         console.log(res.data);
@@ -40,7 +40,7 @@ class TripNotes extends Component {
   }
 
   render() {
-    
+
     return (
       <div className="TripNotes">
         <div className="TripNotes-container">

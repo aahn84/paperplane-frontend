@@ -7,6 +7,8 @@ import TripNotes from '../TripFlights/TripNotes';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_DEV;
 
 class AddTrip extends Component {
   state = {
@@ -14,13 +16,28 @@ class AddTrip extends Component {
     start_date: moment(),
     end_date: moment(),
     notes: '',
-    user_id: '',
+    user_id: 1,
     loading: false,
   }
 
   submitForm = (e) => {
     e.preventDefault();
     console.log('CLICKED!', this.state);
+
+    this.setState({ loading: true });
+
+    const { user_id, title, start_date, end_date, notes } = this.state;
+
+    axios.post(`${BASE_URL}/api/trips`, { user_id, title, start_date, end_date, notes })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+    this.setState({ loading: false });
+    console.log(this.state);
   }
 
   handleChangeStart = (date) => {
@@ -93,21 +110,21 @@ class AddTrip extends Component {
                 <div id="date-field" className="field">
                   <label className="label">End Date:</label>
                   <DatePicker
-                      className="input"
-                      selected={ this.state.end_date }
-                      onChange={ this.handleChangeEnd }
-                      popperPlacement="top-end"
-                      popperModifiers={{
-                        offset: {
+                    className="input"
+                    selected={ this.state.end_date }
+                    onChange={ this.handleChangeEnd }
+                    popperPlacement="top-end"
+                    popperModifiers={{
+                      offset: {
+                      enabled: true,
+                      offset: '5px, 10px'
+                      },
+                        preventOverflow: {
                         enabled: true,
-                        offset: '5px, 10px'
-                        },
-                          preventOverflow: {
-                          enabled: true,
-                          escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
-                          boundariesElement: 'viewport'
-                        }
-                      }}
+                        escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
+                        boundariesElement: 'viewport'
+                      }
+                    }}
                   />
                   {/* <div className="control">
                     <input

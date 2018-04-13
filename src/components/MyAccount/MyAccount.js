@@ -3,6 +3,8 @@ import './MyAccount.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_DEV;
 
 class MyAccount extends Component {
   state = {
@@ -13,8 +15,22 @@ class MyAccount extends Component {
     notifications_on: false,
   }
 
+  submitForm = (e) => {
+    e.preventDefault();
+    console.log('CLICKED!', this.state);
+
+    const { first_name, last_name, email, password, notifications_on } = this.state;
+    // axios.put(`${BASE_URL}/api/users/${id}}`, { first_name, last_name, email, password, notifications_on })
+    //   .then(res => {
+    //     console.log(res.data);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   })
+  }
+
   render() {
-    console.log(this.state.notifications_on);
+    console.log(this.state);
     return (
       <div className="MyAccount">
         <div id="MyAccount-container">
@@ -94,7 +110,12 @@ class MyAccount extends Component {
               </div>
             <div id="MyAccount-buttons-div">
               <div id="MyAccountUpdate" className="MyAccount-update-button">
-                <button id="MyAccount-update" className="button is-block is-info">Update Account</button>
+                <button
+                  id="MyAccount-update"
+                  className="button is-block is-info"
+                  onClick={ this.submitForm }
+                  >Update Account
+                </button>
               </div>
 
               <div id="MyAccountLogout">

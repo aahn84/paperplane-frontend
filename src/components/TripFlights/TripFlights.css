@@ -157,6 +157,10 @@ h1 {
   font-size: 1.5rem;
 }
 
+#AddFlight-form {
+  width: 100%;
+}
+
 .AddFlight-form {
   display: flex;
   flex-direction: column;
@@ -227,3 +231,8 @@ label {
 .fas, .fa-plus-circle {
   font-size: 20px;
 }
+
+/* .AddFlight-depart {
+  border: 2px solid red;
+  width: 100%;
+} */

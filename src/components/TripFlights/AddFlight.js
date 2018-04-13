@@ -10,24 +10,38 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 class AddFlight extends Component {
-  state = {
-    airline_name: '',
-    flight_num: '',
-    depart_date: '',
-    loading: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      airline_name: '',
+      flight_num: '',
+      depart_date: '',
+      // depart_date: moment(),
+      user_id: '',
+      loading: false,
+    }
   }
 
-  toggleCalendar() {
-    return(
-      <DatePicker
-        // selected={this.state.startDate}
-        // onChange={this.handleChange}
-      />
-    )
+  componentDidMount() {
+    // console.log(this.props);
+    // console.log(this.props.match.params.id);
+  }
+
+  handleChangeDepart = (date) => {
+    this.setState({
+      depart_date: date
+    });
+  }
+
+  submitForm = (e) => {
+    e.preventDefault();
+    console.log('CLICKED!', this.state);
   }
 
   render() {
     const { pathname } = this.props.location;
+    console.log(this.state);
 
     return (
       <div className="AddFlight">
@@ -37,57 +51,103 @@ class AddFlight extends Component {
               { pathname === '/track' ? `Track Flight` : `Add New Flight` }
             </h1>
           </div>
-          <div className="AddFlight-form">
-            <div className="field">
-              <label className="label">Airline Name:</label>
+
+          <form id="AddFlight-form">
+            <div className="AddFlight-form">
+              <div className="field">
+                <label className="label">Airline Name:</label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="Alaska" />
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="Alaska"
+                    required="required"
+                    onChange={ (e) => this.setState({ airline_name: e.target.value }) }
+                  />
                 </div>
+              </div>
+
+              <div className="field">
+                <label className="label">Flight Number:</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder="ex: 123"
+                    required="required"
+                    onChange={ (e) => this.setState({ flight_num: e.target.value }) }
+                  />
+                </div>
+              </div>
+
+              <div className="field">
+                <label className="label">Departure Date:</label>
+                {/* <DatePicker
+                  className="input AddFlight-depart"
+                  selected={ this.state.depart_date }
+                  onChange={ this.handleChangeDepart }
+                  popperPlacement="auto"
+                  popperModifiers={{
+                    offset: {
+                    enabled: true,
+                    offset: '5px, 10px'
+                    },
+                      preventOverflow: {
+                      enabled: true,
+                      escapeWithReference: false, // force popper to stay in viewport (even when input is scrolled out of view)
+                      boundariesElement: 'viewport'
+                    }
+                  }}
+                /> */}
+
+                <div className="control">
+                  <input
+                    className="input"
+                    type="text"
+                    placeholder={moment().format('l')}
+                    required="required"
+                    onChange={ (e) => this.setState({ depart_date: moment(e.target.value).format('YYYY-MM-DD') }) }
+                  />
+                </div>
+
+              </div>
+
+              {
+                pathname === '/track' ?
+                (
+                  <div className="TrackFlight">
+                    <div id="TrackFlight-button">
+                      <Link to='/track/:iataNumber'>
+                      <button
+                        id="TrackFlight-track"
+                        className="button is-block is-info"
+                        onClick={ this.submitForm }
+                        >Track Flight
+                      </button>
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="AddFlight-add-cancel">
+                    <div id="AddFlight-buttons">
+                      <button
+                        id="AddFlight-add"
+                        className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}
+                        onClick={ this.submitForm }
+                        >Add Flight
+                      </button>
+                    </div>
+
+                    <Link id="AddFlight-buttons" to="/mytrips/:id">
+                      <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
+                    </Link>
+                  </div>
+                )
+              }
+
             </div>
+          </form>
 
-            <div className="field">
-              <label className="label">Flight Number:</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="ex: 123"
-                />
-              </div>
-            </div>
-
-            <div className="field">
-              <label className="label">Departure Date:</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder={moment().format('l')}
-                />
-              </div>
-            </div>
-
-            { pathname === '/track' ?
-            (<div className="TrackFlight">
-              <div id="TrackFlight-button">
-                <Link to='/track/:iataNumber'>
-                  <button id="TrackFlight-track" className="button is-block is-info">Track Flight</button>
-                </Link>
-              </div>
-            </div>)
-            :
-            (<div className="AddFlight-add-cancel">
-              <div id="AddFlight-buttons">
-                <button id="AddFlight-add" className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}>Add Flight</button>
-              </div>
-
-              <Link id="AddFlight-buttons" to="/mytrips/:id">
-                <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
-              </Link>
-            </div>)
-          }
-
-          </div>
         </div>
       </div>
     )
