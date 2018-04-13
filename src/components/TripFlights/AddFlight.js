@@ -154,7 +154,7 @@ class AddFlight extends Component {
                         id="AddFlight-add"
                         className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}
                         onClick={ this.submitForm }
-                        onTouchEnd={ this.submitForm }
+                        onTouchStart={ this.submitForm }
                         >Add Flight
                       </button>
                     </div>
