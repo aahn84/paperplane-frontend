@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import moment from 'moment';
-// import DatePicker from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_DEV;
@@ -17,11 +17,12 @@ class AddFlight extends Component {
     this.state = {
       airline_name: '',
       flight_num: '',
-      depart_date: '',
-      // depart_date: moment(),
+      // depart_date: '',
+      depart_date: moment(),
     // update
       user_id: 1,
     // update
+      trip_id: this.props.match.params.id || '',
       loading: false,
     }
   }
@@ -29,6 +30,9 @@ class AddFlight extends Component {
   componentDidMount() {
     // console.log(this.props);
     // console.log(this.props.match.params.id);
+    const tripId = this.props.match.params.id;
+    // console.log(tripId);
+    this.setState({ trip_id: tripId})
   }
 
   handleChangeDepart = (date) => {
@@ -37,14 +41,27 @@ class AddFlight extends Component {
     });
   }
 
-  submitForm = (e) => {
+  submitForm = (e, tripId) => {
     e.preventDefault();
     console.log('CLICKED!', this.state);
+    console.log(`${BASE_URL}/api/flights/${this.state.trip_id}`);
 
     const { airline_name, flight_num, depart_date, user_id } = this.state;
 
     this.setState({ loading: true });
-    // return axios.post
+      return axios.post(`${BASE_URL}/api/flights/${this.state.trip_id}`, { airline_name, flight_num, depart_date, user_id })
+      .then(res => {
+        console.log(res);
+        console.log('true?', this.state);
+        this.setState({ loading: false });
+        console.log('false?', this.state);
+        // !!!UPDATE!!!
+        return this.props.history.push(`/mytrips/${tripId}`);
+        // !!!UPDATE!!!
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   render() {
@@ -90,7 +107,7 @@ class AddFlight extends Component {
 
               <div className="field">
                 <label className="label">Departure Date:</label>
-                {/* <DatePicker
+                <DatePicker
                   className="input AddFlight-depart"
                   selected={ this.state.depart_date }
                   onChange={ this.handleChangeDepart }
@@ -106,9 +123,9 @@ class AddFlight extends Component {
                       boundariesElement: 'viewport'
                     }
                   }}
-                /> */}
+                />
 
-                <div className="control">
+                {/* <div className="control">
                   <input
                     className="input"
                     type="text"
@@ -116,7 +133,7 @@ class AddFlight extends Component {
                     required="required"
                     onChange={ (e) => this.setState({ depart_date: moment(e.target.value).format('YYYY-MM-DD') }) }
                   />
-                </div>
+                </div> */}
 
               </div>
 
@@ -146,7 +163,10 @@ class AddFlight extends Component {
                       </button>
                     </div>
 
-                    <Link id="AddFlight-buttons" to="/mytrips/:id">
+                    {/* <Link id="AddFlight-buttons" to="/mytrips"> */}
+                    {/* !!!UPDATE!!! */}
+                    <Link id="AddFlight-buttons" to={`/mytrips/${this.state.user_id}`}>
+                    {/* !!!UPDATE!!! */}
                       <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
                     </Link>
                   </div>
