@@ -11,22 +11,54 @@ class MyAccount extends Component {
     first_name: '',
     last_name: '',
     email: '',
+    phone: null,
     password: '',
+    // !!!UPDATE!!!
+    user_id: 1,
+    // !!!UPDATE!!!
     notifications_on: false,
+    updated: false,
+  }
+
+  validatePhone = () => {
+    if (this.state.phone) {
+      let formattedPhone = (this.state.phone).replace(/\D/g,'');
+      // console.log('formatted', formattedPhone);
+
+      if (formattedPhone.length === 10) {
+        this.setState({ phone: formattedPhone })
+      }
+      else {
+        this.setState({ phone: null })
+      }
+    }
   }
 
   submitForm = (e) => {
     e.preventDefault();
     console.log('CLICKED!', this.state);
+    this.validatePhone();
+    this.setState({ loading: true });
 
-    const { first_name, last_name, email, password, notifications_on } = this.state;
-    // axios.put(`${BASE_URL}/api/users/${id}}`, { first_name, last_name, email, password, notifications_on })
-    //   .then(res => {
-    //     console.log(res.data);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
+    const { first_name, last_name, email, phone, password, notifications_on, user_id } = this.state;
+
+    // !!!UPDATE!!!
+    const response = async () => {
+      await axios.patch(`${BASE_URL}/api/users/${this.state.user_id}`, { first_name, last_name, email, password, notifications_on })
+    }
+    axios.patch(`${BASE_URL}/api/users/${this.state.user_id}`, { first_name, last_name, email, password, notifications_on })
+    // !!!UPDATE!!!
+      .then(res => {
+        console.log('patched!!!', res);
+        if (res.status === 200) {
+          this.setState({updated: true})
+        }
+        return res
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    this.setState({ loading: false });
   }
 
   render() {
@@ -70,7 +102,7 @@ class MyAccount extends Component {
                 <input
                   className="input"
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="Email"
                   required="required"
                   value={ this.state.email }
                   onChange={ (e) => this.setState({ email: e.target.value })}
@@ -81,8 +113,20 @@ class MyAccount extends Component {
               <div className="control">
                 <input
                   className="input"
+                  type="phone"
+                  placeholder="Phone"
+                  // required="required"
+                  value={ this.state.phone }
+                  onChange={ (e) => this.setState({ phone: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <input
+                  className="input"
                   type="password"
-                  placeholder="Your Password"
+                  placeholder="Password"
                   required="required"
                   value={ this.state.password }
                   onChange={ (e) => this.setState({ password: e.target.value }) }
@@ -104,10 +148,8 @@ class MyAccount extends Component {
                   Off
                 </span>
               </div>
+            </div>
 
-              {/* <span className="button is-info is-selected">On</span>
-              <span className="button">Off</span> */}
-              </div>
             <div id="MyAccount-buttons-div">
               <div id="MyAccountUpdate" className="MyAccount-update-button">
                 <button
@@ -118,6 +160,12 @@ class MyAccount extends Component {
                   >Update Account
                 </button>
               </div>
+
+              {
+                this.state.updated
+                ? <p className="MyAccount-updated">Account Updated</p>
+                : null
+              }
 
               <div id="MyAccountLogout">
                 <Link id="MyAccount-buttons" to="/">

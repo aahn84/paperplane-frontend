@@ -43,20 +43,20 @@ class AddFlight extends Component {
 
   submitForm = (e, tripId) => {
     e.preventDefault();
+    this.setState({ loading: true });
 
     const { airline_name, flight_num, depart_date, user_id } = this.state;
 
-    this.setState({ loading: true });
-      return axios.post(`${BASE_URL}/api/flights/${this.state.trip_id}`, { airline_name, flight_num, depart_date, user_id })
-      .then(res => {
-        this.setState({ loading: false });
-        // !!!UPDATE!!!
-        return this.props.history.push(`/mytrips/${this.state.trip_id}`);
-        // !!!UPDATE!!!
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    return axios.post(`${BASE_URL}/api/flights/${this.state.trip_id}`, { airline_name, flight_num, depart_date, user_id })
+    .then(res => {
+      this.setState({ loading: false });
+      // !!!UPDATE!!!
+      return this.props.history.push(`/mytrips/${this.state.trip_id}`);
+      // !!!UPDATE!!!
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   render() {
@@ -79,7 +79,7 @@ class AddFlight extends Component {
                 <div className="control">
                   <input
                     className="input"
-                    type="text"
+                    type="phone"
                     placeholder="Alaska"
                     required="required"
                     onChange={ (e) => this.setState({ airline_name: e.target.value }) }

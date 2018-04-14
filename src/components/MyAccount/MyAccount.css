@@ -72,7 +72,7 @@ label {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 10em;
+  /* min-height: 5em; */
   width: 100%;
 }
 
@@ -94,6 +94,14 @@ label {
   border: 1px solid #3f83bc;
   color: #3f83bc;
   width: 100%;
+}
+
+.MyAccount-updated{
+  color: #ea9438;
+  font-size: 15px;
+  /* font-weight: bold; */
+  font-style: italic;
+  margin-top: 3px;
 }
 
 #MyAccount-logout {
