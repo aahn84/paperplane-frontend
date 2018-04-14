@@ -43,14 +43,11 @@ class MyAccount extends Component {
     const { first_name, last_name, email, phone, password, notifications_on, user_id } = this.state;
 
     // !!!UPDATE!!!
-    const response = async () => {
-      await axios.patch(`${BASE_URL}/api/users/${this.state.user_id}`, { first_name, last_name, email, password, notifications_on })
-    }
     axios.patch(`${BASE_URL}/api/users/${this.state.user_id}`, { first_name, last_name, email, password, notifications_on })
     // !!!UPDATE!!!
       .then(res => {
         console.log('patched!!!', res);
-        if (res.status === 200) {
+        if (res.status === 201) {
           this.setState({updated: true})
         }
         return res
