@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import './Welcome.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchUserData } from '../../actions';
+import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class WelcomeSignup extends Component {
   state = {
@@ -9,6 +14,7 @@ class WelcomeSignup extends Component {
     email: '',
     password: '',
     loading: false,
+    signupSuccess: true,
   }
 
   // componentDidMount() {
@@ -17,9 +23,31 @@ class WelcomeSignup extends Component {
   //   }
   // }
 
+  signup = async () => {
+  const { loading, signupSuccess, ...signupBody } = this.state;
+    if (
+      signupBody.first_name &&
+      signupBody.last_name &&
+      signupBody.email &&
+      signupBody.password
+    ) {
+      this.setState({ loading: true });
+      const response = await axios.post(`${BASE_URL}/auth/signup`, signupBody);
+      if (response.status === 200) {
+        const token = response.headers.auth.split(' ')[1];
+        localStorage.setItem('token', token);
+        const { fetchUserData, history } = this.props;
+        fetchUserData();
+        history.push('/mytrips');
+      }
+    }
+    this.setState({ loading: false });
+    this.setState({ signupSuccess: false });
+  }
+
   render() {
     // let signupSuccess;
-    let signupSuccess = true;
+    // let signupSuccess = true;
 
     return (
       <div id="Welcome-container" className="has-text-centered">
@@ -88,7 +116,7 @@ class WelcomeSignup extends Component {
               </button>
             </form>
 
-            { signupSuccess ? (<div></div>) : (<div className="LoginSignup-error">
+            { this.state.signupSuccess ? (<div></div>) : (<div className="LoginSignup-error">
               <p>Error signing up</p>
             </div>) }
           </div>
@@ -104,4 +132,16 @@ class WelcomeSignup extends Component {
   }
 }
 
-export default WelcomeSignup;
+
+// const mapStateToProps = (state) => ({
+//   // token: state.token
+// });
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchUserData,
+}, dispatch);
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(WelcomeSignup);

@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 // import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import WelcomeLogin from './components/Welcome/WelcomeLogin';
 import WelcomeSignup from './components/Welcome/WelcomeSignup';
@@ -16,54 +16,68 @@ import AddTrip from './components/MyTrips/AddTrip';
 import AddFlight from './components/TripFlights/AddFlight';
 import MyAccount from './components/MyAccount/MyAccount';
 
-class App extends Component {
-  // componentDidMount() {
-  //   if (this.props.user_id) this.props.setUserInfo(this.props.user_id);
-  // }
+const App = ({ token }) => {
 
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <TopNav />
-          <Switch>
-            <Route exact path="/" component={ WelcomeLogin } />
-            <Route path="/signup" component={ WelcomeSignup } />
-            <Route exact path="/mytrips" component={ MyTrips } />
-            <Route exact path="/mytrips/addtrip" component={ AddTrip } />
-            <Route exact path="/mytrips/:id/addflight" component={ AddFlight } />
-            <Route exact path="/mytrips/:id/:flightId" component={ FlightDetails } />
-            <Route exact path="/mytrips/:id" component={ TripFlights } />
-            <Route exact path="/myaccount" component={ MyAccount } />
-            <Route exact path="/track/:iataNumber" component={ FlightDetails } />
-            {/* <Route exact path="/track/flightdetails" component={ FlightDetails } /> */}
-            <Route exact path="/track" component={ AddFlight } />
+  return (
+    <Router>
+      <div className="App">
+        <TopNav />
+        <Switch>
+          <Route path="/" render={ (props) => (
+            token ? <Redirect to="/mytrips" /> : <WelcomeLogin { ...props } />
+          ) } />
+          <Route path="/signup" render={ (props) => (
+            token ? <Redirect to="/mytrips" /> : <WelcomeSignup { ...props } />
+          ) } />
+          <Route exact path="/mytrips" render={ (props) => (
+            token ? <MyTrips { ...props } /> : <Redirect to="/" />
+          ) } />
+          <Route exact path="/mytrips/addtrip" render={ (props) => (
+            token ? <AddTrip { ...props } /> : <Redirect to="/" />
+          ) } />
+          <Route exact path="/mytrips/:id/addflight" render={ (props) => (
+            token ? <AddFlight { ...props } /> : <Redirect to="/" />
+          ) } />
+          <Route exact path="/mytrips/:id/:flightId" render={ (props) => (
+            token ? <FlightDetails { ...props } /> : <Redirect to="/" />
+          ) } />
+          <Route exact path="/mytrips:id" render={ (props) => (
+            token ? <TripFlights { ...props } /> : <Redirect to="/" />
+          ) } />
+          <Route exact path="/myaccount" render={ (props) => (
+            token ? <MyAccount { ...props } /> : <Redirect to="/" />
+          ) } />
+          <Route exact path="/track/:iataNumber" render={ (props) => (
+            token ? <FlightDetails { ...props } /> : <Redirect to="/" />
+          ) } />
+          <Route exact path="/track" render={ (props) => (
+            token ? <AddFlight { ...props } /> : <Redirect to="/" />
+          ) } />
 
-            {/* <WelcomeLogin /> */}
-            {/* <WelcomeSignup /> */}
-            {/* <MyTrips /> */}
-            {/* <TripFlights /> */}
-            {/* <FlightDetails /> */}
-            {/* <AddTrip /> */}
-            {/* <AddFlight /> */}
-          </Switch>
-          <BottomNav />
-        </div>
-      </Router>
-    );
-  }
+          {/* <Route exact path="/" component={ WelcomeLogin } /> */}
+          {/* <Route path="/signup" component={ WelcomeSignup } /> */}
+          {/* <Route exact path="/mytrips" component={ MyTrips } /> */}
+          {/* <Route exact path="/mytrips/addtrip" component={ AddTrip } /> */}
+          {/* <Route exact path="/mytrips/:id/addflight" component={ AddFlight } /> */}
+          {/* <Route exact path="/mytrips/:id/:flightId" component={ FlightDetails } /> */}
+          {/* <Route exact path="/mytrips/:id" component={ TripFlights } /> */}
+          {/* <Route exact path="/myaccount" component={ MyAccount } /> */}
+          {/* <Route exact path="/track/:iataNumber" component={ FlightDetails } /> */}
+          {/* <Route exact path="/track" component={ AddFlight } /> */}
+        </Switch>
+        <BottomNav />
+      </div>
+    </Router>
+  )
 }
+
+// {/* <Route exact path="/track/flightdetails" component={ FlightDetails } /> */}
 
 
 const mapStateToProps = (state) => ({
-  user_id: state.user_id,
+  token: state.token,
 });
-
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  // setUserInfo,
-}, dispatch);
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
 )(App);

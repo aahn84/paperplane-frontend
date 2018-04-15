@@ -3,14 +3,16 @@ import './Welcome.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { getUserData } from '../../actions';
+import { fetchUserData } from '../../actions';
 import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class WelcomeLogin extends Component {
   state = {
     email: '',
     password: '',
     loading: false,
+    loginSuccess: true,
   }
 
   // componentDidMount() {
@@ -18,10 +20,27 @@ class WelcomeLogin extends Component {
   //   if (token) this.props.history.push('/mytrips');
   // }
 
+  login = async () => {
+  const { loading, loginSuccess, ...loginBody } = this.state;
+    if (loginBody.email && loginBody.password) {
+      this.setState({ loading: true });
+      const response = await axios.post(`${BASE_URL}/auth/login`, loginBody);
+      if (response.status === 200) {
+        const token = response.headers.auth.split(' ')[1];
+        localStorage.setItem('token', token);
+        const { history, fetchUserData } = this.props;
+        fetchUserData();
+        history.push('/mytrips');
+      }
+    }
+    this.setState({ loading: false });
+    this.setState({ loginSuccess: false });
+  }
+
 
   render() {
     // let loginSuccess;
-    let loginSuccess = true;
+    // let loginSuccess = true;
 
     return (
       <div id="Welcome-container" className="has-text-centered">
@@ -65,7 +84,7 @@ class WelcomeLogin extends Component {
               </button>
             </form>
 
-            { loginSuccess ? (<div></div>) : (<div className="LoginSignup-error">
+            { this.state.loginSuccess ? (<div></div>) : (<div className="LoginSignup-error">
               <p>Error logging in</p>
             </div>) }
 
@@ -82,15 +101,15 @@ class WelcomeLogin extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  // token: state.token,
-});
+// const mapStateToProps = (state) => ({
+//   // token: state.token
+// });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  // getUserData,
+  fetchUserData,
 }, dispatch);
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(WelcomeLogin);

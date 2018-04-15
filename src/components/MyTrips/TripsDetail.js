@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { fetchTrips } from '../../actions';
 import moment from 'moment';
 import axios from 'axios';
-const BASE_URL = process.env.REACT_APP_DEV;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 const Trip = ({ trip, fetchTrips }) => {

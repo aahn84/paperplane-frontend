@@ -8,7 +8,7 @@ import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
-const BASE_URL = process.env.REACT_APP_DEV;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class AddTrip extends Component {
   state = {

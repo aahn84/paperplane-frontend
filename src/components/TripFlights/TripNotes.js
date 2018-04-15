@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './TripFlights.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setActiveTrip, fetchTrips } from '../../actions'
+import { fetchTrips } from '../../actions'
 import axios from 'axios';
-const BASE_URL = process.env.REACT_APP_DEV;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class TripNotes extends Component {
   constructor(props) {
@@ -66,11 +66,9 @@ class TripNotes extends Component {
 
 const mapStateToProps = (state) => ({
   tripsById: state.tripsById,
-  setTrip: state.setTrip,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  setActiveTrip,
   fetchTrips
 }, dispatch);
 

@@ -11,9 +11,9 @@ import { fetchTrips } from '../../actions';
 class MyTrips extends Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   trips: props.trips
-    // }
+    this.state = {
+      user: props.user
+    }
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -24,7 +24,9 @@ class MyTrips extends Component {
 
   componentDidMount() {
     // update
-    this.props.fetchTrips(1)
+    const user_id = this.state.user.id;
+    this.props.fetchTrips(user_id);
+    // this.props.fetchTrips(1)
     // update
   }
 
@@ -50,15 +52,16 @@ class MyTrips extends Component {
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   trips: state.trips
-// });
+const mapStateToProps = (state) => ({
+  user: state.user,
+  // trips: state.trips
+});
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   fetchTrips
 }, dispatch);
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(MyTrips);

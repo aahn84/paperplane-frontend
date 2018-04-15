@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import axios from 'axios';
-const BASE_URL = process.env.REACT_APP_DEV;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class MyAccount extends Component {
   state = {
@@ -112,8 +112,9 @@ class MyAccount extends Component {
                   className="input"
                   type="phone"
                   placeholder="Phone"
-                  // required="required"
                   value={ this.state.phone }
+                  required={ this.state.notifications_on ? "required" : ""}
+                  // required="required"
                   onChange={ (e) => this.setState({ phone: e.target.value })}
                 />
               </div>
