@@ -1,7 +1,6 @@
 import React from 'react';
 import './FlightDetails.css';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import FlightDetailCard from './FlightDetailCard'
 
 const FlightDetails = ({ match, tripsById }) => {

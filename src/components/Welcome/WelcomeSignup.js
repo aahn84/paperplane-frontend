@@ -17,12 +17,6 @@ class WelcomeSignup extends Component {
     signupSuccess: true,
   }
 
-  // componentDidMount() {
-  //   if (JSON.parse(localStorage.getItem('token'))) {
-  //     this.props.history.push('/mytrips');
-  //   }
-  // }
-
   signup = async () => {
   const { isFetchingUser, signupSuccess, ...signupBody } = this.state;
     if (
@@ -58,7 +52,10 @@ class WelcomeSignup extends Component {
             <figure className="avatar">
               <img src="/paper-plane.png" alt="logo" />
             </figure>
-            <form>
+            <form onSubmit={ (e) => {
+              e.preventDefault();
+              this.signup();
+            } }>
               <div className="WelcomeSignup-fullname">
                 <div id="WelcomeSignup-first" className="field">
                   <div className="control">
@@ -112,6 +109,10 @@ class WelcomeSignup extends Component {
               <button
                 id="LoginSignup-button"
                 className={`button is-block is-info is-fullwidth ${ this.state.isFetchingUser ? 'is-loading' : ''}`}
+                onTouchStart={ (e) => {
+                  e.preventDefault();
+                  this.signup();
+                } }
                 >Sign Up
               </button>
             </form>

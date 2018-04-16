@@ -10,6 +10,7 @@ class TripNotes extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      user_id: this.props.user.user_id,
       trip_id: props.id,
       notes: props.notes || '',
       // notes: props.tripsById[props.id].notes || '',
@@ -23,8 +24,12 @@ class TripNotes extends Component {
   }
 
   componentDidMount() {
+    this.setState({
+
+    })
     // update
-    this.props.fetchTrips(1)
+    // this.props.fetchTrips(1)
+    this.props.fetchTrips(this.state.user_id)
     // update
   }
 
@@ -65,6 +70,7 @@ class TripNotes extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  user: state.user,
   tripsById: state.tripsById,
 });
 

@@ -20,7 +20,7 @@ export function fetchUser() {
     }
     if (!fetchingUser) dispatch({ type: FETCHING_USER });
     const response = await axios.get(
-      `${BASE_URL}/users/`,
+      `${BASE_URL}/api/users/`,
       { headers: { token } }
     );
     const { user } = response.data;

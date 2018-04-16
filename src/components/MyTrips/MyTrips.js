@@ -44,7 +44,7 @@ class MyTrips extends Component {
             </span>
           </div>
 
-          <TripsList />
+          {/* <TripsList /> */}
 
         </div>
       </div>

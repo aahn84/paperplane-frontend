@@ -11,22 +11,19 @@ class WelcomeLogin extends Component {
   state = {
     email: '',
     password: '',
-    loading: false,
+    // loading: false,
     isFetchingUser: false,
     loginSuccess: true,
   }
 
-  // componentDidMount() {
-  //   const token = JSON.parse(localStorage.getItem('token'));
-  //   if (token) this.props.history.push('/mytrips');
-  // }
-
   login = async () => {
-  const { loading, loginSuccess, ...loginBody } = this.state;
+  const { loginSuccess, ...loginBody } = this.state;
+  console.log({ loginSuccess, ...loginBody });
     if (loginBody.email && loginBody.password) {
-      this.setState({ loading: true, isFetchingUser: true });
-      const response = await axios.post(`${BASE_URL}/api/auth/login`, loginBody);
+      this.setState({ isFetchingUser: true });
+      const response = await axios.post(`${BASE_URL}/auth/login`, loginBody);
       if (response.status === 200) {
+        console.log('RESPONSE?', response);
         const token = response.headers.auth.split(' ')[1];
         localStorage.setItem('token', token);
         const { history, fetchUserData } = this.props;
@@ -34,7 +31,7 @@ class WelcomeLogin extends Component {
         history.push('/mytrips');
       }
     }
-    this.setState({ loading: false });
+    // this.setState({ loading: false });
     this.setState({ loginSuccess: false });
   }
 
@@ -52,7 +49,10 @@ class WelcomeLogin extends Component {
             <figure className="avatar">
               <img src="/paper-plane.png" alt="logo" />
             </figure>
-            <form>
+            <form onSubmit={ (e) => {
+              e.preventDefault();
+              this.login();
+            } }>
               <div className="field">
                 <div className="control">
                   <input
@@ -80,7 +80,11 @@ class WelcomeLogin extends Component {
 
               <button
                 id="LoginSignup-button"
-                className={`button is-block is-info is-fullwidth ${ this.state.loading ? 'is-loading' : ''}` }
+                className={`button is-block is-info is-fullwidth ${ this.state.isFetchingUser ? 'is-loading' : ''}` }
+                onTouchStart={ (e) => {
+                  e.preventDefault();
+                  this.login();
+                } }
                 >Login
               </button>
             </form>

@@ -6,9 +6,7 @@ import rootReducer from './reducers';
 
 
 const logger = createLogger({
-  // predicate: (getState, action) => (
-  //   action.type !== SHOE_MOUSED_ON && action.type !== SHOE_MOUSED_OFF
-  // )
+
 });
 
 

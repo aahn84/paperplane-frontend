@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './MyAccount.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
+import { fetchUser } from '../../actions';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -13,17 +14,32 @@ class MyAccount extends Component {
     email: '',
     phone: null,
     password: '',
-    // !!!UPDATE!!!
-    user_id: 1,
-    // !!!UPDATE!!!
     notifications_on: false,
+    user_id: '',
     updated: false,
+  }
+
+  componentDidMount() {
+    this.populateUser();
+  }
+
+  populateUser = () => {
+    if (this.props.user) {
+      this.setState({
+        first_name: this.props.user.first_name,
+        last_name: this.props.user.last_name,
+        email: this.props.user.email,
+        phone: this.props.user.phone,
+        password: this.props.user.password,
+        notifications_on: this.prios.user.notifications_on,
+        user_id: this.props.user.user_id
+      })
+    }
   }
 
   validatePhone = () => {
     if (this.state.phone) {
       let formattedPhone = (this.state.phone).replace(/\D/g,'');
-      // console.log('formatted', formattedPhone);
 
       if (formattedPhone.length === 10) {
         this.setState({ phone: formattedPhone })
@@ -36,7 +52,7 @@ class MyAccount extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log('CLICKED!', this.state);
+    // console.log('CLICKED!', this.state);
     this.validatePhone();
     this.setState({ loading: true });
 
@@ -181,14 +197,15 @@ class MyAccount extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  // user: state.user,
+  token: state.token,
+  user: state.user,
 });
 
-// const mapDispatchToProps = (dispatch) => bindActionCreators({
-//
-// }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchUser
+}, dispatch);
 
 export default connect(
   mapStateToProps,
-  // mapDispatchToProps
+  mapDispatchToProps
 )(MyAccount);
