@@ -10,7 +10,7 @@ const TripsList = ({ trips }) => {
   const tripEls = trips.map((trip, i) => {
     return <TripsDetail key={ i } trip={ trip } />
   })
-  console.log(trips);
+  console.log('trips list', trips);
   return (
     <div className="TripsList-container">
       { trips.length

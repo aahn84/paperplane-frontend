@@ -12,7 +12,7 @@ class MyAccount extends Component {
     first_name: '',
     last_name: '',
     email: '',
-    phone: null,
+    phone: '',
     password: '',
     notifications_on: false,
     user_id: '',
@@ -31,7 +31,7 @@ class MyAccount extends Component {
         email: this.props.user.email,
         phone: this.props.user.phone,
         password: this.props.user.password,
-        notifications_on: this.prios.user.notifications_on,
+        notifications_on: this.props.user.notifications_on,
         user_id: this.props.user.user_id
       })
     }

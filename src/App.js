@@ -23,7 +23,6 @@ const App = ({ token }) => {
     <Router>
       <div className="App">
         <TopNav />
-        {ShareFlightForm}
         <Switch>
           <Route exact path="/" render={ (props) => (
             token ? <Redirect to="/mytrips" /> : <WelcomeLogin { ...props } />

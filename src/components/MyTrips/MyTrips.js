@@ -31,7 +31,7 @@ class MyTrips extends Component {
   }
 
   render() {
-    console.log('state', this.state);
+    // console.log('state', this.state);
     return (
       <div className="MyTrips">
         <div id="MyTrips-container" className="has-text-centered">

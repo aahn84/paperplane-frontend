@@ -15,10 +15,12 @@ const TopNav = ({ location }) => {
         <div className="container">
           <div className="navbar-brand">
             <Link to='/mytrips'>
-              <a className="navbar-item">
+              <div className="navbar-item">
+              {/* <a className="navbar-item"> */}
                   <img src="/paper-plane.png" alt="logo" />
                   <p id="WelcomeHeader-title">paperplane</p>
-              </a>
+                {/* </a> */}
+              </div>
             </Link>
             {/* <span className="navbar-burger burger" data-target="navbarMenu">
               <span />

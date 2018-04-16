@@ -23,7 +23,9 @@ export function fetchUser() {
       `${BASE_URL}/api/users`,
       { headers: { token } }
     );
-    const { user } = response.data;
+    const user = response.data;
+    console.log('USER', user);
+    console.log('RES', response.data);
     dispatch({ type: USER_RECEIVED, user });
   };
 }
