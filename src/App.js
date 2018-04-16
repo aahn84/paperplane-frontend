@@ -15,6 +15,7 @@ import FlightDetails from './components/FlightDetails/FlightDetails';
 import AddTrip from './components/MyTrips/AddTrip';
 import AddFlight from './components/TripFlights/AddFlight';
 import MyAccount from './components/MyAccount/MyAccount';
+import ShareFlightForm from './components/FlightDetails/ShareFlightForm';
 
 const App = ({ token }) => {
 
@@ -22,6 +23,7 @@ const App = ({ token }) => {
     <Router>
       <div className="App">
         <TopNav />
+        {ShareFlightForm}
         <Switch>
           <Route exact path="/" render={ (props) => (
             token ? <Redirect to="/mytrips" /> : <WelcomeLogin { ...props } />
@@ -38,6 +40,9 @@ const App = ({ token }) => {
           <Route exact path="/mytrips/:id/addflight" render={ (props) => (
             token ? <AddFlight { ...props } /> : <Redirect to="/" />
           ) } />
+          <Route exact path="/mytrips/:id/:flightId/share" render={ (props) => (
+            token ? <ShareFlightForm { ...props } /> : <Redirect to="/" />
+          ) } />
           <Route exact path="/mytrips/:id/:flightId" render={ (props) => (
             token ? <FlightDetails { ...props } /> : <Redirect to="/" />
           ) } />
@@ -47,9 +52,7 @@ const App = ({ token }) => {
           <Route exact path="/myaccount" render={ (props) => (
             token ? <MyAccount { ...props } /> : <Redirect to="/" />
           ) } />
-          <Route exact path="/track/:iataNumber" render={ (props) => (
-            token ? <FlightDetails { ...props } /> : <Redirect to="/" />
-          ) } />
+          <Route exact path="/track/:iataNumber" component={ FlightDetails } />
           <Route exact path="/track" render={ (props) => (
             token ? <AddFlight { ...props } /> : <Redirect to="/" />
           ) } />
