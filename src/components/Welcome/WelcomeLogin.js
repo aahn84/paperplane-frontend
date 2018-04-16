@@ -11,7 +11,6 @@ class WelcomeLogin extends Component {
   state = {
     email: '',
     password: '',
-    // loading: false,
     isFetchingUser: false,
     loginSuccess: true,
   }
@@ -31,14 +30,11 @@ class WelcomeLogin extends Component {
         history.push('/mytrips');
       }
     }
-    // this.setState({ loading: false });
     this.setState({ loginSuccess: false });
   }
 
 
   render() {
-    // let loginSuccess;
-    // let loginSuccess = true;
 
     return (
       <div id="Welcome-container" className="has-text-centered">

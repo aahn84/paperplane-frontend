@@ -20,7 +20,7 @@ export function fetchUser() {
     }
     if (!fetchingUser) dispatch({ type: FETCHING_USER });
     const response = await axios.get(
-      `${BASE_URL}/api/users/`,
+      `${BASE_URL}/api/users`,
       { headers: { token } }
     );
     const { user } = response.data;
@@ -42,27 +42,6 @@ export function fetchTrips(id) {
     });
   };
 }
-
-// export const SET_ACTIVE_TRIP = 'SET_ACTIVE_TRIP';
-// export function setActiveTrip(trip) {
-//   return async (dispatch) => {
-//     const response = await
-//     dispatch({
-//       type: SET_ACTIVE_TRIP,
-//       trip
-//     });
-//   };
-// }
-
-// export const CLEAR_ACTIVE_TRIP = 'CLEAR_ACTIVE_TRIP';
-// export function clearActiveTrip() {
-//   return async (dispatch) => {
-//     const response = await
-//     dispatch({
-//       type: CLEAR_ACTIVE_TRIP
-//     });
-//   };
-// }
 
 export const TOKEN_CLEARED = 'TOKEN_CLEARED';
 export const USER_CLEARED = 'USER_CLEARED';

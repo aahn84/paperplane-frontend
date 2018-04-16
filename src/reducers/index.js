@@ -9,10 +9,7 @@ import {
   FETCHING_TRIPS,
   FETCHING_TRIPS_CANCELED,
   TRIPS_RECEIVED,
-  TRIPS_CLEARED,
-  // CLEAR_TRIPS,
-  // SET_ACTIVE_TRIP,
-  // CLEAR_ACTIVE_TRIP,
+  TRIPS_CLEARED
 } from '../actions';
 
 function token(state = '', action) {
@@ -85,7 +82,6 @@ function tripsById(state = {}, action) {
         return byId;
       }, {});
     }
-    // case CLEAR_TRIPS: {
     case TRIPS_CLEARED: {
       return {};
     }
@@ -94,19 +90,6 @@ function tripsById(state = {}, action) {
   }
 }
 
-// function setTrip(state = {}, action) {
-//   switch (action.type) {
-//     case SET_ACTIVE_TRIP: {
-//       return action.trip
-//     }
-//     case CLEAR_ACTIVE_TRIP: {
-//       return {};
-//     }
-//     default:
-//       return state;
-//   }
-// }
-
 export default combineReducers({
   token,
   user,
@@ -114,5 +97,4 @@ export default combineReducers({
   isFetchingTrips,
   trips,
   tripsById,
-  // setTrip
 });
