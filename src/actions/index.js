@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const TOKEN_RECEIVED = 'TOKEN_RECEIVED';
@@ -33,17 +34,55 @@ export function fetchUser() {
 export const FETCHING_TRIPS = 'FETCHING_TRIPS';
 export const FETCHING_TRIPS_CANCELED = 'FETCHING_TRIPS_CANCELED';
 export const TRIPS_RECEIVED = 'TRIPS_RECEIVED';
-export function fetchTrips(id) {
-  return async (dispatch) => {
-    if (!id) return dispatch({ type: FETCHING_TRIPS_CANCELED });
-    const response = await axios.get(`${BASE_URL}/api/users/${id}/trips`);
-    const trips = response.data.data;
+export function fetchTrips() {
+  return async (dispatch, getState) => {
+    const { token, fetchingTrips } = getState();
+    if (!token) {
+      return dispatch({ type: FETCHING_TRIPS_CANCELED });
+    }
+    if (!fetchingTrips) dispatch({ type: FETCHING_TRIPS });
+    const response = await axios.get(
+      `${BASE_URL}/api/trips`,
+      { headers: { token } }
+    );
+    const trips = response.data;
+    console.log('TRIPS', trips);
+    console.log('RES', response.data);
+    dispatch({ type: TRIPS_RECEIVED, trips });
+  };
+}
+// export function fetchTrips() {
+//   return async (dispatch) => {
+//     if (!id) return dispatch({ type: FETCHING_TRIPS_CANCELED });
+//     const response = await axios.get(`${BASE_URL}/api/users/${id}/trips`);
+//     const trips = response.data;
+//     dispatch({
+//       type: TRIPS_RECEIVED,
+//       trips
+//     });
+//   };
+// }
+
+/*
+export const FETCHING_TRIPS = 'FETCHING_TRIPS';
+export const FETCHING_TRIPS_CANCELED = 'FETCHING_TRIPS_CANCELED';
+export const TRIPS_RECEIVED = 'TRIPS_RECEIVED';
+export function fetchTrips() {
+  return async (dispatch, getState) => {
+    const { token, fetchingUser } = getState();
+    if (!token) return dispatch({ type: FETCHING_TRIPS_CANCELED });
+
+    const response = await axios.get(`${BASE_URL}/api/trips`,
+      { headers: { token } }
+    );
+    const trips = response.data;
     dispatch({
       type: TRIPS_RECEIVED,
       trips
     });
   };
 }
+*/
 
 export const TOKEN_CLEARED = 'TOKEN_CLEARED';
 export const USER_CLEARED = 'USER_CLEARED';

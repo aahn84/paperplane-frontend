@@ -17,12 +17,12 @@ class WelcomeLogin extends Component {
 
   login = async () => {
   const { loginSuccess, ...loginBody } = this.state;
-  console.log({ loginSuccess, ...loginBody });
+  // console.log({ loginSuccess, ...loginBody });
     if (loginBody.email && loginBody.password) {
       this.setState({ isFetchingUser: true });
       const response = await axios.post(`${BASE_URL}/auth/login`, loginBody);
       if (response.status === 200) {
-        console.log('RESPONSE?', response);
+        // console.log('RESPONSE?', response);
         const token = response.headers.auth.split(' ')[1];
         localStorage.setItem('token', token);
         const { history, fetchUserData } = this.props;

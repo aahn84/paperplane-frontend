@@ -17,9 +17,12 @@ import AddFlight from './components/TripFlights/AddFlight';
 import MyAccount from './components/MyAccount/MyAccount';
 import ShareFlightForm from './components/FlightDetails/ShareFlightForm';
 
-const App = ({ token }) => {
-
+//const App = ({ token }) => {
+const App = (props) => {
+  let token = props.token
   return (
+
+
     <Router>
       <div className="App">
         <TopNav />
@@ -78,6 +81,8 @@ const App = ({ token }) => {
 
 const mapStateToProps = (state) => ({
   token: state.token,
+
+  // user: state.user
 });
 
 export default connect(
