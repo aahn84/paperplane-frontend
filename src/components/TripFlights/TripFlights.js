@@ -12,7 +12,8 @@ class TripFlights extends Component {
 
   componentDidMount() {
     // update
-    this.props.fetchTrips(1)
+    this.props.fetchTrips(this.props.user.user_id);
+    // this.props.fetchTrips(1);
     // update
   }
 
@@ -77,6 +78,7 @@ class TripFlights extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  user: state.user,
   tripsById: state.tripsById
 });
 

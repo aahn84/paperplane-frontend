@@ -10,15 +10,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 class TrackFlight extends Component {
 
-  toggleCalendar() {
-    return(
-      <DatePicker
-        // selected={this.state.startDate}
-        // onChange={this.handleChange}
-      />
-    )
-  }
-
   render() {
 
     return (

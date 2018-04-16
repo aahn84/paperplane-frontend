@@ -16,9 +16,10 @@ const Trip = ({ trip, fetchTrips }) => {
     const response = await axios.delete(`${BASE_URL}/api/trips/${trip.id}`)
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
-      let id = 1
+      // let id = 1
       // update
-      fetchTrips(id);
+      fetchTrips(this.props.user.user_id);
+      // fetchTrips(id);
       // update
     }
   };
@@ -103,15 +104,15 @@ const Trip = ({ trip, fetchTrips }) => {
   )
 }
 
-// const mapStateToProps = (state) => ({
-//   trips: state.trips
-// });
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   fetchTrips
 }, dispatch);
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Trip);

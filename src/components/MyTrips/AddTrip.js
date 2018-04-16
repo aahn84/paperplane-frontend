@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import './MyTrips.css';
-import { Link, withRouter } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { fetchTrips } from '../../actions';
+import { Link } from 'react-router-dom';
+// import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchTrips } from '../../actions';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -20,6 +21,10 @@ class AddTrip extends Component {
     user_id: 1,
   // update
     loading: false,
+  }
+
+  componentDidMount() {
+    this.setState({ user_id: this.props.user.user_id });
   }
 
   submitForm = (e) => {
@@ -181,17 +186,18 @@ class AddTrip extends Component {
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   trips: state.trips
-// });
+const mapStateToProps = (state) => ({
+  user: state.user,
+  tripsById: state.tripsById
+});
 
-// const mapDispatchToProps = (dispatch) => bindActionCreators({
-//   fetchTrips
-// }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchTrips
+}, dispatch);
 
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(AddTrip);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddTrip);
 
-export default AddTrip;
+// export default AddTrip;

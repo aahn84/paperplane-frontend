@@ -1,3 +1,11 @@
+a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link.is-active {
+  background-color: #4a7cae;
+}
+
+.navbar-item {
+  height: 100%;
+}
+
 .tabs, .is-centered {
   display: flex;
   align-items: center;
@@ -21,3 +29,6 @@
 .tabs a {
   padding: 0.5em;
 }
+
+
+/* #4a7cae */
