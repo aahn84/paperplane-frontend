@@ -12,6 +12,7 @@ class WelcomeLogin extends Component {
     email: '',
     password: '',
     loading: false,
+    isFetchingUser: false,
     loginSuccess: true,
   }
 
@@ -23,8 +24,8 @@ class WelcomeLogin extends Component {
   login = async () => {
   const { loading, loginSuccess, ...loginBody } = this.state;
     if (loginBody.email && loginBody.password) {
-      this.setState({ loading: true });
-      const response = await axios.post(`${BASE_URL}/auth/login`, loginBody);
+      this.setState({ loading: true, isFetchingUser: true });
+      const response = await axios.post(`${BASE_URL}/api/auth/login`, loginBody);
       if (response.status === 200) {
         const token = response.headers.auth.split(' ')[1];
         localStorage.setItem('token', token);

@@ -12,7 +12,7 @@ class MyTrips extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: props.user
+      user: this.props.user
     }
   }
 

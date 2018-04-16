@@ -13,7 +13,7 @@ class WelcomeSignup extends Component {
     last_name: '',
     email: '',
     password: '',
-    loading: false,
+    isFetchingUser: false,
     signupSuccess: true,
   }
 
@@ -24,14 +24,14 @@ class WelcomeSignup extends Component {
   // }
 
   signup = async () => {
-  const { loading, signupSuccess, ...signupBody } = this.state;
+  const { isFetchingUser, signupSuccess, ...signupBody } = this.state;
     if (
       signupBody.first_name &&
       signupBody.last_name &&
       signupBody.email &&
       signupBody.password
     ) {
-      this.setState({ loading: true });
+      this.setState({ isFetchingUser: true });
       const response = await axios.post(`${BASE_URL}/auth/signup`, signupBody);
       if (response.status === 200) {
         const token = response.headers.auth.split(' ')[1];
@@ -41,7 +41,7 @@ class WelcomeSignup extends Component {
         history.push('/mytrips');
       }
     }
-    this.setState({ loading: false });
+    this.setState({ isFetchingUser: false });
     this.setState({ signupSuccess: false });
   }
 
@@ -111,7 +111,7 @@ class WelcomeSignup extends Component {
                 </div>
               <button
                 id="LoginSignup-button"
-                className={`button is-block is-info is-fullwidth ${ this.state.loading ? 'is-loading' : ''}`}
+                className={`button is-block is-info is-fullwidth ${ this.state.isFetchingUser ? 'is-loading' : ''}`}
                 >Sign Up
               </button>
             </form>

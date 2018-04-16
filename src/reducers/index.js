@@ -110,6 +110,8 @@ function tripsById(state = {}, action) {
 export default combineReducers({
   token,
   user,
+  isFetchingUser,
+  isFetchingTrips,
   trips,
   tripsById,
   // setTrip

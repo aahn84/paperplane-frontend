@@ -33,6 +33,7 @@ export const FETCHING_TRIPS_CANCELED = 'FETCHING_TRIPS_CANCELED';
 export const TRIPS_RECEIVED = 'TRIPS_RECEIVED';
 export function fetchTrips(id) {
   return async (dispatch) => {
+    if (!id) return dispatch({ type: FETCHING_TRIPS_CANCELED });
     const response = await axios.get(`${BASE_URL}/api/users/${id}/trips`);
     const trips = response.data.data;
     dispatch({

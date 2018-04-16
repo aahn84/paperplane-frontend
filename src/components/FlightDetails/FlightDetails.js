@@ -14,7 +14,7 @@ const FlightDetails = ({ match, tripsById }) => {
   let airlineCallsign;
 
   if (trip) {
-    flight = trip.flights.find(flight => flight.id == flightId)
+    flight = trip.flights.find(flight => flight.id === flightId)
     airlineCallsign = flight.airline_callsign.toLowerCase();
   }
 
