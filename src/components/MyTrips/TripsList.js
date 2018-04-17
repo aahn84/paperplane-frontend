@@ -6,14 +6,22 @@ import { connect } from 'react-redux';
 // import { fetchTrips } from '../../actions';
 
 
-const TripsList = ({ trips }) => {
-  const tripEls = trips.map((trip, i) => {
-    return <TripsDetail key={ i } trip={ trip } />
+// const TripsList = ({ trips }) => {
+const TripsList = (props) => {
+  let trips = props.trips;
+  // console.log('TRIPSLST', trips);
+  let tripEls = Object.keys(trips).map(key => {
+    let trip = trips[key]
+    // console.log('TRIP', trip);
+    return <TripsDetail key={ key } trip={ trip } trip_id={ key } />
   })
-  console.log('trips list', trips);
+  // const tripEls = trips.map((trip, i) => {
+  //   return <TripsDetail key={ i } trip={ trip } />
+  // })
+
   return (
     <div className="TripsList-container">
-      { trips.length
+      { tripEls.length
         ? tripEls
         : <div id="MyTrips-noTrips">
             <p id="MyTrips-text">No trips to display</p>
@@ -25,9 +33,11 @@ const TripsList = ({ trips }) => {
 }
 
 const mapStateToProps = (state) => ({
-  trips: state.trips
+  trips: state.tripsById
 });
 
 export default connect(
   mapStateToProps
 )(TripsList);
+
+// export default TripsList;

@@ -19,10 +19,9 @@ import ShareFlightForm from './components/FlightDetails/ShareFlightForm';
 
 //const App = ({ token }) => {
 const App = (props) => {
-  let token = props.token
+  let token = props.token;
+
   return (
-
-
     <Router>
       <div className="App">
         <TopNav />
@@ -81,8 +80,8 @@ const App = (props) => {
 
 const mapStateToProps = (state) => ({
   token: state.token,
-
-  // user: state.user
+  user: state.user,
+  trips: state.tripsById
 });
 
 export default connect(

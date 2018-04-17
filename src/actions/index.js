@@ -25,8 +25,8 @@ export function fetchUser() {
       { headers: { token } }
     );
     const user = response.data;
-    console.log('USER', user);
-    console.log('RES', response.data);
+    // console.log('USER', user);
+    // console.log('RES', response.data);
     dispatch({ type: USER_RECEIVED, user });
   };
 }
@@ -46,8 +46,8 @@ export function fetchTrips() {
       { headers: { token } }
     );
     const trips = response.data;
-    console.log('TRIPS', trips);
-    console.log('RES', response.data);
+    // console.log('TRIPS', trips);
+    // console.log('RES', response.data);
     dispatch({ type: TRIPS_RECEIVED, trips });
   };
 }

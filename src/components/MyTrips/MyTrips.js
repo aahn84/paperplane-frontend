@@ -33,6 +33,7 @@ class MyTrips extends Component {
   }
 */
   render() {
+    // console.log('TRIPSSSS',this.props);
     return (
       <div className="MyTrips">
         <div id="MyTrips-container" className="has-text-centered">
@@ -55,7 +56,7 @@ class MyTrips extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  // trips: state.trips
+  // trips: state.tripsById,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

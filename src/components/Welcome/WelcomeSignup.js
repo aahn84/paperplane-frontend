@@ -42,6 +42,7 @@ class WelcomeSignup extends Component {
   render() {
     // let signupSuccess;
     // let signupSuccess = true;
+    console.log(this.state);
 
     return (
       <div id="Welcome-container" className="has-text-centered">

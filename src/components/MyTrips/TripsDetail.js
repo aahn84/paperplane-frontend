@@ -9,11 +9,13 @@ import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
-const Trip = ({ trip, fetchTrips }) => {
+const Trip = ({ key, trip, trip_id, fetchTrips }) => {
   const firstFlight = trip.flights[0]
+  console.log('TRIPID', trip_id);
+  console.log('TRIPPP', trip);
 
-  const deleteTrip = async () => {
-    const response = await axios.delete(`${BASE_URL}/api/trips/${trip.id}`)
+  const deleteTrip = async (trip_id) => {
+    const response = await axios.delete(`${BASE_URL}/api/trips/${trip_id}`)
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
       // let id = 1
@@ -24,7 +26,7 @@ const Trip = ({ trip, fetchTrips }) => {
     }
   };
 
-  const renderTripDetail = () => {
+  const renderTripDetail = (trip_id) => {
     return (
       <div className="TripsList-content">
       <article className="message">
@@ -38,7 +40,7 @@ const Trip = ({ trip, fetchTrips }) => {
           />
           {/* <a className="button"><i className="fas fa-angle-down" /></a> */}
         </div>
-        <Link to={ `/mytrips/${trip.id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
+        <Link to={ `/mytrips/${trip_id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
           <div className="message-body">
             <div className="TripList-card-row">
               <div className="TripList-card-row">
@@ -75,11 +77,11 @@ const Trip = ({ trip, fetchTrips }) => {
           <button
             className="delete"
             aria-label="delete"
-            onClick={ () => deleteTrip(trip.id) }
+            onClick={ () => deleteTrip(trip_id) }
           />
           {/* <a className="button"><i className="fas fa-angle-down" /></a> */}
         </div>
-        <Link to={ `/mytrips/${trip.id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
+        <Link to={ `/mytrips/${trip_id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
           <div className="message-body">
             <div id="TripsDetail-noFlights">
               <p id="TripsDetail-text">No flights to display</p>

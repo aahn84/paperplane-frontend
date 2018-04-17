@@ -3,7 +3,7 @@ import './MyAccount.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchUser } from '../../actions';
+import { logout } from '../../actions';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -74,8 +74,18 @@ class MyAccount extends Component {
     this.setState({ loading: false });
   }
 
+  logoutUser = (e) => {
+    console.log('in logoutUser');
+    e.preventDefault();
+    console.log('in again');
+    logout();
+    console.log('again, again');
+    this.props.history.push('/');
+  }
+
   render() {
     console.log(this.state);
+    console.log('my account', this.props.user)
     return (
       <div className="MyAccount">
         <div id="MyAccount-container">
@@ -183,7 +193,10 @@ class MyAccount extends Component {
 
               <div id="MyAccountLogout">
                 <Link id="MyAccount-buttons" to="/">
-                <button id="MyAccount-logout" className="button is-block is-info">Logout</button>
+                <button id="MyAccount-logout" className="button is-block is-info"
+                onClick={ this.logoutUser }
+                  >Logout
+                </button>
               </Link>
             </div>
             </div>
@@ -202,7 +215,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  fetchUser
+  logout
 }, dispatch);
 
 export default connect(

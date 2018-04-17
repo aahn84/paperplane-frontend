@@ -18,13 +18,14 @@ class AddTrip extends Component {
     end_date: moment(),
     notes: '',
   // update
-    user_id: 1,
+    user_id: '',
   // update
     loading: false,
   }
 
   componentDidMount() {
     this.setState({ user_id: this.props.user.user_id });
+    console.log('PROPS USER', this.props.user);
   }
 
   submitForm = (e) => {
