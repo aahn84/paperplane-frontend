@@ -3,7 +3,7 @@ import './MyAccount.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { logout } from '../../actions';
+import { logout, fetchUserData } from '../../actions';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -20,7 +20,17 @@ class MyAccount extends Component {
   }
 
   componentDidMount() {
+    if (!this.props.user) {
+      this.fetchUserData();
+    }
+
     this.populateUser();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user) {
+      this.populateUser();
+    }
   }
 
   populateUser = () => {
@@ -30,7 +40,7 @@ class MyAccount extends Component {
         last_name: this.props.user.last_name,
         email: this.props.user.email,
         phone: this.props.user.phone,
-        password: this.props.user.password,
+        // password: this.props.user.password,
         notifications_on: this.props.user.notifications_on,
         user_id: this.props.user.user_id
       })
@@ -208,6 +218,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchUserData,
   logout
 }, dispatch);
 

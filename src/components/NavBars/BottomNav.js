@@ -15,20 +15,16 @@ const BottomNav = ({ location }) => {
       <ul>
         <li className={ path === '/mytrips' ? "is-active" : "" }>
           <Link to="/mytrips">
-          {/* <a> */}
             <span className="icon is-small"><i className="fas fa-suitcase" /></span>
             <span>My Trips</span>
-          {/* </a> */}
           </Link>
         </li>
 
         <li className={ path === '/track' ? "is-active" : "" }>
           <Link to="/track">
-          {/* <a> */}
             <span className="icon is-small"><i className="fas fa-plane" /></span>
             <span>Track Flight</span>
-          {/* </a> */}
-        </Link>
+          </Link>
         </li>
 
         <li className={ path === '/myaccount' ? "is-active" : "" }>

@@ -193,5 +193,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(AddFlight);
-
-// export default withRouter(AddFlight);

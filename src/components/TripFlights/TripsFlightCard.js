@@ -21,21 +21,15 @@ const TripsFlightCard = ({ user, flight, fetchTrips }) => {
   console.log('MYFLIGHT', flight.id, flight);
   console.log('MHUSER', user);
   const deleteFlight = async () => {
-    debugger
-    //TODO This header is not actually attaching. Something
-    // is wrong with our syntx
-    const token = localStorage.getItem('token')
-    const config = { headers: { token } }
-    console.log('tokennn', token);
-    console.log(config);
-
     const response = await
-    axios.delete(`${BASE_URL}/api/flights/${flight.id}`, { trips_id: flight.trips_id }, config)
+    axios.delete(`${BASE_URL}/api/flights/${flight.id}`, { trips_id: flight.trips_id })
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
       fetchTrips(user.id);
     }
   };
+
+const now = new Date();
 
   return (
     <div>
@@ -83,7 +77,8 @@ const TripsFlightCard = ({ user, flight, fetchTrips }) => {
               <div id="TripsFlightCard-updated" className="TripList-card-row">
                 <p>{`Last Updated:`}</p>
                 <p>
-                  { `${moment.unix(flight.updated).format('LT')} ${moment.unix(flight.updated).format('MMMM D')}` }
+                  { `${moment(now).format('LT')} ${moment(now).format('MMMM D')}` }
+                  {/* { `${moment.unix(flight.updated).format('LT')} ${moment.unix(flight.updated).format('MMMM D')}` } */}
                 </p>
                 {/* <p>{`2:48 PM Apr 5`}</p> */}
               </div>
