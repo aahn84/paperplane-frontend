@@ -38,6 +38,65 @@ class AddFlight extends Component {
     });
   }
 
+  renderAddFlightBottom = () => {
+    return (
+      <div className="AddFlight-addCancel-validation">
+        <div className="AddFlight-add-cancel">
+          <div id="AddFlight-buttons">
+            <button
+              id="AddFlight-add"
+              className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}
+              onClick={ this.submitForm }
+              onTouchStart={ this.submitForm }
+              >Add Flight
+            </button>
+          </div>
+
+          <Link id="AddFlight-buttons" to={`/mytrips/${this.state.user_id}`}>
+            <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
+          </Link>
+        </div>
+
+        <div>
+          {
+            this.state.flight_found
+            ? null
+            : <p className="AddFlight-notFound">Flight not found</p>
+          }
+        </div>
+
+      </div>
+    )
+  }
+
+  renderTrackFlightBottom = () => {
+    return (
+      <div className="AddFlight-addCancel-validation">
+        <div className="TrackFlight">
+          <div id="TrackFlight-button">
+            <Link to='/track/:iataNumber'>
+              <button
+                id="TrackFlight-track"
+                className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}
+                onClick={ this.trackFlight }
+                onTouchStart={ this.trackFlight }
+                >Track Flight
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        <div className="AddFlight-notFound">
+          {
+            this.state.flight_found
+            ? null
+            : <p>Flight not found</p>
+          }
+        </div>
+      </div>
+    )
+  }
+
   submitForm = (e, tripId) => {
     e.preventDefault();
     this.setState({
@@ -60,6 +119,29 @@ class AddFlight extends Component {
       });
     })
   }
+
+  // trackFlight = (e, tripId) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     loading: true,
+  //     flight_found: true
+  //   });
+  //
+  //   const { airline_name, flight_num, depart_date } = this.state;
+  //
+  //   return axios.post(`${BASE_URL}/api/flights/${this.state.trip_id}`, { airline_name, flight_num, depart_date, user_id })
+  //   .then(res => {
+  //     this.setState({ loading: false });
+  //     return this.props.history.push(`/mytrips/${this.state.trip_id}`);
+  //   })
+  //   .catch(err => {
+  //     console.log('ERRRRRRRR', err);
+  //     this.setState({
+  //       loading: false,
+  //       flight_found: false
+  //     });
+  //   })
+  // }
 
   render() {
     const { pathname } = this.props.location;
@@ -124,53 +206,9 @@ class AddFlight extends Component {
               </div>
 
               {
-                pathname === '/track' ?
-                (
-                  <div className="TrackFlight">
-                    <div id="TrackFlight-button">
-                      <Link to='/track/:iataNumber'>
-                      <button
-                        id="TrackFlight-track"
-                        className="button is-block is-info"
-                        onClick={ this.submitForm }
-                        >Track Flight
-                      </button>
-                      </Link>
-                    </div>
-
-                    <div>
-                      {
-                        this.state.flight_found
-                        ? null
-                        : <p className="AddFlight-notFound">Flight not found</p>
-                      }
-                    </div>
-                  </div>
-                ) : (
-                  <div className="AddFlight-add-cancel">
-                    <div id="AddFlight-buttons">
-                      <button
-                        id="AddFlight-add"
-                        className={`button is-block is-info ${ this.state.loading ? 'is-loading' : ''}`}
-                        onClick={ this.submitForm }
-                        onTouchStart={ this.submitForm }
-                        >Add Flight
-                      </button>
-                    </div>
-
-                    <Link id="AddFlight-buttons" to={`/mytrips/${this.state.user_id}`}>
-                      <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
-                    </Link>
-
-                    <div>
-                      {
-                        this.state.flight_found
-                        ? null
-                        : <p className="AddFlight-notFound">Flight not found</p>
-                      }
-                    </div>
-                  </div>
-                )
+                pathname === '/track'
+                  ? this.renderTrackFlightBottom()
+                  : this.renderAddFlightBottom()
               }
 
             </div>

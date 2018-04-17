@@ -20,12 +20,12 @@ const BottomNav = ({ location }) => {
           </Link>
         </li>
 
-        <li className={ path === '/track' ? "is-active" : "" }>
+        {/* <li className={ path === '/track' ? "is-active" : "" }>
           <Link to="/track">
             <span className="icon is-small"><i className="fas fa-plane" /></span>
             <span>Track Flight</span>
           </Link>
-        </li>
+        </li> */}
 
         <li className={ path === '/myaccount' ? "is-active" : "" }>
           <Link to="/myaccount">

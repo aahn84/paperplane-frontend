@@ -174,10 +174,16 @@ label {
   margin-left: 2px;
 }
 
+.AddFlight-addCancel-validation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .AddFlight-add-cancel {
   display: flex;
   justify-content: space-between;
-  margin: 1.5em 0 0 0;
+  margin: 1.5em 0 0.5em 0;
   width: 100%;
 }
 

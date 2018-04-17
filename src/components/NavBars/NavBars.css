@@ -28,7 +28,6 @@ a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link
 
 .tabs a {
   padding: 0.5em;
+  width: 10em;
+  /* remove width when adding back in /track button */
 }
-
-
-/* #4a7cae */
