@@ -17,30 +17,26 @@ class AddTrip extends Component {
     start_date: moment(),
     end_date: moment(),
     notes: '',
-  // update
     user_id: '',
-  // update
     loading: false,
   }
 
   componentDidMount() {
     this.setState({ user_id: this.props.user.user_id });
-    console.log('PROPS USER', this.props.user);
   }
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log('CLICKED!', this.state);
 
     const { user_id, title, start_date, end_date, notes } = this.state;
 
     this.setState({ loading: true });
-    return axios.post(`${BASE_URL}/api/trips`, { title, start_date, end_date, notes, user_id })
+    const token = localStorage.getItem('token')
+    const config = { headers: { token } }
+    return axios.post(`${BASE_URL}/api/trips`, { title, start_date, end_date, notes, user_id }, config)
       .then(res => {
-        console.log(res);
-        console.log('true?', this.state);
         this.setState({ loading: false });
-        console.log('false?', this.state);
+        this.props.fetchTrips()
         return this.props.history.push('/mytrips');
       })
       .catch(err => {
@@ -105,15 +101,6 @@ class AddTrip extends Component {
                         }
                       }}
                   />
-                  {/* <div className="control">
-                    <input
-                      className="input"
-                      type="text"
-                      placeholder={moment().format('l')}
-                      // onClick={toggleCalendar()}
-                      required="required"
-                    />
-                  </div> */}
                 </div>
                 <div id="date-field" className="field">
                   <label className="label">End Date:</label>
@@ -134,14 +121,6 @@ class AddTrip extends Component {
                       }
                     }}
                   />
-                  {/* <div className="control">
-                    <input
-                      className="input"
-                      type="text"
-                      placeholder={moment().format('l')}
-                      required="required"
-                    />
-                  </div> */}
                 </div>
               </div>
 

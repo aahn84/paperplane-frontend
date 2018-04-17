@@ -26,14 +26,13 @@ class MyTrips extends Component {
   componentDidMount() {
     // update
     const user_id = this.props.user_id;
-    debugger
     this.props.fetchTrips(user_id);
     // this.props.fetchTrips(1)
     // update
-  }
-*/
+  }*/
+
   render() {
-    // console.log('TRIPSSSS',this.props);
+    
     return (
       <div className="MyTrips">
         <div id="MyTrips-container" className="has-text-centered">

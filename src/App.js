@@ -17,7 +17,6 @@ import AddFlight from './components/TripFlights/AddFlight';
 import MyAccount from './components/MyAccount/MyAccount';
 import ShareFlightForm from './components/FlightDetails/ShareFlightForm';
 
-//const App = ({ token }) => {
 const App = (props) => {
   let token = props.token;
 

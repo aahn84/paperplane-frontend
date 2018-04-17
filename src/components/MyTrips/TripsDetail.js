@@ -9,14 +9,16 @@ import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
-const Trip = ({ key, trip, trip_id, fetchTrips }) => {
+const Trip = ({ key, trip, trip_id, fetchTrips, user }) => {
   const firstFlight = trip.flights[0]
 
   const deleteTrip = async (trip_id) => {
-    const response = await axios.delete(`${BASE_URL}/api/trips/${trip_id}`)
+    const token = localStorage.getItem('token')
+    const config = { headers: { token } }
+    const response = await axios.delete(`${BASE_URL}/api/trips/${trip_id}`, config)
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
-      fetchTrips(this.props.user.user_id);
+      fetchTrips(user.id);
     }
   };
 
