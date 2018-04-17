@@ -30,7 +30,9 @@ class TripNotes extends Component {
   handleChange = (e) => {
     this.setState({ notes: e.target.value }, () => {
       const { trip_id, notes } = this.state;
-      return axios.patch(`${BASE_URL}/api/trips/${trip_id}`, { notes })
+      const token = localStorage.getItem('token')
+      const config = { headers: { token } }
+      return axios.patch(`${BASE_URL}/api/trips/${trip_id}`, { notes }, config)
       // .then(res => {
       //   console.log(res.data);
       // })

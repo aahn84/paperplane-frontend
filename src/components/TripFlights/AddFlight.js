@@ -30,7 +30,6 @@ class AddFlight extends Component {
   componentDidMount() {
     const tripId = this.props.match.params.id;
     this.setState({ trip_id: tripId, user_id: this.props.user.id })
-    console.log('props user', this.props.user);
   }
 
   handleChangeDepart = (date) => {
@@ -41,22 +40,24 @@ class AddFlight extends Component {
 
   submitForm = (e, tripId) => {
     e.preventDefault();
-    this.setState({ loading: true });
+    this.setState({
+      loading: true,
+      flight_found: true
+    });
 
     const { airline_name, flight_num, depart_date, user_id } = this.state;
 
     return axios.post(`${BASE_URL}/api/flights/${this.state.trip_id}`, { airline_name, flight_num, depart_date, user_id })
     .then(res => {
-      console.log('add flight', res.status);
       this.setState({ loading: false });
-
-      if (res.status !== 200) {
-        this.setState({flight_found: false})
-      }
       return this.props.history.push(`/mytrips/${this.state.trip_id}`);
     })
     .catch(err => {
-      console.log(err);
+      console.log('ERRRRRRRR', err);
+      this.setState({
+        loading: false,
+        flight_found: false
+      });
     })
   }
 
@@ -137,11 +138,13 @@ class AddFlight extends Component {
                       </Link>
                     </div>
 
-                    {
-                      this.state.flight_found
-                      ? null
-                      : <p className="AddFlight-notFound">Flight not found</p>
-                    }
+                    <div>
+                      {
+                        this.state.flight_found
+                        ? null
+                        : <p className="AddFlight-notFound">Flight not found</p>
+                      }
+                    </div>
                   </div>
                 ) : (
                   <div className="AddFlight-add-cancel">
@@ -155,18 +158,17 @@ class AddFlight extends Component {
                       </button>
                     </div>
 
-                    {/* <Link id="AddFlight-buttons" to="/mytrips"> */}
-                    {/* !!!UPDATE!!! */}
                     <Link id="AddFlight-buttons" to={`/mytrips/${this.state.user_id}`}>
-                    {/* !!!UPDATE!!! */}
                       <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
                     </Link>
 
-                    {
-                      this.state.flight_found
-                      ? null
-                      : <p className="AddFlight-notFound">Flight not found</p>
-                    }
+                    <div>
+                      {
+                        this.state.flight_found
+                        ? null
+                        : <p className="AddFlight-notFound">Flight not found</p>
+                      }
+                    </div>
                   </div>
                 )
               }
