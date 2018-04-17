@@ -24,13 +24,7 @@ class TripNotes extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-
-    })
-    // update
-    // this.props.fetchTrips(1)
     this.props.fetchTrips(this.state.user_id)
-    // update
   }
 
   handleChange = (e) => {

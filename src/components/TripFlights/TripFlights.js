@@ -11,10 +11,7 @@ import { fetchTrips } from '../../actions';
 class TripFlights extends Component {
 
   componentDidMount() {
-    // update
     this.props.fetchTrips(this.props.user.user_id);
-    // this.props.fetchTrips(1);
-    // update
   }
 
   renderTrips = (trip, id) => {

@@ -52,15 +52,12 @@ class MyAccount extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    // console.log('CLICKED!', this.state);
     this.validatePhone();
     this.setState({ loading: true });
 
     const { first_name, last_name, email, phone, password, notifications_on, user_id } = this.state;
 
-    // !!!UPDATE!!!
     axios.patch(`${BASE_URL}/api/users/${this.state.user_id}`, { first_name, last_name, email, password, notifications_on })
-    // !!!UPDATE!!!
       .then(res => {
         console.log('patched!!!', res);
         if (res.status === 201) {
@@ -138,7 +135,6 @@ class MyAccount extends Component {
                   placeholder="Phone"
                   value={ this.state.phone }
                   required={ this.state.notifications_on ? "required" : ""}
-                  // required="required"
                   onChange={ (e) => this.setState({ phone: e.target.value })}
                 />
               </div>
@@ -190,14 +186,12 @@ class MyAccount extends Component {
               }
 
               <div id="MyAccountLogout">
-                {/* <Link id="MyAccount-buttons" to="/"> */}
                 <button id="MyAccount-logout" className="button is-block is-info"
                 onClick={ this.logout }
                 onTouchStart={ this.props.logout }
                   >Logout
                 </button>
-              {/* </Link> */}
-            </div>
+              </div>
             </div>
 
           </form>

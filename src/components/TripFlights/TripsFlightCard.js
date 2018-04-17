@@ -14,11 +14,7 @@ const TripsFlightCard = ({ flight, fetchTrips }) => {
     const response = await axios.delete(`${BASE_URL}/api/flights/${flight.flights_id}`, { trips_id: flight.trips_id })
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
-      // let id = 1
-      // update
       fetchTrips(this.props.user.user_id);
-      // fetchTrips(id);
-      // update
     }
   };
 

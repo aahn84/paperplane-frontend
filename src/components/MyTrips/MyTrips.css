@@ -120,6 +120,7 @@ h1 {
 .message-body {
   background-color: #ffffff;
   border: 1px solid #3f83bc;
+  border-radius: none;
   padding: 0.5rem;
 }
 

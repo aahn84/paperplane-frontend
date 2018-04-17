@@ -6,7 +6,7 @@ import FlightDetailCard from './FlightDetailCard'
 const FlightDetails = ({ match, tripsById }) => {
   // console.log('match', match.params);
   const tripId = match.params.id;
-  const flightId = match.params.flightId;
+  const flightId = Number(match.params.flightId);
   const trip = tripsById[tripId];
   console.log(trip);
   let flight;

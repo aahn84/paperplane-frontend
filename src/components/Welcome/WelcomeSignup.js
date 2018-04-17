@@ -27,7 +27,6 @@ class WelcomeSignup extends Component {
     ) {
       this.setState({ isFetchingUser: true });
       const response = await axios.post(`${BASE_URL}/auth/signup`, signupBody);
-      debugger
       if (response.status === 200) {
         const token = response.headers.auth.split(' ')[1];
         localStorage.setItem('token', token);
@@ -43,7 +42,7 @@ class WelcomeSignup extends Component {
   render() {
     // let signupSuccess;
     // let signupSuccess = true;
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <div id="Welcome-container" className="has-text-centered">

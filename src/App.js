@@ -47,7 +47,7 @@ const App = (props) => {
           <Route exact path="/mytrips/:id/:flightId" render={ (props) => (
             token ? <FlightDetails { ...props } /> : <Redirect to="/" />
           ) } />
-          <Route exact path="/mytrips:id" render={ (props) => (
+          <Route exact path="/mytrips/:id" render={ (props) => (
             token ? <TripFlights { ...props } /> : <Redirect to="/" />
           ) } />
           <Route exact path="/myaccount" render={ (props) => (
@@ -74,8 +74,6 @@ const App = (props) => {
     </Router>
   )
 }
-
-// {/* <Route exact path="/track/flightdetails" component={ FlightDetails } /> */}
 
 
 const mapStateToProps = (state) => ({

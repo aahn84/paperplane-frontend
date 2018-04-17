@@ -11,18 +11,12 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const Trip = ({ key, trip, trip_id, fetchTrips }) => {
   const firstFlight = trip.flights[0]
-  console.log('TRIPID', trip_id);
-  console.log('TRIPPP', trip);
 
   const deleteTrip = async (trip_id) => {
     const response = await axios.delete(`${BASE_URL}/api/trips/${trip_id}`)
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
-      // let id = 1
-      // update
       fetchTrips(this.props.user.user_id);
-      // fetchTrips(id);
-      // update
     }
   };
 
@@ -36,9 +30,8 @@ const Trip = ({ key, trip, trip_id, fetchTrips }) => {
           <button
             className="delete"
             aria-label="delete"
-            onClick={ () => deleteTrip(trip.id) }
+            onClick={ () => deleteTrip(trip_id) }
           />
-          {/* <a className="button"><i className="fas fa-angle-down" /></a> */}
         </div>
         <Link to={ `/mytrips/${trip_id}` } style={{ textDecoration: 'none', borderRadius: 'none' }}>
           <div className="message-body">
@@ -53,7 +46,6 @@ const Trip = ({ key, trip, trip_id, fetchTrips }) => {
             <div className="TripList-card-row">
               <div className="TripList-card-row">
                 <span className="icon is-small"><i className="fas fa-paper-plane" /></span>
-                {/* <span className="icon is-small"><i className="fas fa-plane" /></span> */}
                 <p>{`${firstFlight.airline_iata} ${firstFlight.flight_num} ${moment(firstFlight.depart_date).format('MMMM D')}`}</p>
                 {/* <p>{`AS 510 May 4`}</p> */}
               </div>
@@ -99,7 +91,7 @@ const Trip = ({ key, trip, trip_id, fetchTrips }) => {
     <div>
       {
         firstFlight
-          ? renderTripDetail()
+          ? renderTripDetail(trip_id)
           : renderTripNoFlightDetail()
       }
     </div>
