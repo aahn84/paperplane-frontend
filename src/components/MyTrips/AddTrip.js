@@ -57,7 +57,7 @@ class AddTrip extends Component {
   }
 
   render() {
-    console.log(this.state);
+
     return (
       <div className="AddTrip">
         <div id="AddTrip-container">
@@ -74,7 +74,7 @@ class AddTrip extends Component {
                     className="input"
                     type="text"
                     placeholder="Trip Name"
-                    defultValue={ this.state.title }
+                    defaultValue={ this.state.title }
                     onChange={ (e) => this.setState({ title: e.target.value }) }
                     required="required"
                   />
@@ -124,7 +124,6 @@ class AddTrip extends Component {
                 </div>
               </div>
 
-              {/* <TripNotes /> */}
               <div className="TripNotes">
                 <div className="TripNotes-container">
                   <p className="TripNotes-title">Notes:</p>
@@ -179,5 +178,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(AddTrip);
-
-// export default AddTrip;

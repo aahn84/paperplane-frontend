@@ -16,7 +16,6 @@ img {
 }
 
 #Welcome-container {
-  /* margin: auto; */
   display: flex;
   align-items: center;
   vertical-align: middle;
@@ -66,9 +65,7 @@ img {
   font-family: Montserrat, sans-serif;
   font-weight: bold;
   padding: 1.5rem;
-  /* position: absolute; */
   bottom: 0;
-  /* width: 100%; */
 }
 
 #LoginSignup-button {

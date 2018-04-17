@@ -8,14 +8,6 @@ import moment from 'moment';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-/*
-const token = localStorage.getItem('token')
-const config = { headers: { token } }
-const response = await axios.delete(`${BASE_URL}/api/trips/${trip_id}`, config)
-if (response.status === 200) {
-  //CALL DISPATCH TO REMOVE FROM STORE
-  fetchTrips(user.id);
-}*/
 
 const TripsFlightCard = ({ user, flight, fetchTrips }) => {
   console.log('MYFLIGHT', flight.id, flight);
@@ -24,7 +16,6 @@ const TripsFlightCard = ({ user, flight, fetchTrips }) => {
     const response = await
     axios.delete(`${BASE_URL}/api/flights/${flight.id}`, { trips_id: flight.trips_id })
     if (response.status === 200) {
-      //CALL DISPATCH TO REMOVE FROM STORE
       fetchTrips(user.id);
     }
   };
@@ -39,7 +30,6 @@ const now = new Date();
             <p>
               {`${flight.depart_airport} > ${flight.arrive_airport}`}
             </p>
-            {/* <p>{`Seattle to Orange County`}</p> */}
             <button
               className="delete"
               aria-label="delete"
@@ -53,34 +43,27 @@ const now = new Date();
                   <span id="TripList-icon" className="icon is-small"><i className="fas fa-globe" /></span>
                   <p>
                     {`${flight.depart_airport} to ${flight.arrive_airport}`}
-                    {/* {`Seattle to Orange County`} */}
                   </p>
                 </div>
                 <span id="TripList-icon" className="icon is-small"><i className="fas fa-angle-right" /></span>
               </div>
               <div className="TripList-card-row">
                 <div className="TripList-card-row">
-                  {/* <span className="icon is-small"><i className="fas fa-paper-plane" /></span> */}
                   <p>{`Departure:`}</p>
                 </div>
                 <p>{`${moment(flight.depart_scheduledTime).format('LT')}, ${moment(flight.depart_date).format('MMMM D')}`}</p>
-                {/* <p>{`6:10 PM, May 4`}</p> */}
               </div>
               <div className="TripList-card-row">
                 <div className="TripList-card-row">
-                  {/* <span className="icon is-small"><i className="fas fa-paper-plane" /></span> */}
                   <p>{`Arrival:`}</p>
                 </div>
                 <p>{`${moment(flight.arrive_scheduledTime).format('LT')}, ${moment(flight.arrive_date).format('MMMM D')}`}</p>
-                {/* <p>{`8:47 PM, May 4`}</p> */}
               </div>
               <div id="TripsFlightCard-updated" className="TripList-card-row">
                 <p>{`Last Updated:`}</p>
                 <p>
                   { `${moment(now).format('LT')} ${moment(now).format('MMMM D')}` }
-                  {/* { `${moment.unix(flight.updated).format('LT')} ${moment.unix(flight.updated).format('MMMM D')}` } */}
                 </p>
-                {/* <p>{`2:48 PM Apr 5`}</p> */}
               </div>
             </div>
           </Link>

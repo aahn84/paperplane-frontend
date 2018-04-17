@@ -41,9 +41,6 @@ class WelcomeSignup extends Component {
   }
 
   render() {
-    // let signupSuccess;
-    // let signupSuccess = true;
-    // console.log(this.state);
 
     return (
       <div id="Welcome-container" className="has-text-centered">
@@ -135,10 +132,6 @@ class WelcomeSignup extends Component {
   }
 }
 
-
-// const mapStateToProps = (state) => ({
-//   // token: state.token
-// });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   fetchUserData,

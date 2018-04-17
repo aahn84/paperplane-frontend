@@ -7,32 +7,9 @@ import { bindActionCreators } from 'redux';
 import { fetchTrips } from '../../actions';
 
 
-// const MyTrips = ({ trips, fetchTrips }) => {
 class MyTrips extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     user: this.props.user
-  //   }
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({
-  //     trips: nextProps.trips
-  //   })
-  // }
-
-/*
-  componentDidMount() {
-    // update
-    const user_id = this.props.user_id;
-    this.props.fetchTrips(user_id);
-    // this.props.fetchTrips(1)
-    // update
-  }*/
-
   render() {
-    
+
     return (
       <div className="MyTrips">
         <div id="MyTrips-container" className="has-text-centered">
@@ -55,7 +32,6 @@ class MyTrips extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  // trips: state.tripsById,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

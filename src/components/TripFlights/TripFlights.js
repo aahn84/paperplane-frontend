@@ -7,7 +7,6 @@ import TripFlightsList from './TripFlightsList'
 import { fetchTrips } from '../../actions';
 
 
-// const TripFlights = ({ match, tripsById, fetchTrips }) => {
 class TripFlights extends Component {
 
   componentDidMount() {
@@ -28,7 +27,6 @@ class TripFlights extends Component {
       <div className="TripFlights-title-name">
         <div>
           <p>{`${trip.title}`}</p>
-          {/* <p>{`My Trip Name  May 4 - May 7`}</p> */}
         </div>
       </div>
 

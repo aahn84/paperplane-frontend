@@ -17,12 +17,10 @@ class WelcomeLogin extends Component {
 
   login = async () => {
   const { loginSuccess, ...loginBody } = this.state;
-  // console.log({ loginSuccess, ...loginBody });
     if (loginBody.email && loginBody.password) {
       this.setState({ isFetchingUser: true });
       const response = await axios.post(`${BASE_URL}/auth/login`, loginBody);
       if (response.status === 200) {
-        // console.log('RESPONSE?', response);
         const token = response.headers.auth.split(' ')[1];
         localStorage.setItem('token', token);
         const { history, fetchUserData } = this.props;
@@ -35,7 +33,7 @@ class WelcomeLogin extends Component {
 
 
   render() {
-
+    
     return (
       <div id="Welcome-container" className="has-text-centered">
         <div className="column is-4 is-offset-4">
@@ -102,9 +100,6 @@ class WelcomeLogin extends Component {
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   // token: state.token
-// });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   fetchUserData,

@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* border: 1px solid green; */
 }
 
 #TripFlights-container {
@@ -13,7 +12,6 @@
   text-align: center;
   max-height: 80vh;
   width: 100%;
-  /* border: 1px solid; */
 }
 
 .TripFlights-title-bar {
@@ -36,7 +34,6 @@ h1 {
   font-family: Montserrat, sans-serif;
   font-weight: bold;
   font-size: 2rem;
-  /* border: 1px solid; */
 }
 
 #TripFlights-noFlights {
@@ -72,7 +69,6 @@ h1 {
   text-align: center;
   overflow: auto;
   width: 100%;
-  /* border: 1px solid; */
 }
 
 .TripFlightsList-content {
@@ -81,12 +77,10 @@ h1 {
   justify-content: center;
   text-align: center;
   width: 100%;
-  /* border: 1px solid; */
 }
 
 .card {
   margin-bottom: 1rem;
-  /* border: 1px solid #3f83bc; */
 }
 
 .card-content {
@@ -100,13 +94,6 @@ h1 {
   justify-content: space-between;
   margin: 1px 0 1px 0;
 }
-
-/* .TripFlightsList-departure-title {
-  margin-left: 3px;
-  text-align: left;
-  font-size: 15px;
-  font-style: italic;
-} */
 
 #TripsFlightCard-updated {
   font-size: 13px;
@@ -143,7 +130,6 @@ h1 {
   /* margin: 1rem; */
   max-height: 80vh;
   width: 100%;
-  /* border: 1px solid; */
 }
 
 .AddFlight-title-bar {
@@ -207,7 +193,6 @@ label {
 .AddFlight-notFound{
   color: #ea9438;
   font-size: 15px;
-  /* font-weight: bold; */
   font-style: italic;
   margin-top: 3px;
 }

@@ -4,11 +4,9 @@ import { connect } from 'react-redux';
 import FlightDetailCard from './FlightDetailCard'
 
 const FlightDetails = ({ match, tripsById }) => {
-  // console.log('match', match.params);
   const tripId = match.params.id;
   const flightId = Number(match.params.flightId);
   const trip = tripsById[tripId];
-  console.log(trip);
   let flight;
   let airlineCallsign;
 
@@ -28,11 +26,9 @@ const FlightDetails = ({ match, tripsById }) => {
                 <h1 id="FlightDetails-title-h1">
                   {`${airlineCallsign[0].toUpperCase() + airlineCallsign.substring(1)} (${flight.airline_iata}) ${flight.flight_num}`}
                 </h1>
-                {/* <h1 id="FlightDetails-title-h1">{`Alaska (AS) 578`}</h1> */}
               </div>
               <div className="FlightDetails-title-name">
                 <p>{`Status: ${flight.flight_status[0].toUpperCase() + flight.flight_status.substring(1)}`}</p>
-                {/* <p>{`Status: Scheduled`}</p> */}
               </div>
 
               <FlightDetailCard flight={ flight }/>

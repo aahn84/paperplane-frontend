@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './TripFlights.css';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTrips } from '../../actions';
@@ -18,7 +18,6 @@ class AddFlight extends Component {
     this.state = {
       airline_name: '',
       flight_num: '',
-      // depart_date: '',
       depart_date: moment(),
       user_id: 'this.props.user.id',
       trip_id: this.props.match.params.id || '',

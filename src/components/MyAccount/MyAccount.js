@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './MyAccount.css';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { logout, fetchUserData } from '../../actions';
@@ -23,7 +22,6 @@ class MyAccount extends Component {
     if (!this.props.user) {
       this.fetchUserData();
     }
-
     this.populateUser();
   }
 
@@ -40,7 +38,6 @@ class MyAccount extends Component {
         last_name: this.props.user.last_name,
         email: this.props.user.email,
         phone: this.props.user.phone,
-        // password: this.props.user.password,
         notifications_on: this.props.user.notifications_on,
         user_id: this.props.user.user_id
       })
@@ -65,11 +62,10 @@ class MyAccount extends Component {
     this.validatePhone();
     this.setState({ loading: true });
 
-    const { first_name, last_name, email, phone, password, notifications_on, user_id } = this.state;
+    const { first_name, last_name, email, phone, password, notifications_on } = this.state;
 
-    axios.patch(`${BASE_URL}/api/users/${this.state.user_id}`, { first_name, last_name, email, password, notifications_on })
+    axios.patch(`${BASE_URL}/api/users/${this.state.user_id}`, { first_name, last_name, email, phone, password, notifications_on })
       .then(res => {
-        console.log('patched!!!', res);
         if (res.status === 201) {
           this.setState({updated: true})
         }
@@ -82,15 +78,13 @@ class MyAccount extends Component {
   }
 
   logoutUser = (e) => {
-    console.log('in logoutUser');
     e.preventDefault();
     localStorage.clear();
     this.props.history.push('/');
   }
 
   render() {
-    console.log(this.state);
-    console.log('my account', this.props.user)
+
     return (
       <div className="MyAccount">
         <div id="MyAccount-container">

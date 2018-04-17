@@ -13,7 +13,6 @@ class TripNotes extends Component {
       user_id: this.props.user.user_id,
       trip_id: props.id,
       notes: props.notes || '',
-      // notes: props.tripsById[props.id].notes || '',
     }
   }
 
@@ -33,17 +32,13 @@ class TripNotes extends Component {
       const token = localStorage.getItem('token')
       const config = { headers: { token } }
       return axios.patch(`${BASE_URL}/api/trips/${trip_id}`, { notes }, config)
-      // .then(res => {
-      //   console.log(res.data);
-      // })
-      // .catch(err => {
-      //   console.log(err);
-      // })
+      .catch(err => {
+        console.log(err);
+      })
     })
   }
 
   render() {
-
     return (
       <div className="TripNotes">
         <div className="TripNotes-container">

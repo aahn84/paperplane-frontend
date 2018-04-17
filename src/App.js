@@ -2,7 +2,6 @@ import './App.css';
 import 'bulma/css/bulma.css';
 import React from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 // import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import WelcomeLogin from './components/Welcome/WelcomeLogin';

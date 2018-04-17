@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* border: 1px solid green; */
 }
 
 #MyTrips-container {
@@ -13,7 +12,6 @@
   text-align: center;
   max-height: 80vh;
   width: 100%;
-  /* border: 1px solid; */
 }
 
 .MyTrips-title-bar {
@@ -53,7 +51,6 @@ h1 {
 #MyTrips-add {
   position: absolute;
   right: 1rem;
-  /* padding: 0; */
 }
 
 #TripsDetail-noFlights {
@@ -67,12 +64,6 @@ h1 {
   min-height: 4em;
 }
 
-/* #TripsDetail-icon-span {
-  margin-top: 0.5em;
-  font-size: 1em;
-  color: #a3a7a1;
-} */
-
 #TripsDetail-icon {
   color: #a3a7a1;
 }
@@ -84,22 +75,18 @@ h1 {
   text-align: center;
   overflow: auto;
   width: 100%;
-  /* border: 1px solid; */
 }
 
 .TripsList-content {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   text-align: center;
   width: 100%;
   margin-bottom: 0.5rem;
-  /* border: 1px solid; */
 }
 
 .card {
   margin-bottom: 1rem;
-  /* border: 1px solid #3f83bc; */
 }
 
 .card-content {
@@ -138,10 +125,8 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* margin: 1rem; */
   max-height: 80vh;
   width: 100%;
-  /* border: 1px solid; */
 }
 
 .AddTrip-title-bar {
@@ -213,7 +198,6 @@ label {
 
 .icon {
   margin-right: 5px;
-  /* color: #3f83bc; */
 }
 
 .fas, .fa-plus-circle {
