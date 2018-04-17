@@ -77,9 +77,7 @@ class MyAccount extends Component {
   logoutUser = (e) => {
     console.log('in logoutUser');
     e.preventDefault();
-    console.log('in again');
-    logout();
-    console.log('again, again');
+    localStorage.clear();
     this.props.history.push('/');
   }
 
@@ -192,12 +190,13 @@ class MyAccount extends Component {
               }
 
               <div id="MyAccountLogout">
-                <Link id="MyAccount-buttons" to="/">
+                {/* <Link id="MyAccount-buttons" to="/"> */}
                 <button id="MyAccount-logout" className="button is-block is-info"
-                onClick={ this.logoutUser }
+                onClick={ this.logout }
+                onTouchStart={ this.props.logout }
                   >Logout
                 </button>
-              </Link>
+              {/* </Link> */}
             </div>
             </div>
 
