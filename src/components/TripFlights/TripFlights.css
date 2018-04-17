@@ -19,7 +19,7 @@
 .TripFlights-title-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: spa;
   margin: 1.5rem 0 0.5rem 0;
 }
 
@@ -196,6 +196,14 @@ label {
   border: 1px solid #3f83bc;
   color: #3f83bc;
   width: 100%;
+}
+
+.AddFlight-notFound{
+  color: #ea9438;
+  font-size: 15px;
+  /* font-weight: bold; */
+  font-style: italic;
+  margin-top: 3px;
 }
 
 .TrackFlight {

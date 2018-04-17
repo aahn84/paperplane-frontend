@@ -8,7 +8,7 @@ import {withRouter} from 'react-router-dom';
 import '../Welcome/Welcome.css';
 
 const TopNav = ({ location }) => {
-  const path = location.pathname;
+  // const path = location.pathname;
   return (
     <div>
       <nav className="navbar">

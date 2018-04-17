@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './TripFlights.css';
 import { Link, withRouter } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchTrips } from '../../actions';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,20 +20,17 @@ class AddFlight extends Component {
       flight_num: '',
       // depart_date: '',
       depart_date: moment(),
-    // update
-      user_id: 1,
-    // update
+      user_id: 'this.props.user.id',
       trip_id: this.props.match.params.id || '',
       loading: false,
+      flight_found: true,
     }
   }
 
   componentDidMount() {
-    // console.log(this.props);
-    // console.log(this.props.match.params.id);
     const tripId = this.props.match.params.id;
-    // console.log(tripId);
-    this.setState({ trip_id: tripId})
+    this.setState({ trip_id: tripId, user_id: this.props.user.id })
+    console.log('props user', this.props.user);
   }
 
   handleChangeDepart = (date) => {
@@ -49,10 +47,13 @@ class AddFlight extends Component {
 
     return axios.post(`${BASE_URL}/api/flights/${this.state.trip_id}`, { airline_name, flight_num, depart_date, user_id })
     .then(res => {
+      console.log('add flight', res.status);
       this.setState({ loading: false });
-      // !!!UPDATE!!!
+
+      if (res.status !== 200) {
+        this.setState({flight_found: false})
+      }
       return this.props.history.push(`/mytrips/${this.state.trip_id}`);
-      // !!!UPDATE!!!
     })
     .catch(err => {
       console.log(err);
@@ -61,7 +62,7 @@ class AddFlight extends Component {
 
   render() {
     const { pathname } = this.props.location;
-    // console.log(this.state);
+    console.log(this.state);
 
     return (
       <div className="AddFlight">
@@ -119,17 +120,6 @@ class AddFlight extends Component {
                     }
                   }}
                 />
-
-                {/* <div className="control">
-                  <input
-                    className="input"
-                    type="text"
-                    placeholder={moment().format('l')}
-                    required="required"
-                    onChange={ (e) => this.setState({ depart_date: moment(e.target.value).format('YYYY-MM-DD') }) }
-                  />
-                </div> */}
-
               </div>
 
               {
@@ -146,6 +136,12 @@ class AddFlight extends Component {
                       </button>
                       </Link>
                     </div>
+
+                    {
+                      this.state.flight_found
+                      ? null
+                      : <p className="AddFlight-notFound">Flight not found</p>
+                    }
                   </div>
                 ) : (
                   <div className="AddFlight-add-cancel">
@@ -165,6 +161,12 @@ class AddFlight extends Component {
                     {/* !!!UPDATE!!! */}
                       <button id="AddFlight-cancel" className="button is-block is-info">Cancel</button>
                     </Link>
+
+                    {
+                      this.state.flight_found
+                      ? null
+                      : <p className="AddFlight-notFound">Flight not found</p>
+                    }
                   </div>
                 )
               }
@@ -178,4 +180,18 @@ class AddFlight extends Component {
   }
 }
 
-export default withRouter(AddFlight);
+const mapStateToProps = (state) => ({
+  user: state.user,
+  tripsById: state.tripsById
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchTrips
+}, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddFlight);
+
+// export default withRouter(AddFlight);

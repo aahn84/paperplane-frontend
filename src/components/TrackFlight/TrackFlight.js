@@ -14,7 +14,6 @@ class TrackFlight extends Component {
 
     return (
       <div className="TrackFlight">
-        {/* <TopNav /> */}
 
         <div id="TrackFlight-container">
           <div className="TrackFlight-title-bar">

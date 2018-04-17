@@ -8,13 +8,32 @@ import moment from 'moment';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const TripsFlightCard = ({ flight, fetchTrips }) => {
-  console.log(flight);
+/*
+const token = localStorage.getItem('token')
+const config = { headers: { token } }
+const response = await axios.delete(`${BASE_URL}/api/trips/${trip_id}`, config)
+if (response.status === 200) {
+  //CALL DISPATCH TO REMOVE FROM STORE
+  fetchTrips(user.id);
+}*/
+
+const TripsFlightCard = ({ user, flight, fetchTrips }) => {
+  console.log('MYFLIGHT', flight.id, flight);
+  console.log('MHUSER', user);
   const deleteFlight = async () => {
-    const response = await axios.delete(`${BASE_URL}/api/flights/${flight.flights_id}`, { trips_id: flight.trips_id })
+    debugger
+    //TODO This header is not actually attaching. Something
+    // is wrong with our syntx
+    const token = localStorage.getItem('token')
+    const config = { headers: { token } }
+    console.log('tokennn', token);
+    console.log(config);
+
+    const response = await
+    axios.delete(`${BASE_URL}/api/flights/${flight.id}`, { trips_id: flight.trips_id }, config)
     if (response.status === 200) {
       //CALL DISPATCH TO REMOVE FROM STORE
-      fetchTrips(this.props.user.user_id);
+      fetchTrips(user.id);
     }
   };
 

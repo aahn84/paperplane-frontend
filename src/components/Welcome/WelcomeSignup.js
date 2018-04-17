@@ -32,7 +32,8 @@ class WelcomeSignup extends Component {
         localStorage.setItem('token', token);
         const { fetchUserData, history } = this.props;
         fetchUserData();
-        history.push('/mytrips');
+        // history.push('/mytrips');
+        history.push('/myaccount');
       }
     }
     this.setState({ isFetchingUser: false });

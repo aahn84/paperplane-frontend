@@ -1,5 +1,6 @@
 import React from 'react';
 import './FlightDetails.css';
+import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import moment from 'moment';
@@ -105,16 +106,17 @@ const FlightDetailCard = ({ flight }) => {
           </div>
         </div>
 
-        <footer className="card-footer">
-          <a className="card-footer-item">
-            Share Flight Details
-            <span id="FlightDetailCard-share" className="icon">
-              <i className="fas fa-share-square" />
-            </span>
-          </a>
-          {/* <a href="#" className="card-footer-item">Edit</a> */}
-          {/* <a href="#" className="card-footer-item">Remove Flight</a> */}
-        </footer>
+        {/* <footer className="card-footer">
+          <Link to='/mytrips/:id/:flightId/share'>
+            <a className="card-footer-item">
+              Share Flight Details
+              <span id="FlightDetailCard-share" className="icon">
+                <i className="fas fa-share-square" />
+              </span>
+            </a>
+          </Link>
+        </footer> */}
+
       </div>
     </div>
   )
