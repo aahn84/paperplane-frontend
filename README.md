@@ -12,7 +12,7 @@ Paperplane is a mobile-first web app that allows users to track and receive SMS 
 [![Paperplane Demo](http://img.youtube.com/vi/q-ZrlGFFWjs/0.jpg)](http://www.youtube.com/watch?v=q-ZrlGFFWjs "Paperplane Demo")
 
 ## Features
-- Managed state through React Redux store
+- State management through React Redux store
 - Leverage external resources
 - Send and retrieve authenticated data from server using REST API
 
@@ -20,14 +20,16 @@ Paperplane is a mobile-first web app that allows users to track and receive SMS 
 - React.js
 - React Redux
 - React Router
-- AJAX/axios
+- AJAX/Axios
 - PostgreSQL
-- Authentication
-- Knex.js
 - Node.js
 - Express.js
-- REST API
+- Knex.js
 - JavaScript
+- Heroku Scheduler
+- Authentication
+- REST API
+
 
 #### External Resources
 - Aviation-Edge API
@@ -60,6 +62,6 @@ Paperplane is a mobile-first web app that allows users to track and receive SMS 
 <img src="https://github.com/aahn84/paperplane-backend/blob/master/screenshots/paperplane-flightdetails.png" width="30%">
 
 
-## Setup
+## Installation
 1. Fork and clone this repository
 2. Run `npm install`
