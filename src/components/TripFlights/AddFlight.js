@@ -111,7 +111,6 @@ class AddFlight extends Component {
       return this.props.history.push(`/mytrips/${this.state.trip_id}`);
     })
     .catch(err => {
-      console.log('ERRRRRRRR', err);
       this.setState({
         loading: false,
         flight_found: false
@@ -134,7 +133,7 @@ class AddFlight extends Component {
   //     return this.props.history.push(`/mytrips/${this.state.trip_id}`);
   //   })
   //   .catch(err => {
-  //     console.log('ERRRRRRRR', err);
+  //     console.log('ERROR: ', err);
   //     this.setState({
   //       loading: false,
   //       flight_found: false
@@ -144,7 +143,6 @@ class AddFlight extends Component {
 
   render() {
     const { pathname } = this.props.location;
-    console.log(this.state);
 
     return (
       <div className="AddFlight">

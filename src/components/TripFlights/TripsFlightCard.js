@@ -10,8 +10,6 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 const TripsFlightCard = ({ user, flight, fetchTrips }) => {
-  console.log('MYFLIGHT', flight.id, flight);
-  console.log('MHUSER', user);
   const deleteFlight = async () => {
     const response = await
     axios.delete(`${BASE_URL}/api/flights/${flight.id}`, { trips_id: flight.trips_id })
