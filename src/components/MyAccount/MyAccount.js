@@ -16,6 +16,7 @@ class MyAccount extends Component {
     notifications_on: false,
     user_id: '',
     updated: false,
+    loading: false,
   }
 
   componentDidMount() {
@@ -46,7 +47,8 @@ class MyAccount extends Component {
 
   validatePhone = () => {
     if (this.state.phone) {
-      let formattedPhone = (this.state.phone).replace(/\D/g,'');
+      let formattedPhone = this.state.phone.toString();
+      formattedPhone = (formattedPhone).replace(/\D/g,'');
 
       if (formattedPhone.length === 10) {
         this.setState({ phone: formattedPhone })
@@ -63,11 +65,13 @@ class MyAccount extends Component {
     this.setState({ loading: true });
 
     const { first_name, last_name, email, phone, password, notifications_on } = this.state;
+    const token = localStorage.getItem('token')
+    const config = { headers: { token } }
 
-    axios.patch(`${BASE_URL}/api/users/${this.state.user_id}`, { first_name, last_name, email, phone, password, notifications_on })
+    return axios.patch(`${BASE_URL}/api/users/${this.props.user.id}`, { first_name, last_name, email, phone, password, notifications_on }, config)
       .then(res => {
         if (res.status === 201) {
-          this.setState({updated: true})
+          this.setState({ updated: true })
         }
         return res
       })
@@ -135,7 +139,7 @@ class MyAccount extends Component {
               <div className="control">
                 <input
                   className="input"
-                  type="phone"
+                  type="tel"
                   placeholder="Phone"
                   value={ this.state.phone }
                   required={ this.state.notifications_on ? "required" : ""}
@@ -185,14 +189,16 @@ class MyAccount extends Component {
 
               {
                 this.state.updated
-                ? <p className="MyAccount-updated">Account Updated</p>
+                ? <div className="MyAccount-updated">Account updated</div>
                 : null
               }
 
               <div id="MyAccountLogout">
-                <button id="MyAccount-logout" className="button is-block is-info"
-                onClick={ this.logout }
-                onTouchStart={ this.props.logout }
+                <button
+                  id="MyAccount-logout"
+                  className="button is-block is-info"
+                  onClick={ this.logout }
+                  onTouchStart={ this.props.logout }
                   >Logout
                 </button>
               </div>
