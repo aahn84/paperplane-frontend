@@ -37,6 +37,7 @@ a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link
   justify-content: center;
   align-items: center;
   align-self: center;
+  height: 100%;
   /* margin: auto; */
 }
 
@@ -49,6 +50,7 @@ a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link
   align-items: center;
   align-self: center;
   border-radius: 2px;
+  padding: 0.5em;
 }
 
 .notify-text {
