@@ -3,7 +3,6 @@ import './NavBars.css';
 import { Link } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import '../Welcome/Welcome.css';
-import NotifyAlert from '../../NotifyAlert/NotifyAlert';
 
 const TopNav = ({ location }) => {
   // const path = location.pathname;
