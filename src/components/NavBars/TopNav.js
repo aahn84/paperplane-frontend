@@ -3,6 +3,7 @@ import './NavBars.css';
 import { Link } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import '../Welcome/Welcome.css';
+import NotifyAlert from '../../NotifyAlert/NotifyAlert';
 
 const TopNav = ({ location }) => {
   // const path = location.pathname;
@@ -20,11 +21,15 @@ const TopNav = ({ location }) => {
               </div>
             </Link>
           </div>
-          <div id="navbarMenu" className="navbar-menu">
-            <div className="navbar-end">
-              <div className="tabs is-right"></div>
+
+          {/* <NotifyAlert /> */}
+
+          <div class="notify-alert-container">
+            <div class="notify-alert">
+              <p class="notify-text">***As of 06/02/18, access to the Aviation-Edge API will be discontinued. Click <a href="https://youtu.be/7qhBXYv4Ebs" target="_blank"><strong>HERE</strong></a> for a complete demo.***</p>
             </div>
           </div>
+
         </div>
       </nav>
     </div>
