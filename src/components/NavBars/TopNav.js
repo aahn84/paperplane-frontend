@@ -22,8 +22,6 @@ const TopNav = ({ location }) => {
             </Link>
           </div>
 
-          {/* <NotifyAlert /> */}
-
           <div class="notify-alert-container">
             <div class="notify-alert">
               <p class="notify-text">***As of 06/02/18, access to the Aviation-Edge API will be discontinued. Click <a href="https://youtu.be/7qhBXYv4Ebs" target="_blank"><strong>HERE</strong></a> for a complete demo.***</p>
